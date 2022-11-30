@@ -19,7 +19,9 @@ const AdultProducts = () => {
         allAdultProducts.map((product) => {
           return (
             <div id="adultBooks" key={`product-${product.id}`}>
-              <div className="bookImg">{product.image_url}</div>
+              <div className="bookImg">
+                <img src={product.image_url} alt="book image"></img>
+              </div>
               <div className="title">Book Name: {product.name}</div>
               <div className="price">Book Price: {product.price}</div>
               <div className="description">
