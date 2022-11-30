@@ -99,8 +99,40 @@ export async function getProductByAudience(audience) {
 
 //get getProductsByName
 
-//get getProductsById
+export async function getProductsByName(name) {
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
+    const response = await fetch(`BASE_URL${name}`, options);
+    const result = await response.json();
+
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//get getProductsById
+export async function getProductsById(id) {
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const response = await fetch(`BASE_URL${id}`, options);
+    const result = await response.json();
+
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
 //createProducts
 export async function createProduct(
   name,
