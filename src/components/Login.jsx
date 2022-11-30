@@ -3,8 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "./api-adapter";
 import { toast } from "react-toastify";
 
-const Login = ({ setUser, setIsLoggedIn }) => {
-  const [username, setUsername] = useState("");
+const Login = (props) => {
+  const loggedIn=props.loggedIn
+  const setLoggedIn=props.setLoggedIn
+  const user=props.user
+  const setUser=props.setUser
+  const username=props.username
+  const setUsername= props.setUsername
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   async function handleLogin(event) {
@@ -18,13 +23,14 @@ const Login = ({ setUser, setIsLoggedIn }) => {
     setUsername("");
     setPassword("");
     setUser(user);
-    setIsLoggedIn(true);
+    console.log(user, "WHAT IS USER?")
+    setLoggedIn(true);
     if (token) {
       toast.success("Login Successful");
     } else {
       toast.error("Login Failed");
     }
-    navigate("/Home");
+    navigate("/");
 
     //work on logout function
   }
