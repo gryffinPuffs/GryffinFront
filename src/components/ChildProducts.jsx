@@ -30,6 +30,8 @@ const ChildProducts = () => {
                 Book description: {product.description}
               </div>
               <button>Add to Cart</button>
+              <button>See Details</button>
+              <br></br>
               <Link>Add to Wish List</Link>
             </div>
           );

@@ -119,3 +119,9 @@ body {
   cursor: pointer;
   padding: 4px;
 }
+
+#wishlistImg {
+  max-height: 50px;
+  max-width: 50px;
+  padding: 10px;
+}
