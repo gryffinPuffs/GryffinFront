@@ -7,16 +7,27 @@ import { toast } from 'react-toastify';
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [address_line1, setAddress_line1] = useState("");
+  const [address_line2, setAddress_line2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip_code, setZip_code] = useState("");
+
   const navigate = useNavigate();
 
   async function handleRegister(event) {
     event.preventDefault();
     console.log(username, password);
-    const { token } = await registerUser(username, password);
+    const { token } = await registerUser(username, password, address_line1, address_line2, city, state, zip_code);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     setUsername("") //setting to empty string clears the field
     setPassword("")
+    setAddress_line1("")
+    setAddress_line2("")
+    setCity("")
+    setState("")
+    setZip_code("")
     
     if (token) {
       toast.success("Register Successful")
@@ -49,6 +60,17 @@ const Register = () => {
           value={password}
           onChange={function (event) {
             setPassword(event.target.value)
+
+          }}
+        />
+        <input
+          type="text"
+          name="address_line1"
+          placeholder="Address Line 1"
+          required
+          value={address_line1}
+          onChange={function (event) {
+            setAddress_line1(event.target.value)
 
           }}
         />
