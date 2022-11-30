@@ -58,14 +58,21 @@ export async function loginUser(username, password) {
   }
 }
 
+export async function getUserByUsername(username){
+console.log(username, "api username")
+    try {
+     const response = await fetch (`${BASE_URL}/user/${username}`);
+     const result = await response.json();
+     return result
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 //getAllProducts
 export async function getAllProducts() {
   try {
-    // const options = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
+    
     const response = await fetch(`${BASE_URL}/product`);
     const result = await response.json();
     console.log(result, "getallbooks, result");
