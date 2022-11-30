@@ -19,12 +19,12 @@ const AllBooks = () => {
       <div id="books">
     {allBooks && allBooks.length
     ? allBooks.map((book)=>{
-      return(<>
+      return(<div key={`allbooks-${book.id}`}>
         <div className="title">{book.name}</div>
         <div className="description">{book.description}</div>
-        <div className="bookImg">{book.image_url}</div>
+        <div className="bookImg"><img src={book.image_url} alt="book image"></img></div>
         <div className="price">{book.price}</div>
-        </>
+        </div>
       )
     }): null}
       </div>

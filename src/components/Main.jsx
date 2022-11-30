@@ -17,11 +17,11 @@ import {
   SingleProduct,
   Footer,
   NotFound,
-  Address
 } from "./";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser]=useState({})
 
 
   return (
@@ -31,7 +31,7 @@ const Main = () => {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser}/>}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>
@@ -39,7 +39,6 @@ const Main = () => {
         <Route path="/allbooks" element={<AllBooks />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
-        <Route path="/address" element={<Address />}></Route>
       </Routes>
 
       <Footer />
