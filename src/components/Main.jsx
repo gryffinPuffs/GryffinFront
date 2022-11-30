@@ -15,6 +15,7 @@ import {
   SeeProductDetails,
   SingleProduct,
   Footer,
+  NotFound,
 } from "./";
 
 const Main = () => {
@@ -30,6 +31,7 @@ const Main = () => {
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>
         <Route path="/adultproducts" element={<AdultProducts />}></Route>
+        <Route path="/*" element={<NotFound />}></Route>
       </Routes>
 
       <Footer />

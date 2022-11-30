@@ -13,3 +13,4 @@ export { default as TeenProducts } from "./TeenProducts";
 export { default as ChildProducts } from "./ChildProducts";
 export { default as AdultProducts } from "./AdultProducts";
 export { default as Footer } from "./Footer";
+export { default as NotFound } from "./NotFound";
