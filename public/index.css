@@ -53,6 +53,13 @@ body {
   justify-content: flex-start;
 }
 
+#wandImg:hover {
+  transform: rotate(-25deg);
+  cursor: grabbing;
+  transition-delay: 10ms;
+  color: yellow;
+}
+
 .linkBar {
   padding: 3px;
   color: white;
