@@ -19,32 +19,26 @@ import {
   NotFound,
   Address
 } from "./";
-import { getUserByUsername } from "./api-adapter";
+import { authUser, getUserByUsername } from "./api-adapter";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const[username, setUsername]=useState("")
   const [user, setUser]=useState({})
 
-  const getLoggedInUser = async () => {
-    
-    const localStorageUserName = localStorage.getItem("username");
-    console.log(localStorageUserName, "local storage user")
-    if (localStorageUserName) {
-      setUsername(localStorageUserName);
-      console.log(username, "it's the username")
-      const loggedInUser = await getUserByUsername(localStorageUserName);
+  const getLoggedInUser = async (token) => {
+  if (token) {
+      const loggedInUser = await authUser(token)
       setUser(loggedInUser)
-      console.log(user, "this is the user working")
+      console.log(loggedInUser, "this is the user working")
     }
   };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       setLoggedIn(true);
-      getLoggedInUser();
+     getLoggedInUser(token);
     }
-    
+
   }, []);
 
 
@@ -55,7 +49,7 @@ const Main = () => {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} setUsername={setUsername} username={username}/>}></Route>
+        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>

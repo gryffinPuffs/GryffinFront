@@ -29,8 +29,8 @@ export async function authUser(token) {
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log(response, "The result of all of this is");
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.error(error);
@@ -72,7 +72,7 @@ console.log(username, "api username")
 //getAllProducts
 export async function getAllProducts() {
   try {
-    
+
     const response = await fetch(`${BASE_URL}/product`);
     const result = await response.json();
     console.log(result, "getallbooks, result");
