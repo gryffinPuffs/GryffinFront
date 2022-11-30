@@ -80,6 +80,27 @@ export async function getAllProducts() {
 
 //get products by audience
 
+export async function getProductByAudience(audience) {
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const response = await fetch(`BASE_URL${audience}`, options);
+    const result = await response.json();
+
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//get getProductsByName
+
+//get getProductsById
+
 //createProducts
 export async function createProduct(
   name,
@@ -103,7 +124,26 @@ export async function createProduct(
         description,
       }),
     };
-    const response = await fetch(BASE, options);
+    const response = await fetch(BASE_URL, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//attachProductsToCart
+export async function attachProductsToCart(carts) {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({ carts }),
+    };
+    const response = await fetch(BASE_URL, options);
     const result = await response.json();
     return result;
   } catch (error) {
