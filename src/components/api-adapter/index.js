@@ -61,15 +61,17 @@ export async function loginUser(username, password) {
 //getAllProducts
 export async function getAllProducts() {
   try {
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    const response = await fetch(BASE_URL, options);
+    // const options = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+    const response = await fetch(`${BASE_URL}/product`);
     const result = await response.json();
+    console.log(result, "getallbooks, result");
+    return result
 
-    console.log(result);
+
   } catch (error) {
     console.error(error);
   }
