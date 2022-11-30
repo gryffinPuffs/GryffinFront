@@ -21,7 +21,7 @@ const Register = () => {
     const { token } = await registerUser(username, password, address_line1, address_line2, city, state, zip_code);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
-    setUsername("") //setting to empty string clears the field
+    setUsername("") 
     setPassword("")
     setAddress_line1("")
     setAddress_line2("")
@@ -63,10 +63,13 @@ const Register = () => {
 
           }}
         />
+        <br />
+        <small>*password must be 8 characters or more</small>
+        <br />
         <input
           type="text"
           name="address_line1"
-          placeholder="Address Line 1"
+          placeholder="Address Line 1 *"
           required
           value={address_line1}
           onChange={function (event) {
@@ -74,11 +77,60 @@ const Register = () => {
 
           }}
         />
+        <br />
+        <input
+          type="text"
+          name="address_line2"
+          placeholder="Address Line 2"
+          value={address_line2}
+          onChange={function (event) {
+            setAddress_line2(event.target.value)
+
+          }}
+        />
+        <br />
+        <input
+          type="text"
+          name="city"
+          placeholder="City *"
+          required
+          value={city}
+          onChange={function (event) {
+            setCity(event.target.value)
+
+          }}
+        />
+        <br />
+        <input
+          type="text"
+          name="state"
+          placeholder="State *"
+          required
+          value={state}
+          onChange={function (event) {
+            setState(event.target.value)
+
+          }}
+        />
+        <br />
+        <input
+          type="text"
+          pattern="[0-9]"
+          name="zip_code"
+          placeholder="Zip Code *"
+          required
+          value={zip_code}
+          onChange={function (event) {
+            setZip_code(event.target.value)
+
+          }}
+        />
+        <br />
         <button className="register-button" type="submit">
           Register
         </button>
       </form>
-      <small>*password must be 8 characters or more</small>
+      
       <br />
       <h3>Already a User?</h3>
       <Link to="/login" className="link">Login</Link>
