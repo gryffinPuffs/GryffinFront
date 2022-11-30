@@ -7,6 +7,7 @@ import {
   ChildProducts,
   AdultProducts,
   TeenProducts,
+  AllBooks,
   Login,
   Cart,
   Register,
@@ -21,6 +22,7 @@ import {
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
+
   return (
     <div id="main">
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
@@ -33,6 +35,8 @@ const Main = () => {
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>
         <Route path="/adultproducts" element={<AdultProducts />}></Route>
+        <Route path="/allbooks" element={<AllBooks />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
 
