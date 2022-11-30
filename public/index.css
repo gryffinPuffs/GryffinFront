@@ -18,10 +18,39 @@ body {
   justify-content: space-between;
 }
 
+#titleNavbar {
+  display: flex;
+  justify-content: center;
+  margin-left: -200px;
+}
+
+#navbarImgs {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  margin-bottom: -20px;
+}
+
 #accioImg {
+  width: 150px;
+  height: 100px;
+  transform: rotate(-5deg);
+  justify-content: flex-start;
+}
+
+#booksImg {
   width: 175px;
   height: 125px;
   transform: rotate(-5deg);
+  justify-content: flex-start;
+  margin-left: -50px;
+}
+
+#wandImg {
+  width: 100px;
+  height: 75px;
+  transform: rotate(-5deg);
+  justify-content: flex-start;
 }
 
 .linkBar {

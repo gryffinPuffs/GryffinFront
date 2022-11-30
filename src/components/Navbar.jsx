@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import accioScroll from "./AccioScroll.png";
+import books from "./flyingbooks.png";
+import wand from "./wand.png";
 
 const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
@@ -9,10 +11,12 @@ const Navbar = (props) => {
   return (
     <>
       <div id="navbar">
-        <div>
+        <div id="navbarImgs">
           <img id="accioImg" src={accioScroll} alt="Accio Logo"></img>
+          <img id="wandImg" src={wand} alt="wand img"></img>
+          <img id="booksImg" src={books} alt="books img"></img>
         </div>
-        <h2> Accio Books!</h2>
+        <h2 id="titleNavbar"> Accio Books!</h2>
         <div className="links">
           <NavLink className="linkBar" to="/">
             Home
