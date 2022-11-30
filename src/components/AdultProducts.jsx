@@ -1,20 +1,22 @@
 import React from "react";
 
 const AdultProducts = () => {
+  // const BASE_URL = "http://localhost:8080/api";
+  // const [allAdultProducts, setAllAdultProducts] = userState({})
+
   // useEffect(() => {
-  //   const getAllProducts = async () => {
-  //     const response = await fetch(
-  //       "http://fitnesstrac-kr.herokuapp.com/api/routines"
+  //   const getProductByAudience = async () => {
+  //     const response = await fetch(`BASE_URL${audience}`
   //     );
-  //     const result = await response.json();
-  //     setAllProducts(result);
-  //   };
-  //   getAllProducts();
-  // }, []);
+  //   const result = await response.json();
+  //   setAllAdultProducts(result);
+  // };
+  // getProductByAudience()}, []);
 
   return (
     <div id="adultproducts">
-      <h2> I am adult products</h2>
+      {/* {allAdultProducts && allAdultProducts.length ? allAdultProducts} */}
+      <h2> No Adult Books</h2>
     </div>
   );
 };
