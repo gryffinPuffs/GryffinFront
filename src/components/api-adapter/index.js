@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/";
+const BASE_URL = "http://localhost:8080/api";
 
 export async function registerUser(username, password) {
   const registerOptions = {
@@ -12,10 +12,7 @@ export async function registerUser(username, password) {
     }),
   };
   try {
-    const response = await fetch(
-      `${BASE_URL}/api/users/register`,
-      registerOptions
-    );
+    const response = await fetch(`${BASE_URL}/user/register`, registerOptions);
     const result = await response.json();
     console.log(result);
     return result;
@@ -26,7 +23,7 @@ export async function registerUser(username, password) {
 
 export async function authUser(token) {
   try {
-    const response = await fetch(`${BASE_URL}/api/users/me`, {
+    const response = await fetch(`${BASE_URL}/user/me`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -52,7 +49,7 @@ export async function loginUser(username, password) {
     }),
   };
   try {
-    const response = await fetch(`${BASE_URL}/api/users/login`, loginOptions);
+    const response = await fetch(`${BASE_URL}/user/login`, loginOptions);
     const result = await response.json();
     console.log(result);
     return result;
@@ -232,7 +229,6 @@ export async function deleteProduct(id) {
     console.error(error);
   }
 }
-const BASE = "http://localhost:8080/";
 
 export async function getCart() {
   const response = await fetch(`${BASE}/cart`);
