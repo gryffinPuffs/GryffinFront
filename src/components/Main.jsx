@@ -19,6 +19,7 @@ import {
   NotFound,
   Address
 } from "./";
+import { getUserByUsername } from "./api-adapter";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,21 +27,24 @@ const Main = () => {
   const [user, setUser]=useState({})
 
   const getLoggedInUser = async () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setLoggedIn(true);
-    }
-    const userName = localStorage.getItem("username");
-    if (userName) {
-      setUsername(userName);
-
+    
+    const localStorageUserName = localStorage.getItem("username");
+    console.log(localStorageUserName, "local storage user")
+    if (localStorageUserName) {
+      setUsername(localStorageUserName);
+      console.log(username, "it's the username")
+      const loggedInUser = await getUserByUsername(localStorageUserName);
+      setUser(loggedInUser)
+      console.log(user, "this is the user working")
     }
   };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
+      setLoggedIn(true);
       getLoggedInUser();
     }
+    
   }, []);
 
 
