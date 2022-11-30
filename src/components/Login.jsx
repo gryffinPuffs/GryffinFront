@@ -7,6 +7,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("")
   const navigate = useNavigate();
+
   async function handleLogin(event) {
     event.preventDefault();
     const { token, user } = await loginUser(username, password);
@@ -15,13 +16,14 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
     setUsername("");
     setPassword("");
     setUser(user);
-    setLoggedIn(true);
-    if (token) {
+   if (token) {
+      setLoggedIn(true);
       toast.success("Login Successful");
+      navigate("/");
     } else {
       toast.error("Login Failed");
     }
-    navigate("/");
+
 
     //work on logout function
   }
