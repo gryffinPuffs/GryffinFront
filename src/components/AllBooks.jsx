@@ -24,6 +24,7 @@ const AllBooks = () => {
         <div className="description">{book.description}</div>
         <div className="bookImg"><img src={book.image_url} alt="book image"></img></div>
         <div className="price">{book.price}</div>
+        <div className="author">{book.author}</div>
         </div>
       )
     }): null}
