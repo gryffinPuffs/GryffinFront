@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Navbar,
@@ -22,7 +22,26 @@ import {
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const[username, setUsername]=useState("")
   const [user, setUser]=useState({})
+
+  const getLoggedInUser = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLoggedIn(true);
+    }
+    const userName = localStorage.getItem("username");
+    if (userName) {
+      setUsername(userName);
+
+    }
+  };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      getLoggedInUser();
+    }
+  }, []);
 
 
   return (
@@ -32,7 +51,7 @@ const Main = () => {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser}/>}></Route>
+        <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} setUsername={setUsername} username={username}/>}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>
