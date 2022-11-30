@@ -28,6 +28,8 @@ const Main = () => {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
         <Route path="/childproducts" element={<ChildProducts />}></Route>
         <Route path="/teenproducts" element={<TeenProducts />}></Route>
         <Route path="/adultproducts" element={<AdultProducts />}></Route>
