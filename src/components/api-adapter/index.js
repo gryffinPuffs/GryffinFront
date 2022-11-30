@@ -78,6 +78,8 @@ export async function getAllProducts() {
   }
 }
 
+//get products by audience
+
 //createProducts
 export async function createProduct(
   name,
@@ -158,43 +160,42 @@ export async function deleteProduct(id) {
     console.error(error);
   }
 }
-const BASE = "http://localhost:8080/"
+const BASE = "http://localhost:8080/";
 
-
-export async function getCart(){
+export async function getCart() {
   const response = await fetch(`${BASE}/cart`);
-  const result=await response.json();
-  return result
+  const result = await response.json();
+  return result;
 }
-export async function createCart(user_id, active){
-  const options={
-    method:"POST",
-    headers:{
-      "Content-type":"application/json",
-      "Authorization": `Bearer ${localStorage.getItem("token")}`,
+export async function createCart(user_id, active) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-    body:JSON.stringify({
+    body: JSON.stringify({
       user_id,
       active,
     }),
-  }
-  const response= await fetch(`${BASE}/cart`, options);
-  const result= await response.json();
-  return result
+  };
+  const response = await fetch(`${BASE}/cart`, options);
+  const result = await response.json();
+  return result;
 }
-export async function updateCart(user_id, active){
-  const options={
-    method:"PATCH",
-    headers:{
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}`,
+export async function updateCart(user_id, active) {
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify({
-        user_id,
-        active,
+      user_id,
+      active,
     }),
-};
-const response=await fetch(`${BASE}/cart/${id}`, options);
-const result= await response.json();
-return result;
+  };
+  const response = await fetch(`${BASE}/cart/${id}`, options);
+  const result = await response.json();
+  return result;
 }
