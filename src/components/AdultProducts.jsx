@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AdultProducts = () => {
   const BASE_URL = "http://localhost:8080/api";
@@ -27,6 +28,10 @@ const AdultProducts = () => {
               <div className="description">
                 Book description: {product.description}
               </div>
+              <button>Add to Cart</button>
+              <button>See Details</button>
+              <br></br>
+              <Link>Add to Wish List</Link>
             </div>
           );
         })

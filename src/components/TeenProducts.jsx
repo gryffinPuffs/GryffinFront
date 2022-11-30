@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const TeenProducts = () => {
+const TeenProducts = (props) => {
   const BASE_URL = "http://localhost:8080/api";
+  const [singleTeenProduct, setSingleTeenProduct] = useState({});
+  const [selectedProduct, setSelectedProduct] = useState({});
   const [allTeenProducts, setAllTeenProducts] = useState({});
 
   useEffect(() => {
@@ -28,6 +31,16 @@ const TeenProducts = () => {
               <div className="description">
                 Book description: {product.description}
               </div>
+              <button>Add to Cart</button>
+              <button
+              // onClick={() => {
+              //   props.setSelectedProduct({});
+              // }}
+              >
+                See Details
+              </button>
+              <br></br>
+              <Link>Add to Wish List</Link>
             </div>
           );
         })
