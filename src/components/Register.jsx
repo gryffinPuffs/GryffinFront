@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../api-adapter";
+import { registerUser } from "./api-adapter";
 import { toast } from 'react-toastify'; 
 
 
