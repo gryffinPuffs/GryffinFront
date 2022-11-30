@@ -15,3 +15,4 @@ export { default as AdultProducts } from "./AdultProducts";
 export { default as AllBooks} from "./AllBooks";
 export { default as Footer } from "./Footer";
 export { default as NotFound } from "./NotFound";
+export { default as Address } from "./Address"

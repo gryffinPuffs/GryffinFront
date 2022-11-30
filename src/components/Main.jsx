@@ -17,6 +17,7 @@ import {
   SingleProduct,
   Footer,
   NotFound,
+  Address
 } from "./";
 
 const Main = () => {
@@ -38,6 +39,7 @@ const Main = () => {
         <Route path="/allbooks" element={<AllBooks />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
+        <Route path="/address" element={<Address />}></Route>
       </Routes>
 
       <Footer />
