@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import accioScroll from "./AccioScroll.png";
+
 import books from "./flyingbooks.png";
 import wand from "./wand.png";
 
 const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
   const loggedIn = props.loggedIn;
-
   return (
     <>
       <div id="navbar">
         <div id="navbarImgs">
-          <img id="accioImg" src={accioScroll} alt="Accio Logo"></img>
+      
+          
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
         </div>
