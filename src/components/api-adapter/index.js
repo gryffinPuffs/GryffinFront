@@ -261,6 +261,24 @@ export async function getCart() {
   const result = await response.json();
   return result;
 }
+export async function getActiveCartByUsername(username){
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:`Bearer ${localStorage.getItem("token")}`
+      },
+    };
+
+    const response = await fetch(`${BASE_URL}/cart/${username}/active`, options);
+    const result = await response.json();
+
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+
+}
 export async function createCart(user_id, active) {
   const options = {
     method: "POST",
