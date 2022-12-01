@@ -272,8 +272,11 @@ export async function getActiveCartByUsername(username){
 
     const response = await fetch(`${BASE_URL}/cart/${username}/active`, options);
     const result = await response.json();
+    console.log(result, "active cart");
 
-    console.log(result);
+    return result
+
+
   } catch (error) {
     console.error(error);
   }
