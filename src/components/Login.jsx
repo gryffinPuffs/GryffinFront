@@ -17,6 +17,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
     setPassword("");
     setUser(user);
    if (token) {
+    console.log("toast working")
       setLoggedIn(true);
       toast.success("Login Successful");
       navigate("/");
