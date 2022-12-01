@@ -18,13 +18,13 @@ const Register = () => {
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 
-    // if (token) {
-    //   toast.success("Register Successful");
-    //   navigate("/Home");
-    // } else {
-    //   toast.error("Register Failed");
-    //   navigate("/Register");
-    // }
+    if (token) {
+      toast.success("Register Successful");
+      navigate("/Home");
+    } else {
+      toast.error("Register Failed");
+      navigate("/Register");
+    }
   }
 
   return (
