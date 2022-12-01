@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getProductByAudience } from "./api-adapter";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const TeenProducts = () => {
+const TeenProducts = ({ bookInfo, setBookInfo }) => {
+  const navigate = useNavigate;
   const [allTeenBooks, setAllTeenBooks] = useState({});
 
   useEffect(() => {
     async function fetchTeenBooks() {
-      const teenBooks = await getProductByAudience({ audience: "teen" });
+      const teenBooks = await getProductByAudience("teen");
       setAllTeenBooks(teenBooks);
     }
     fetchTeenBooks();
@@ -20,22 +21,16 @@ const TeenProducts = () => {
         allTeenBooks.map((product) => {
           return (
             <div id="teenBooks" key={`product-${product.id}`}>
-              <div className="bookImg">
-                <img src={product.image_url} alt="book image"></img>
-              </div>
-              <div className="title">Book Name: {product.name}</div>
-              <div className="price">Book Price: {product.price}</div>
-              <div className="description">
-                Book description: {product.description}
-              </div>
-              <button>Add to Cart</button>
               <button
-              // onClick={() => {
-              //   props.setSelectedProduct({});
-              // }}
+                onClick={() => {
+                  setBookInfo(product.id);
+                  navigate("/singleproduct");
+                }}
               >
-                See Details
+                <img src={product.image_url} alt="book image"></img>
               </button>
+              <div className="title">Book Name: {product.name}</div>
+              <div className="author">Book Author: {product.author}</div>
               <br></br>
               <Link>Add to Wish List</Link>
             </div>
