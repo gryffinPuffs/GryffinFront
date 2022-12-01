@@ -60,7 +60,7 @@ const Main = () => {
         <Route path="/cart" element={<Cart user={user} setUser={setUser} />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
-        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/profile" element={<Profile user={user}/>}></Route>
       </Routes>
 
       <Footer />
