@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:8080/api";
 
-export async function registerUser(username, password) {
+export async function registerUser(username, password, name, email) {
   const registerOptions = {
     method: "POST",
     headers: {
@@ -9,6 +9,8 @@ export async function registerUser(username, password) {
     body: JSON.stringify({
       username,
       password,
+      name,
+      email
     }),
   };
   try {
