@@ -10,7 +10,7 @@ export async function registerUser(username, password, name, email) {
       username,
       password,
       name,
-      email
+      email,
     }),
   };
   try {
@@ -137,22 +137,22 @@ export async function getProductsByName(name) {
 }
 
 //get getProductsById
-export async function getProductsById(id) {
-  try {
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
+// export async function getProductsById(id) {
+//   try {
+//     const options = {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     };
 
-    const response = await fetch(`BASE_URL${id}`, options);
-    const result = await response.json();
+//     const response = await fetch(`BASE_URL${id}`, options);
+//     const result = await response.json();
 
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
-}
+//     console.log(result);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 //createProducts
 export async function createProduct(
   name,
@@ -177,6 +177,26 @@ export async function createProduct(
       }),
     };
     const response = await fetch(BASE_URL, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function addItemToCart(cart_id, product_id, price, quantity) {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cart_id, product_id, price, quantity }),
+    };
+    const response = await fetch(
+      `${BASE_URL}/${cart_id}/${product_id}`,
+      options
+    );
     const result = await response.json();
     return result;
   } catch (error) {
@@ -258,23 +278,25 @@ export async function getCart() {
   const result = await response.json();
   return result;
 }
-export async function getActiveCartByUsername(username){
+export async function getActiveCartByUsername(username) {
   try {
     const options = {
       headers: {
         "Content-Type": "application/json",
-        Authorization:`Bearer ${localStorage.getItem("token")}`
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
 
-    const response = await fetch(`${BASE_URL}/cart/${username}/active`, options);
+    const response = await fetch(
+      `${BASE_URL}/cart/${username}/active`,
+      options
+    );
     const result = await response.json();
 
     console.log(result);
   } catch (error) {
     console.error(error);
   }
-
 }
 export async function createCart(user_id, active) {
   const options = {
