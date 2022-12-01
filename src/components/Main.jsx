@@ -57,7 +57,7 @@ const Main = () => {
         <Route path="/adultproducts" element={<AdultProducts bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
         <Route path="/allbooks" element={<AllBooks bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
         <Route path="/singleproduct" element={<SingleProduct bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={<Cart user={user} setUser={setUser} />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile/>}></Route>
