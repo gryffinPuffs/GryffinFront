@@ -12,7 +12,8 @@ export { default as Navbar2 } from "./Navbar2";
 export { default as TeenProducts } from "./TeenProducts";
 export { default as ChildProducts } from "./ChildProducts";
 export { default as AdultProducts } from "./AdultProducts";
-export { default as AllBooks} from "./AllBooks";
+export { default as AllBooks } from "./AllBooks";
 export { default as Footer } from "./Footer";
 export { default as NotFound } from "./NotFound";
-export { default as Address } from "./Address"
+export { default as Address } from "./Address";
+export { default as LoggedIn } from "./LoggedIn";
