@@ -3,7 +3,7 @@ import { getProductByAudience } from "./api-adapter";
 import { Link, useNavigate } from "react-router-dom";
 
 const TeenProducts = ({ bookInfo, setBookInfo }) => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [allTeenBooks, setAllTeenBooks] = useState({});
 
   useEffect(() => {
