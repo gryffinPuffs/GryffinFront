@@ -60,6 +60,7 @@ const Main = () => {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
       </Routes>
 
       <Footer />
