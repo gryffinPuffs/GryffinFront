@@ -30,6 +30,13 @@ const SingleProduct = ({ bookInfo, setBookInfo }) => {
           >
             Add to Cart
           </button>
+          <button
+            onClick={() => {
+              navigate("/allbooks");
+            }}
+          >
+            Go Back
+          </button>
           <Link>Add to Wish List</Link>
         </div>
       </div>
