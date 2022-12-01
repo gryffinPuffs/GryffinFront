@@ -16,7 +16,7 @@ export async function registerUser(username, password, name, email) {
   try {
     const response = await fetch(`${BASE_URL}/user/register`, registerOptions);
     const result = await response.json();
-    console.log(result);
+    console.log(result, "register result");
     return result;
   } catch (error) {
     console.error(error);
