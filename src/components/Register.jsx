@@ -4,17 +4,20 @@ import { registerUser } from "./api-adapter";
 import { toast } from "react-toastify";
 
 const Register = () => {
+  //address and set address here for useState
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
-
+  //useEffect for setAddress
+// turnery for if address then register
   async function handleRegister(event) {
     event.preventDefault();
     console.log(username, password);
-    const { token } = await registerUser(username, password, name, email);
+    const { token } = await registerUser(username, password, name, false, email);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 
