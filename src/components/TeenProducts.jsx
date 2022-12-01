@@ -34,9 +34,9 @@ const TeenProducts = (props) => {
               </div>
               <button>Add to Cart</button>
               <button
-              // onClick={() => {
-              //   props.setSelectedProduct({});
-              // }}
+                onClick={() => {
+                  props.setSelectedProduct({});
+                }}
               >
                 See Details
               </button>
