@@ -30,7 +30,7 @@ const Main = () => {
   if (token) {
       const loggedInUser = await authUser(token)
       setUser(loggedInUser)
-      console.log(loggedInUser, "this is the user working")
+
     }
   };
   useEffect(() => {
