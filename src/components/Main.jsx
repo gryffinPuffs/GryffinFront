@@ -24,6 +24,7 @@ import { authUser, getUserByUsername } from "./api-adapter";
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser]=useState({})
+  const [bookInfo, setBookInfo]=useState({})
 
   const getLoggedInUser = async (token) => {
   if (token) {
@@ -51,10 +52,11 @@ const Main = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} setUser={setUser} />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/childproducts" element={<ChildProducts />}></Route>
-        <Route path="/teenproducts" element={<TeenProducts />}></Route>
-        <Route path="/adultproducts" element={<AdultProducts />}></Route>
-        <Route path="/allbooks" element={<AllBooks />}></Route>
+        <Route path="/childproducts" element={<ChildProducts bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
+        <Route path="/teenproducts" element={<TeenProducts bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
+        <Route path="/adultproducts" element={<AdultProducts bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
+        <Route path="/allbooks" element={<AllBooks bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
+        <Route path="/singleproduct" element={<SingleProduct bookInfo={bookInfo} setBookInfo={setBookInfo}/>}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>

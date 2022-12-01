@@ -7,6 +7,7 @@ const TeenProducts = (props) => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [allTeenProducts, setAllTeenProducts] = useState({});
 
+
   useEffect(() => {
     const getProductByAudience = async () => {
       const response = await fetch(`${BASE_URL}/product/teen`);

@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from "react";
 import { getAllProducts } from "./api-adapter";
+import { Link, useNavigate } from "react-router-dom";
 
-const AllBooks = () => {
+const AllBooks = ({bookInfo, setBookInfo}) => {
   const [allBooks, setAllBooks]=useState([])
+const navigate = useNavigate();
+
 
   useEffect(()=>{
     async function fetchAllBooks(){
       const allTheBooks=await getAllProducts();
       setAllBooks(allTheBooks);
-      console.log(allTheBooks)
+      console.log(allTheBooks, "allthebooks")
     }fetchAllBooks();
   }, []);
 
@@ -20,11 +23,13 @@ const AllBooks = () => {
     {allBooks && allBooks.length
     ? allBooks.map((book)=>{
       return(<div key={`allbooks-${book.id}`}>
-        <div className="title">{book.name}</div>
-        <div className="description">{book.description}</div>
-        <div className="bookImg"><img src={book.image_url} alt="book image"></img></div>
-        <div className="price">{book.price}</div>
-        <div className="author">{book.author}</div>
+
+        <button onClick={()=>{
+          setBookInfo(book.id)
+          navigate("/singleproduct");
+          }} className="bookImg"><img src={book.image_url} alt="book image"></img></button>
+       <div className="title">{book.name}</div>
+       <div className="author">Author: {book.author}</div>
         </div>
       )
     }): null}

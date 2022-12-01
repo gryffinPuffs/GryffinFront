@@ -125,3 +125,18 @@ body {
   max-width: 50px;
   padding: 10px;
 }
+
+#singleProduct{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+#singleInfo{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 1rem;
+  font-size: 25px;
+  justify-content: center;
+}
