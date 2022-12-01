@@ -14,6 +14,13 @@ const SingleProduct = ({ bookInfo, setBookInfo }) => {
     fetchBook();
   }, []);
 
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   const item = e.target.id
+  //   const productToAdd = await addItemToCart(productId);
+  //   setSingleBook(productToAdd.product);
+  // }
+
   return (
     <div id="singleProduct">
       <div className="bookImg">
@@ -23,13 +30,7 @@ const SingleProduct = ({ bookInfo, setBookInfo }) => {
           <div className="author">Author: {singleBook.author}</div>
           <div className="price">Price: {singleBook.price}</div>
           <div className="description">Summary: {singleBook.description}</div>
-          <button
-            onClick={() => {
-              navigate("/cart");
-            }}
-          >
-            Add to Cart
-          </button>
+          <button>Add to Cart</button>
           <button
             onClick={() => {
               navigate("/allbooks");
