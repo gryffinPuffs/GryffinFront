@@ -58,27 +58,24 @@ export async function loginUser(username, password) {
   }
 }
 
-export async function getUserByUsername(username){
-console.log(username, "api username")
-    try {
-     const response = await fetch (`${BASE_URL}/user/${username}`);
-     const result = await response.json();
-     return result
-    } catch (error) {
-        console.error(error)
-    }
+export async function getUserByUsername(username) {
+  console.log(username, "api username");
+  try {
+    const response = await fetch(`${BASE_URL}/user/${username}`);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 //getAllProducts
 export async function getAllProducts() {
   try {
-
     const response = await fetch(`${BASE_URL}/product`);
     const result = await response.json();
     console.log(result, "getallbooks, result");
-    return result
-
-
+    return result;
   } catch (error) {
     console.error(error);
   }
@@ -88,16 +85,15 @@ export async function getAllProducts() {
 
 export async function getProductByAudience(audience) {
   try {
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const response = await fetch(`BASE_URL${audience}`, options);
+    // const options = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+    const response = await fetch(`${BASE_URL}/product/${audience}`);
     const result = await response.json();
-
-    console.log(result);
+    console.log("get products by audience fetch", result);
+    return result;
   } catch (error) {
     console.error(error);
   }
@@ -113,8 +109,7 @@ export async function getProductById(id) {
 
     const response = await fetch(`${BASE_URL}/product/${id}`, options);
     const result = await response.json();
-    return result
-
+    return result;
   } catch (error) {
     console.error(error);
   }

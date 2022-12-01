@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { getProductByAudience } from "./api-adapter";
 import { Link } from "react-router-dom";
 
-const TeenProducts = (props) => {
-  const BASE_URL = "http://localhost:8080/api";
-  const [singleTeenProduct, setSingleTeenProduct] = useState({});
-  const [selectedProduct, setSelectedProduct] = useState({});
-  const [allTeenProducts, setAllTeenProducts] = useState({});
-
+const TeenProducts = () => {
+  const [allTeenBooks, setAllTeenBooks] = useState({});
 
   useEffect(() => {
-    const getProductByAudience = async () => {
-      const response = await fetch(`${BASE_URL}/product/teen`);
-      const result = await response.json();
-      setAllTeenProducts(result);
-    };
-    getProductByAudience();
+    async function fetchTeenBooks() {
+      const teenBooks = await getProductByAudience({ audience: "teen" });
+      setAllTeenBooks(teenBooks);
+    }
+    fetchTeenBooks();
   }, []);
 
   return (
     <div id="teenproducts">
       <h1>Teen Classics</h1>
-      {allTeenProducts && allTeenProducts.length ? (
-        allTeenProducts.map((product) => {
+      {allTeenBooks && allTeenBooks.length ? (
+        allTeenBooks.map((product) => {
           return (
             <div id="teenBooks" key={`product-${product.id}`}>
               <div className="bookImg">
@@ -34,9 +30,9 @@ const TeenProducts = (props) => {
               </div>
               <button>Add to Cart</button>
               <button
-                onClick={() => {
-                  props.setSelectedProduct({});
-                }}
+              // onClick={() => {
+              //   props.setSelectedProduct({});
+              // }}
               >
                 See Details
               </button>
