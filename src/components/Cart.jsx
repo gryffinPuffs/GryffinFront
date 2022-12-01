@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getActiveCartByUsername } from "./api-adapter";
 
-const Cart = ({user, setUser}) => {
-  const [theCart, setTheCart]=useState([])
-  console.log(user, "here user")
+const Cart = ({ user, setUser, theCart, setTheCart }) => {
+  useEffect(() => {
+    async function getUserCart() {
+      const userCart = await getActiveCartByUsername(user.username);
+      console.log(userCart, "usercart!!!");
+      setTheCart(userCart.products);
+    }
+    getUserCart();
+  }, []);
 
 useEffect(()=>{
   async function getUserCart(){

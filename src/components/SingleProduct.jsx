@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { getProductById, addItemToCart } from "./api-adapter";
 import { Link, useNavigate } from "react-router-dom";
 
-const SingleProduct = ({ bookInfo, setBookInfo, user }) => {
+const SingleProduct = ({
+  bookInfo,
+  setBookInfo,
+  user,
+  theCart,
+  setTheCart,
+}) => {
   const navigate = useNavigate();
   const [singleBook, setSingleBook] = useState({});
 
@@ -14,16 +20,16 @@ const SingleProduct = ({ bookInfo, setBookInfo, user }) => {
     fetchBook();
   }, []);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function addItemSubmit() {
+    console.log(user, "hello");
     const productToAdd = await addItemToCart(
       user.id,
-      singleBook.id,
+      singleBook,
       singleBook.price,
       1
     );
     console.log("banana", productToAdd);
-    setSingleBook(productToAdd.product);
+    setTheCart(...theCart, productToAdd);
   }
 
   return (
@@ -35,7 +41,13 @@ const SingleProduct = ({ bookInfo, setBookInfo, user }) => {
           <div className="author">Author: {singleBook.author}</div>
           <div className="price">Price: {singleBook.price}</div>
           <div className="description">Summary: {singleBook.description}</div>
-          <button onSubmit={handleSubmit}>Add to Cart</button>
+          <button
+            onClick={() => {
+              addItemSubmit();
+            }}
+          >
+            Add to Cart
+          </button>
           <button
             onClick={() => {
               navigate("/allbooks");
