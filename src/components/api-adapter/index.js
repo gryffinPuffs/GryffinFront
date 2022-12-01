@@ -90,7 +90,7 @@ export async function getProductByAudience(audience) {
     //     "Content-Type": "application/json",
     //   },
     // };
-    const response = await fetch(`${BASE_URL}/product/${audience}`);
+    const response = await fetch(`${BASE_URL}/product/audience/${audience}`);
     const result = await response.json();
     console.log("get products by audience fetch", result);
     return result;

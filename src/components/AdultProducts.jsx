@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getProductByAudience } from "./api-adapter";
 
-const AdultProducts = () => {
-  const BASE_URL = "http://localhost:8080/api";
-  const [allAdultProducts, setAllAdultProducts] = useState({});
+const AdultProducts = ({ bookInfo, setBookInfo }) => {
+  const navigate = useNavigate();
+  const [allAdultBooks, setAllAdultBooks] = useState({});
 
   useEffect(() => {
-    const getProductByAudience = async () => {
-      const response = await fetch(`${BASE_URL}/product/adult`);
-      const result = await response.json();
-      setAllAdultProducts(result);
-    };
-    getProductByAudience();
+    async function fetchAdultBooks() {
+      const adultBooks = await getProductByAudience("adult");
+      setAllAdultBooks(adultBooks);
+    }
+    fetchAdultBooks();
   }, []);
 
   return (
     <div id="adultproducts">
-      {allAdultProducts && allAdultProducts.length ? (
-        allAdultProducts.map((product) => {
+      {allAdultBooks && allAdultBooks.length ? (
+        allAdultBooks.map((product) => {
           return (
             <div id="adultBooks" key={`product-${product.id}`}>
               <div className="bookImg">
-                <img src={product.image_url} alt="book image"></img>
+                <button
+                  onClick={() => {
+                    setBookInfo(product.id);
+                    navigate("/singleproduct");
+                  }}
+                >
+                  <img src={product.image_url} alt="book image"></img>
+                </button>
               </div>
               <div className="title">Book Name: {product.name}</div>
-              <div className="price">Book Price: {product.price}</div>
-              <div className="description">
-                Book description: {product.description}
-              </div>
-              <button>Add to Cart</button>
-              <button>See Details</button>
+              <div className="author">Book Author: {product.author}</div>
               <br></br>
               <Link>Add to Wish List</Link>
             </div>
