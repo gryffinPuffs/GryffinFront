@@ -13,11 +13,11 @@ console.log(user)
 
 
    <button type="purchase history" className="purchaseHistory">Purchase History</button>
-   <button type="Wish List" className="wishList">Adult Books</button>
+   <button type="Wish List" className="wishList">Wish List</button>
    <button type="User Info" className="userInfo">User Info</button>
     
-    {admin ? (<>
-    <button type="all users" className="allUsers">All Users</button>
+    {user && user.admin ? (<>
+    <link to={"/users"}><button type="all users" className="allUsers">All Users</button></link>
     <button type="Create Product" className="createProduct">Create Product</button>
     </>) : (null)}
     
