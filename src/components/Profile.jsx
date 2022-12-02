@@ -17,7 +17,7 @@ console.log(user)
    <button type="User Info" className="userInfo">User Info</button>
     
     {user && user.admin ? (<>
-    <link to={"/users"}><button type="all users" className="allUsers">All Users</button></link>
+    <button type="all users" className="allUsers">All Users</button>
     <button type="Create Product" className="createProduct">Create Product</button>
     </>) : (null)}
     
