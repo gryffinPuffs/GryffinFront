@@ -58,7 +58,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       </form>
       <br />
       <h3>Not Yet a User?</h3>
-      <Link to="/register" className="link">
+      <Link to="/address" className="link">
         Register
       </Link>
     </div>

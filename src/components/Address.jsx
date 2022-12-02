@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createAddress } from "./api-adapter";
+import {Register} from "./";
 
 const Address = () => {
-    const [address_id, setAddress_id] = useState("")
+    const [address_id, setAddress_id] = useState(0)
   const [address_line1, setAddress_line1] = useState("");
   const [address_line2, setAddress_line2] = useState("");
   const [city, setCity] = useState("");
@@ -11,17 +13,14 @@ const Address = () => {
     const navigate = useNavigate();
   async function handleAddress(event) {
     event.preventDefault();
+    const newAddress = await createAddress(address_line1, address_line2, city, state, zip_code)
     
+    if (newAddress) {
+        setAddress_id(newAddress.id)
     
-    setAddress_line1("")
-    setAddress_line2("")
-    setCity("")
-    setState("")
-    setZip_code("")
-    setAddress_id(event.target.id)
-    localStorage.setItem("address_id", address_id)
-    console.log(address_id, "address_id created")
-    navigate("/Register")
+    navigate("/register",{state:{address_id}})
+    } 
+
   }
 
   return (
