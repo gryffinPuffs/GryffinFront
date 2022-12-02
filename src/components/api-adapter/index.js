@@ -381,6 +381,8 @@ export async function deleteProductInCart(cartItemId) {
   }
 }
 
+//getAllUsers function needs to send token to back end and return array of all users
+
 // export async function updateCartProduct(
 // cartId,
 // productId,

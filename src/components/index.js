@@ -17,3 +17,4 @@ export { default as Footer } from "./Footer";
 export { default as NotFound } from "./NotFound";
 export { default as Address } from "./Address";
 export { default as LoggedIn } from "./LoggedIn";
+export { default as User } from "./User";
