@@ -3,17 +3,22 @@ import {
   deleteProductInCart,
   getActiveCartByUsername,
   addItemToCart,
+  deleteProduct,
 } from "./api-adapter";
 
 const Cart = ({ user, setUser, theCart, setTheCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
-  let total= 0
 
   console.log(user, "look here");
 
   useEffect(() => {
     async function getUserCart() {
       const userCart = await getActiveCartByUsername(user.username);
+      let runningTotal = 0
+      await  userCart.products.forEach(element => {
+        runningTotal+= element.price * element.quantity
+      });
+      setTotalPrice(runningTotal)
       setTheCart(userCart.products);
     }
     getUserCart();
@@ -27,12 +32,12 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
     const cartList = theCart.filter((product) => {
       return product.cartProductId !== deleted.id;
     });
+    setTotalPrice(totalPrice -  deleted.price * deleted.quantity)
     setTheCart(cartList);
   }
 
   function totalItem(product, quantity) {
     const thePrice = (product * quantity) / 100;
-    total= total + thePrice
     return thePrice;
   }
 
@@ -51,6 +56,10 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
       const cart = theCart.map((product) => {
         if (product.cartProductId == productToAdd.id) {
           alreadyInCart = true;
+          if(product.quantity<productToAdd.quantity){
+          setTotalPrice(totalPrice + product.price)}
+          if(product.quantity>productToAdd.quantity){
+            setTotalPrice(totalPrice - product.price)}
           return { ...product, quantity: productToAdd.quantity };
         } else {
           return product;
@@ -75,7 +84,7 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
                 Total Price This Item: $
                 {totalItem(product.price, product.quantity)}
               </div>
-              <div>Price of Book: {product.price}</div>
+              <div>Price of Book: {(product.price/100).toFixed(2)}</div>
               <div>{product.quantity}</div>
 
               <button
@@ -114,7 +123,8 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
       ) : (
         <h2>Nothing in cart yet. Find some books!</h2>
       )}
-      <h2>Total: {total}</h2>
+      <h2>Total: ${(totalPrice/100).toFixed(2)}</h2>
+      <button>Checkout</button>
     </div>
   );
 };
