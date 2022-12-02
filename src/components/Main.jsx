@@ -20,6 +20,8 @@ import {
   Address,
 } from "./";
 import { authUser, getUserByUsername } from "./api-adapter";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -109,7 +111,7 @@ const Main = () => {
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
       </Routes>
-
+        <ToastContainer />
       <Footer />
     </div>
   );
