@@ -234,9 +234,12 @@ export async function attachProductsToCart(carts) {
 
 //updateProducts
 export async function updateProduct(
+  id,
   name,
   price,
   image_url,
+  image_url2,
+  author,
   audience,
   description
 ) {
@@ -251,11 +254,13 @@ export async function updateProduct(
         name,
         price,
         image_url,
+        image_url2,
+        author,
         audience,
         description,
       }),
     };
-    const response = await fetch(`BASE_URL${id}`, options);
+    const response = await fetch(`${BASE_URL}/product/${id}`, options);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -274,7 +279,7 @@ export async function deleteProduct(id) {
       },
     };
 
-    const response = await fetch(`BASE_URL${id}`, options);
+    const response = await fetch(`${BASE_URL}/product/${id}`, options);
     const result = await response.json();
     return result;
   } catch (error) {

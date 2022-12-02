@@ -22,12 +22,14 @@ import {
 import { authUser, getUserByUsername } from "./api-adapter";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminBooks from "../AdminBooks";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
+  const [allBooks, setAllBooks] = useState([]);
 
   const getLoggedInUser = async (token) => {
     if (token) {
@@ -45,7 +47,7 @@ const Main = () => {
 
   return (
     <div id="main">
-      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} user={user} />
       <Navbar2 />
 
       <Routes>
@@ -62,6 +64,21 @@ const Main = () => {
           }
         ></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/admin"
+          element={
+            user.admin ? (
+              <AdminBooks
+                setAllBooks={setAllBooks}
+                bookInfo={bookInfo}
+                setBookInfo={setBookInfo}
+                allBooks={allBooks}
+              />
+            ) : (
+              <NotFound />
+            )
+          }
+        ></Route>
         <Route
           path="/childproducts"
           element={
@@ -82,7 +99,14 @@ const Main = () => {
         ></Route>
         <Route
           path="/allbooks"
-          element={<AllBooks bookInfo={bookInfo} setBookInfo={setBookInfo} />}
+          element={
+            <AllBooks
+              allBooks={allBooks}
+              setAllBooks={setAllBooks}
+              bookInfo={bookInfo}
+              setBookInfo={setBookInfo}
+            />
+          }
         ></Route>
         <Route
           path="/singleproduct/:bookId"
@@ -93,6 +117,8 @@ const Main = () => {
               theCart={theCart}
               setTheCart={setTheCart}
               user={user}
+              allBooks={allBooks}
+              setAllBooks={setAllBooks}
             />
           }
         ></Route>

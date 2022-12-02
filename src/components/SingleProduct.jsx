@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getProductById, addItemToCart } from "./api-adapter";
+import {
+  getProductById,
+  addItemToCart,
+  deleteProduct,
+  updateProduct,
+} from "./api-adapter";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleProduct = ({
@@ -8,10 +13,22 @@ const SingleProduct = ({
   user,
   theCart,
   setTheCart,
+  loggedIn,
+  allBooks,
+  setAllBooks,
 }) => {
   const { bookId } = useParams();
   const navigate = useNavigate();
   const [singleBook, setSingleBook] = useState();
+  const [update, setUpdate] = useState(false);
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
+  const [image2, setImage2] = useState("");
+  const [audience, setAudience] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
+
   useEffect(() => {
     async function fetchBook() {
       const theBook = await getProductById(bookId);
@@ -48,32 +65,48 @@ const SingleProduct = ({
     }
   }
 
-  // const addBookToCart = async (e) => {
-  //   console.log(user, "hello");
-  //   e.preventDefault();
-  //   const productToAdd = await addItemToCart(
-  //     user.id,
-  //     singleBook,
-  //     singleBook.price,
-  //     1
-  //   );
-  //   console.log("banana added to cart", productToAdd);
-  //   setTheCart(...theCart, productToAdd);
-  // };
-
   //admin access only - delete single product
-  //   useEffect(() => {
-  //     async function deleteBook(){
-  //       const productToDelete = await deleteProduct(id)
-  // setSingleBook(productToDelete)
-  //     }
-  //     deleteBook()
-  //   }, [])
+  // useEffect(() => {
+  //   async function deleteBook(){
+  //     const productToDelete = await deleteProduct(id)
+  //     setSingleBook(productToDelete) }
+  //   deleteBook()
+  // }, [])
 
-  //async function handleDeleteAdmin(product_id){
-  // const productToDestroy = product.id
-  //const destroyedProduct = await deleteProduct(id)
-  // }
+  async function handleDeleteAdmin(e) {
+    e.preventDefault();
+    // const productToDestroy = bookInfo;
+    // console.log(bookInfo, "BANANA");
+    // console.log("this is product to destroy", productToDestroy);
+    const destroyedProduct = await deleteProduct(bookInfo);
+    console.log("ITS DESTROY PRODUCT", destroyedProduct);
+    const availableProducts = allBooks.filter((product) => {
+      console.log(product, "THIS IS PRODUCT");
+      return product.id !== destroyedProduct.id;
+    });
+    setAllBooks([availableProducts, ...allBooks]);
+    navigate("/allbooks");
+  }
+
+  async function handleUpdateAdmin(e) {
+    e.preventDefault();
+    const updatedProduct = await updateProduct(
+      bookInfo,
+      singleBook.name,
+      singleBook.price,
+      singleBook.image_url,
+      singleBook.image_url2,
+      singleBook.author,
+      singleBook.audience,
+      singleBook.description
+    );
+    const editedProducts = allBooks.filter((product) => {
+      console.log(product, "THIS IS PRODUCT");
+      return product.id == updatedProduct.id;
+    });
+    setAllBooks([editedProducts, ...allBooks]);
+    navigate("/allbooks");
+  }
 
   return (
     <>
@@ -109,6 +142,96 @@ const SingleProduct = ({
       ) : (
         <div>Loading your book..</div>
       )}
+      <div>
+        {user.admin === true ? (
+          <>
+            <button onClick={handleDeleteAdmin}>Delete Book </button>
+            <button onClick={handleUpdateAdmin}>Edit Book </button>
+          </>
+        ) : null}
+      </div>
+      {update === true ? (
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleSubmit();
+          }}
+        >
+          <input
+            placeholder="Book Title"
+            className="Book Title"
+            type="text"
+            value={singleBook.name}
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Price"
+            className="Price"
+            type="text"
+            value={singleBook.price}
+            onChange={(event) => {
+              setPrice(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Image URL"
+            className="Image URL"
+            type="text"
+            value={singleBook.image_url}
+            onChange={(event) => {
+              setImage(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Image URL"
+            className="Image URL"
+            type="text"
+            value={singleBook.image_url2}
+            onChange={(event) => {
+              setImage2(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Audience Type"
+            className="audienceType"
+            type="text"
+            value={singleBook.audience}
+            onChange={(event) => {
+              setAudience(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Author"
+            className="author"
+            type="text"
+            value={singleBook.author}
+            onChange={(event) => {
+              setAuthor(event.target.value);
+            }}
+            required
+          ></input>
+          <input
+            placeholder="Description"
+            className="description"
+            type="text"
+            value={singleBook.description}
+            onChange={(event) => {
+              setDescription(event.target.value);
+            }}
+            required
+          ></input>
+          <button onSubmit={handleSubmit} type="submit">
+            Submit
+          </button>
+        </form>
+      ) : null}
     </>
   );
 };

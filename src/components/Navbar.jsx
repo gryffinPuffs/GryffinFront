@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useResolvedPath } from "react-router-dom";
 
 import books from "./flyingbooks.png";
 import wand from "./wand.png";
@@ -7,12 +7,12 @@ import wand from "./wand.png";
 const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
   const loggedIn = props.loggedIn;
+  const user = props.user;
+  console.log(user);
   return (
     <>
       <div id="navbar">
         <div id="navbarImgs">
-      
-          
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
         </div>
@@ -35,6 +35,11 @@ const Navbar = (props) => {
               <NavLink className="linkBar" to="/profile">
                 Profile
               </NavLink>
+              {loggedIn && user.admin ? (
+                <NavLink className="linkBar" to="/admin">
+                  Admin
+                </NavLink>
+              ) : null}
             </>
           ) : (
             <NavLink className="linkBar" to="/login">
