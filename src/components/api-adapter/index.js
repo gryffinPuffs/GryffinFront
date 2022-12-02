@@ -15,7 +15,7 @@ export async function registerUser(username, password, name, email) {
   };
   try {
     const response = await fetch(`${BASE_URL}/user/register`, registerOptions);
-    console.log(response, "this is the response")
+    console.log(response, "this is the response");
     const result = await response.json();
     console.log(result, "register result");
     return result;
@@ -32,7 +32,6 @@ export async function authUser(token) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response, "The result of all of this is");
     const result = await response.json();
     return result;
   } catch (error) {
