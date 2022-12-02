@@ -32,6 +32,19 @@ const SingleProduct = ({
     setTheCart(...theCart, productToAdd);
   }
 
+  // const addBookToCart = async (e) => {
+  //   console.log(user, "hello");
+  //   e.preventDefault();
+  //   const productToAdd = await addItemToCart(
+  //     user.id,
+  //     singleBook,
+  //     singleBook.price,
+  //     1
+  //   );
+  //   console.log("banana added to cart", productToAdd);
+  //   setTheCart(...theCart, productToAdd);
+  // };
+
   return (
     <div id="singleProduct">
       <div className="bookImg">
@@ -53,7 +66,7 @@ const SingleProduct = ({
               navigate("/allbooks");
             }}
           >
-            Go Back
+            Continue Shopping
           </button>
           <Link>Add to Wish List</Link>
         </div>
