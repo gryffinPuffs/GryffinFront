@@ -17,7 +17,7 @@ const Register = () => {
   async function handleRegister(event) {
     event.preventDefault();
     console.log(username, password);
-    const { token } = await registerUser(username, password, name, false, email);
+    const { token } = await registerUser(username, password, name, email);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 
