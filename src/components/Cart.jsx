@@ -20,7 +20,7 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
     const toDelete = event.target.id;
     const token = localStorage.getItem("token");
     const deleted = await deleteProductInCart(toDelete);
-    const cartList = userCart.products.filter((product) => {
+    const cartList = theCart.filter((product) => {
       return product.id !== deleted.id;
     });
     const cartCopy = { ...theCart };
