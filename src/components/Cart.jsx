@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { deleteProductInCart, getActiveCartByUsername } from "./api-adapter";
 
-const Cart = ({ user, setUser, theCart, setTheCart }) => {
-  const [quantity, setQuantity] = useState(1);
+const Cart = ({
+  user,
+  setUser,
+  theCart,
+  setTheCart,
+  quantity,
+  setQuantity,
+}) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   console.log(user, "look here");

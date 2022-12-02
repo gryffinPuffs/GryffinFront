@@ -21,13 +21,14 @@ import {
 } from "./";
 import { authUser, getUserByUsername } from "./api-adapter";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   const getLoggedInUser = async (token) => {
     if (token) {
@@ -93,6 +94,8 @@ const Main = () => {
               theCart={theCart}
               setTheCart={setTheCart}
               user={user}
+              quantity={quantity}
+              setQuantity={setQuantity}
             />
           }
         ></Route>
@@ -104,6 +107,8 @@ const Main = () => {
               setUser={setUser}
               theCart={theCart}
               setTheCart={setTheCart}
+              quantity={quantity}
+              setQuantity={setQuantity}
             />
           }
         ></Route>
@@ -111,7 +116,7 @@ const Main = () => {
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
       </Routes>
-        <ToastContainer />
+      <ToastContainer />
       <Footer />
     </div>
   );
