@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { registerUser } from "./api-adapter";
 import { toast } from "react-toastify";
 
-const Register = ({address_id}) => {
+const Register = (props) => {
   //address and set address here for useState
-  
+  const { state:{address_id} } = useLocation()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

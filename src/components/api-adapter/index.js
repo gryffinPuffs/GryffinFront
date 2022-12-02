@@ -1,25 +1,42 @@
 const BASE_URL = "http://localhost:8080/api";
 
-export async function createAddress(address_id) {
-    const addressOptions = {
-       method: "POST",
-       headers: {
-           "Content-Type": "application/json"
-       },
-       body: JSON.stringify({
-           address_id
-       }),
-    };
-    try {
-       const response = await fetch (`${BASE_URL}/address`, addressOptions)
-       const result = response.json();
-       return result;
-    } catch (error) {
-       console.error(error);
-    }   
-   }
+export async function createAddress(
+  address_line1,
+  address_line2,
+  city,
+  state,
+  zip_code
+) {
+  const addressOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      address_line1,
+      address_line2,
+      city,
+      state,
+      zip_code,
+    }),
+  };
+  try {
+    const response = await fetch(`${BASE_URL}/address`, addressOptions);
+    const result = response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-export async function registerUser(username, password, name, admin, email, address_id) {
+export async function registerUser(
+  username,
+  password,
+  name,
+  admin,
+  email,
+  address_id
+) {
   const registerOptions = {
     method: "POST",
     headers: {
@@ -31,7 +48,7 @@ export async function registerUser(username, password, name, admin, email, addre
       name,
       admin,
       email,
-      address_id
+      address_id,
     }),
   };
   try {

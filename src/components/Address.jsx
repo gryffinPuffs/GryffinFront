@@ -16,9 +16,10 @@ const Address = () => {
     const newAddress = await createAddress(address_line1, address_line2, city, state, zip_code)
     
     if (newAddress) {
-        setAddress_id(newAddress.id)
+        
+        setAddress_id(newAddress.userAddress.id)
     
-    navigate("/register",{state:{address_id}})
+    navigate("/register",{state:{address_id:newAddress.userAddress.id}})
     } 
 
   }
