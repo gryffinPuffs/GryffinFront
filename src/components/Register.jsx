@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "./api-adapter";
 import { toast } from "react-toastify";
 
-const Register = () => {
+const Register = ({address_id}) => {
   //address and set address here for useState
   
   const [username, setUsername] = useState("");
@@ -17,7 +17,7 @@ const Register = () => {
   async function handleRegister(event) {
     event.preventDefault();
     console.log(username, password);
-    const { token } = await registerUser(username, password, name, email);
+    const { token } = await registerUser(username, password, name, false, email, address_id);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 

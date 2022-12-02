@@ -19,7 +19,7 @@ export async function createAddress(address_id) {
     }   
    }
 
-export async function registerUser(username, password, name, email) {
+export async function registerUser(username, password, name, admin, email, address_id) {
   const registerOptions = {
     method: "POST",
     headers: {
@@ -29,7 +29,9 @@ export async function registerUser(username, password, name, email) {
       username,
       password,
       name,
+      admin,
       email,
+      address_id
     }),
   };
   try {
