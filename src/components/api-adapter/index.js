@@ -328,3 +328,21 @@ export async function updateCart(user_id, active) {
   const result = await response.json();
   return result;
 }
+
+export async function deleteProductInCart(cartItemId) {
+  try {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+
+    const response = await fetch(`${BASE_URL}/cart_item/${cartItemId}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
