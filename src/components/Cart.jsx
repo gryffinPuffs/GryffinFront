@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { deleteProductInCart, getActiveCartByUsername } from "./api-adapter";
+import {
+  deleteProductInCart,
+  getActiveCartByUsername,
+  addItemToCart,
+} from "./api-adapter";
 
-const Cart = ({
-  user,
-  setUser,
-  theCart,
-  setTheCart,
-  quantity,
-  setQuantity,
-}) => {
+const Cart = ({ user, setUser, theCart, setTheCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   console.log(user, "look here");
@@ -27,26 +24,43 @@ const Cart = ({
     const token = localStorage.getItem("token");
     const deleted = await deleteProductInCart(toDelete);
     const cartList = theCart.filter((product) => {
-      return product.id !== deleted.id;
+      return product.cartProductId !== deleted.id;
     });
-    const cartCopy = { ...theCart };
-    cartCopy = cartList;
-    setTheCart(cartCopy);
+    setTheCart(cartList);
   }
 
-  function price(product, quantity) {
+  function totalItem(product, quantity) {
     const thePrice = (product * quantity) / 100;
     return thePrice;
   }
-  function subOne() {
-    if (quantity <= 1) {
-      setQuantity(1);
+
+  async function cartChange(itemId, quantity, price, e) {
+    console.log(itemId, price, quantity, e);
+    if (quantity < 1) {
+      handleDeleteCartItem(e);
     } else {
-      setQuantity(quantity - 1);
+      const productToAdd = await addItemToCart(
+        user.cart.id,
+        itemId,
+        price,
+        quantity
+      );
+      let alreadyInCart = false;
+      const cart = theCart.map((product) => {
+        if (product.cartProductId == productToAdd.id) {
+          alreadyInCart = true;
+          return { ...product, quantity: productToAdd.quantity };
+        } else {
+          return product;
+        }
+      });
+      if (alreadyInCart) {
+        setTheCart(cart);
+      } else {
+        setTheCart([...cart, productToAdd]);
+      }
     }
   }
-
-  console.log(theCart, "should be a cart");
   return (
     <div id="cart">
       <h2>CART</h2>
@@ -55,12 +69,41 @@ const Cart = ({
           return (
             <div className="cartProds" key={`products-${product.id}`}>
               <div>{product.name}</div>
-              <div>Price: ${price(product.price, quantity)}</div>
-              <div>{quantity}</div>
+              <div>
+                Total Price This Item: $
+                {totalItem(product.price, product.quantity)}
+              </div>
+              <div>Price of Book: {product.price}</div>
+              <div>{product.quantity}</div>
 
-              <button onClick={() => setQuantity(quantity + 1)}>+</button>
-              <button onClick={() => subOne()}>-</button>
-              <button id={product.id} onClick={handleDeleteCartItem}>
+              <button
+                id={product.id}
+                onClick={(e) =>
+                  cartChange(
+                    e.target.id,
+                    product.quantity + 1,
+                    product.price,
+                    e
+                  )
+                }
+              >
+                +
+              </button>
+              <button
+                disabled={product.quantity == 1}
+                id={product.id}
+                onClick={(e) =>
+                  cartChange(
+                    e.target.id,
+                    product.quantity - 1,
+                    product.price,
+                    e
+                  )
+                }
+              >
+                -
+              </button>
+              <button id={product.cartProductId} onClick={handleDeleteCartItem}>
                 Delete item
               </button>
             </div>
