@@ -9,13 +9,25 @@ console.log(user)
    <div>
    <h2>profile</h2>
    <LoggedIn user = {user} />
-   {/* <h3>Welcome {user.username}</h3> */}
+   
+
+
    <button type="purchase history" className="purchaseHistory">Purchase History</button>
-   <button type="Wish List" className="wishList">Adult Books</button>
+   <button type="Wish List" className="wishList">Wish List</button>
    <button type="User Info" className="userInfo">User Info</button>
+    
+    {user && user.admin ? (<>
+    <link to={"/users"}><button type="all users" className="allUsers">All Users</button></link>
+    <button type="Create Product" className="createProduct">Create Product</button>
+    </>) : (null)}
+    
     </div>
   )
 }
+
+
+
+
   
 
 
