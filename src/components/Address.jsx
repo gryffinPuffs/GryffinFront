@@ -1,21 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Address = () => {
+    const [address_id, setAddress_id] = useState("")
   const [address_line1, setAddress_line1] = useState("");
   const [address_line2, setAddress_line2] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip_code, setZip_code] = useState("");
-
+    const navigate = useNavigate();
   async function handleAddress(event) {
     event.preventDefault();
-    setUsername("") 
-    setPassword("")
+    
+    
     setAddress_line1("")
     setAddress_line2("")
     setCity("")
     setState("")
     setZip_code("")
+    setAddress_id(event.target.id)
+    localStorage.setItem("address_id", address_id)
+    console.log(address_id, "address_id created")
+    navigate("/Register")
   }
 
   return (
@@ -71,7 +77,7 @@ const Address = () => {
         <br />
         <input
           type="text"
-          pattern="[0-9]"
+        //   pattern="[0-9]"
           name="zip_code"
           placeholder="Zip Code *"
           required

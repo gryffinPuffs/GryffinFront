@@ -23,7 +23,7 @@ const Register = () => {
 
     if (token) {
       toast.success("Register Successful");
-      navigate("/Home");
+      navigate("/Login");
     } else {
       toast.error("Register Failed");
       navigate("/Register");

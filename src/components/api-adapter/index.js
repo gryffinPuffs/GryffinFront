@@ -1,5 +1,24 @@
 const BASE_URL = "http://localhost:8080/api";
 
+export async function createAddress(address_id) {
+    const addressOptions = {
+       method: "POST",
+       headers: {
+           "Content-Type": "application/json"
+       },
+       body: JSON.stringify({
+           address_id
+       }),
+    };
+    try {
+       const response = await fetch (`${BASE_URL}/address`, addressOptions)
+       const result = response.json();
+       return result;
+    } catch (error) {
+       console.error(error);
+    }   
+   }
+
 export async function registerUser(username, password, name, email) {
   const registerOptions = {
     method: "POST",
