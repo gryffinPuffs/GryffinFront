@@ -21,14 +21,14 @@ const SingleProduct = ({
   }, []);
 
   async function addItemSubmit() {
-    console.log(user, "hello");
+    console.log("hello user data here", user);
     const productToAdd = await addItemToCart(
       user.id,
       singleBook,
       singleBook.price,
-      1
+      singleBook.quantity
     );
-    console.log("banana", productToAdd);
+    console.log("product object added cart", productToAdd);
     setTheCart(...theCart, productToAdd);
   }
 
@@ -44,6 +44,20 @@ const SingleProduct = ({
   //   console.log("banana added to cart", productToAdd);
   //   setTheCart(...theCart, productToAdd);
   // };
+
+  //admin access only - delete single product
+  //   useEffect(() => {
+  //     async function deleteBook(){
+  //       const productToDelete = await deleteProduct(id)
+  // setSingleBook(productToDelete)
+  //     }
+  //     deleteBook()
+  //   }, [])
+
+  //async function handleDeleteAdmin(product_id){
+  // const productToDestroy = product.id
+  //const destroyedProduct = await deleteProduct(id)
+  // }
 
   return (
     <div id="singleProduct">
