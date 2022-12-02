@@ -346,3 +346,32 @@ export async function deleteProductInCart(cartItemId) {
     console.error(error);
   }
 }
+
+// export async function updateCartProduct(
+// cartId,
+// productId,
+// price,
+// quantity,
+
+// ) {
+//   try {
+//     const options = {
+//       method: "PATCH",
+//       headers: {
+//         "Content-type": "application/json",
+//         Authorization: `Bearer ${localStorage.getItem("token")}`,
+//       },
+//       body: JSON.stringify({
+//         cartId,
+//         productId,
+//         price,
+//         quantity,
+//       }),
+//     };
+//     const response = await fetch(`${BASE_URL}/cart_item/${cartId}`, options);
+//     const result = await response.json();
+//     return result;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
