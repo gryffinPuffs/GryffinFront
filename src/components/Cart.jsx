@@ -7,6 +7,7 @@ import {
 
 const Cart = ({ user, setUser, theCart, setTheCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
+  let total= 0
 
   console.log(user, "look here");
 
@@ -31,6 +32,7 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
 
   function totalItem(product, quantity) {
     const thePrice = (product * quantity) / 100;
+    total= total + thePrice
     return thePrice;
   }
 
@@ -112,7 +114,7 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
       ) : (
         <h2>Nothing in cart yet. Find some books!</h2>
       )}
-      <h2>Total: {totalPrice}</h2>
+      <h2>Total: {total}</h2>
     </div>
   );
 };
