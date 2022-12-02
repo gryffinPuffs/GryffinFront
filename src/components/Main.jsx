@@ -18,6 +18,7 @@ import {
   Footer,
   NotFound,
   Address,
+  User,
 } from "./";
 import { authUser, getUserByUsername } from "./api-adapter";
 import { ToastContainer, toast } from "react-toastify";
@@ -110,6 +111,7 @@ const Main = () => {
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
+        <Route path="/users" element={<User user={user}/>}></Route>
       </Routes>
         <ToastContainer />
       <Footer />

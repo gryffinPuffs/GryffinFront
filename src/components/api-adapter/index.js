@@ -344,13 +344,18 @@ export async function deleteProductInCart(cartItemId) {
       },
     };
 
-    const response = await fetch(`${BASE_URL}/cart_item/${cartItemId}`, options);
+    const response = await fetch(
+      `${BASE_URL}/cart_item/${cartItemId}`,
+      options
+    );
     const result = await response.json();
     return result;
   } catch (error) {
     console.error(error);
   }
 }
+
+//getAllUsers function needs to send token to back end and return array of all users
 
 // export async function updateCartProduct(
 // cartId,
