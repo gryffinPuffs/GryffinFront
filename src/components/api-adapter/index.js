@@ -184,9 +184,16 @@ export async function createProduct(
   }
 }
 
-export async function addItemToCart(cart_id, productId, price, quantity) {
+export async function addItemToCart(
+  cart_id,
+  productId,
+  price,
+  quantity,
+  addOne
+) {
   try {
-    const cart = { product_id: productId, price, quantity };
+    const cart = { product_id: Number(productId), price, quantity };
+    addOne ? (cart.addOne = true) : null;
     console.log("cart before being sent back", cart);
     const options = {
       method: "POST",
@@ -344,7 +351,10 @@ export async function deleteProductInCart(cartItemId) {
       },
     };
 
-    const response = await fetch(`${BASE_URL}/cart_item/${cartItemId}`, options);
+    const response = await fetch(
+      `${BASE_URL}/cart_item/${cartItemId}`,
+      options
+    );
     const result = await response.json();
     return result;
   } catch (error) {

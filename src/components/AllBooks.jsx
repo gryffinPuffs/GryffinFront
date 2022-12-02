@@ -27,7 +27,7 @@ const AllBooks = ({ bookInfo, setBookInfo }) => {
                   <button
                     onClick={() => {
                       setBookInfo(book.id);
-                      navigate("/singleproduct");
+                      navigate(`/singleproduct/${book.id}`);
                     }}
                     className="bookImg"
                   >

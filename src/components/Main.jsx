@@ -28,7 +28,6 @@ const Main = () => {
   const [user, setUser] = useState({});
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
-  const [quantity, setQuantity] = useState(1);
 
   const getLoggedInUser = async (token) => {
     if (token) {
@@ -86,7 +85,7 @@ const Main = () => {
           element={<AllBooks bookInfo={bookInfo} setBookInfo={setBookInfo} />}
         ></Route>
         <Route
-          path="/singleproduct"
+          path="/singleproduct/:bookId"
           element={
             <SingleProduct
               bookInfo={bookInfo}
@@ -94,8 +93,6 @@ const Main = () => {
               theCart={theCart}
               setTheCart={setTheCart}
               user={user}
-              quantity={quantity}
-              setQuantity={setQuantity}
             />
           }
         ></Route>
@@ -107,8 +104,6 @@ const Main = () => {
               setUser={setUser}
               theCart={theCart}
               setTheCart={setTheCart}
-              quantity={quantity}
-              setQuantity={setQuantity}
             />
           }
         ></Route>

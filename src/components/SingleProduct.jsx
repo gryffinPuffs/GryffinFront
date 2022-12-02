@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getProductById, addItemToCart } from "./api-adapter";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleProduct = ({
   bookInfo,
@@ -8,14 +8,14 @@ const SingleProduct = ({
   user,
   theCart,
   setTheCart,
-  setQuantity,
-  quantity,
 }) => {
+  const { bookId } = useParams();
   const navigate = useNavigate();
-  const [singleBook, setSingleBook] = useState({});
+  const [singleBook, setSingleBook] = useState();
   useEffect(() => {
     async function fetchBook() {
-      const theBook = await getProductById(bookInfo);
+      const theBook = await getProductById(bookId);
+      console.log(theBook);
       setSingleBook(theBook);
     }
     fetchBook();
@@ -28,12 +28,13 @@ const SingleProduct = ({
       user.cart.id,
       singleBook.id,
       singleBook.price,
-      quantity
+      1,
+      true
     );
     console.log("product object added cart", productToAdd);
     let alreadyInCart = false;
     const cart = theCart.map((product) => {
-      if (product.cartProductId == productToAdd.id) {
+      if (product.id == productToAdd.id) {
         alreadyInCart = true;
         return { ...product, quantity: productToAdd.quantity };
       } else {
@@ -75,32 +76,40 @@ const SingleProduct = ({
   // }
 
   return (
-    <div id="singleProduct">
-      <div className="bookImg">
-        <img src={singleBook.image_url} alt="book image"></img>
-        <div id="singleInfo">
-          <div className="title">{singleBook.name}</div>
-          <div className="author">Author: {singleBook.author}</div>
-          <div className="price">Price: {singleBook.price}</div>
-          <div className="description">Summary: {singleBook.description}</div>
-          <button
-            onClick={() => {
-              addItemSubmit();
-            }}
-          >
-            Add to Cart
-          </button>
-          <button
-            onClick={() => {
-              navigate("/allbooks");
-            }}
-          >
-            Continue Shopping
-          </button>
-          <Link>Add to Wish List</Link>
+    <>
+      {singleBook ? (
+        <div id="singleProduct">
+          <div className="bookImg">
+            <img src={singleBook.image_url} alt="book image"></img>
+            <div id="singleInfo">
+              <div className="title">{singleBook.name}</div>
+              <div className="author">Author: {singleBook.author}</div>
+              <div className="price">Price: {singleBook.price}</div>
+              <div className="description">
+                Summary: {singleBook.description}
+              </div>
+              <button
+                onClick={() => {
+                  addItemSubmit();
+                }}
+              >
+                Add to Cart
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/allbooks");
+                }}
+              >
+                Continue Shopping
+              </button>
+              <Link>Add to Wish List</Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div>Loading your book..</div>
+      )}
+    </>
   );
 };
 
