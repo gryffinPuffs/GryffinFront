@@ -8,10 +8,11 @@ const SingleProduct = ({
   user,
   theCart,
   setTheCart,
+  setQuantity,
+  quantity,
 }) => {
   const navigate = useNavigate();
   const [singleBook, setSingleBook] = useState({});
-  const [quant, setQuant] = useState(1);
   useEffect(() => {
     async function fetchBook() {
       const theBook = await getProductById(bookInfo);
@@ -27,7 +28,7 @@ const SingleProduct = ({
       user.cart.id,
       singleBook.id,
       singleBook.price,
-      quant
+      quantity
     );
     console.log("product object added cart", productToAdd);
     let alreadyInCart = false;
