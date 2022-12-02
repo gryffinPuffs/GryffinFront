@@ -15,20 +15,6 @@ const AllBooks = ({ bookInfo, setBookInfo }) => {
     fetchAllBooks();
   }, []);
 
-  //admin access only - delete single product
-  //   useEffect(() => {
-  //     async function deleteBook(){
-  //       const productToDelete = await deleteProduct(id)
-  // setSingleBook(productToDelete)
-  //     }
-  //     deleteBook()
-  //   }, [])
-
-  //async function handleDeleteAdmin(product_id){
-  // const productToDestroy = product.id
-  //const destroyedProduct = await deleteProduct(id)
-  // }
-
   return (
     <div id="allBooks">
       <h2> Find your new adventure!</h2>
