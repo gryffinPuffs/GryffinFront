@@ -38,7 +38,7 @@ const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice })
   }
 
   function totalItem(product, quantity) {
-    const thePrice = (product * quantity) / 100;
+    const thePrice = ((product * quantity)/100).toFixed(2);
     return thePrice;
   }
 
@@ -84,6 +84,7 @@ const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice })
         theCart.map((product) => {
           return (
             <div className="cartProds" key={`products-${product.id}`}>
+              <img className="cartprodimg" src={product.image_url} alt="book image"></img>
               <div>{product.name}</div>
               <div>
                 Total Price This Item: $

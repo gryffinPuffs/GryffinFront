@@ -10,13 +10,12 @@ const Book = ({ book, setBookInfo }) => {
           setBookInfo(book.id);
           navigate(`/singleproduct/${book.id}`);
         }}
-        className="bookImg"
+        className="bookInfo"
       >
         <img
           src={book.image_url}
           alt="book image"
-          height={400}
-          width={300}
+          className="prodBooks"
         ></img>
       </button>
       <div className="title">{book.name}</div>

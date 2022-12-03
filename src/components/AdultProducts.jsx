@@ -19,7 +19,7 @@ const AdultProducts = ({ bookInfo, setBookInfo }) => {
       {allAdultBooks && allAdultBooks.length ? (
         allAdultBooks.map((product) => {
           return (
-            <div id="adultBooks" key={`product-${product.id}`}>
+            <div id="adultBooks" className="book" key={`product-${product.id}`}>
               <div className="bookImg">
                 <button
                   onClick={() => {
@@ -27,7 +27,7 @@ const AdultProducts = ({ bookInfo, setBookInfo }) => {
                     navigate("/singleproduct");
                   }}
                 >
-                  <img src={product.image_url} alt="book image"></img>
+                  <img className="prodBooks" src={product.image_url} alt="book image"></img>
                 </button>
               </div>
               <div className="title">Book Name: {product.name}</div>

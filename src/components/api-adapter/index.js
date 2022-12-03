@@ -405,33 +405,19 @@ export async function deleteProductInCart(cartItemId) {
   }
 }
 
-//getAllUsers function needs to send token to back end and return array of all users
+export async function getAddressById(id) {
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
 
-// export async function updateCartProduct(
-// cartId,
-// productId,
-// price,
-// quantity,
-
-// ) {
-//   try {
-//     const options = {
-//       method: "PATCH",
-//       headers: {
-//         "Content-type": "application/json",
-//         Authorization: `Bearer ${localStorage.getItem("token")}`,
-//       },
-//       body: JSON.stringify({
-//         cartId,
-//         productId,
-//         price,
-//         quantity,
-//       }),
-//     };
-//     const response = await fetch(`${BASE_URL}/cart_item/${cartId}`, options);
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+    const response = await fetch(`${BASE_URL}/address/${id}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}

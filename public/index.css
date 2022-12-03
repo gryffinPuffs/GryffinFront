@@ -42,7 +42,7 @@ body {
   font-weight: bolder;
   color: #222;
   /* padding-right: 6rem; */
-  
+
 }
 
 #navbarImgs {
@@ -50,8 +50,8 @@ body {
   display: flex;
   justify-content: flex-start;
   align-content: center;
-  
-  
+
+
 }
 
 #accioImg {
@@ -202,7 +202,7 @@ margin:auto;
 .address-line{
   display: flex;
   padding: .5rem;
-  
+
 }
 
 .register-line{
@@ -281,7 +281,7 @@ margin:auto;
   animation: glowing-button-85 20s linear infinite;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
-  
+
 }
 
 @keyframes glowing-buttons {
@@ -308,3 +308,73 @@ margin:auto;
   border-radius: 10px;
 }
 
+.cartprodimg{
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  width: 45px;
+}
+.prodBooks{
+  display: flex;
+  height: 100px;
+  width: 75px;
+  object-fit: contain;
+}
+.book{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 20px;
+  width: 250px;
+  height:250px;
+  font-family: "Poller One", Arial, sans-serif;
+  box-shadow: 7px 0 5px gray;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  border: solid gray 3px
+}
+
+.cartProds{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "Poller One", Arial, sans-serif;
+  box-shadow: 7px 0 5px gray;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  border: solid gray 3px
+}
+#cartConfir{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "Poller One", Arial, sans-serif;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  border: solid gray 3px
+}
+#addressConfi{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "Poller One", Arial, sans-serif;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  border: solid gray 3px
+
+}
