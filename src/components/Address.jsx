@@ -27,8 +27,10 @@ const Address = () => {
   return (
     <div className="address-container">
         <h2 className="address-header">Set Your Address</h2>
+        <div className="address-input">
         <form onSubmit={handleAddress}>
         <input
+        className="address-line"
           type="text"
           name="address_line1"
           placeholder="Address Line 1 *"
@@ -41,6 +43,7 @@ const Address = () => {
         />
         <br />
         <input
+        className="address-line"
           type="text"
           name="address_line2"
           placeholder="Address Line 2"
@@ -52,6 +55,7 @@ const Address = () => {
         />
         <br />
         <input
+        className="address-line"
           type="text"
           name="city"
           placeholder="City *"
@@ -64,6 +68,7 @@ const Address = () => {
         />
         <br />
         <input
+        className="address-line"
           type="text"
           name="state"
           placeholder="State *"
@@ -76,8 +81,8 @@ const Address = () => {
         />
         <br />
         <input
+        className="address-line"
           type="text"
-        //   pattern="[0-9]"
           name="zip_code"
           placeholder="Zip Code *"
           required
@@ -88,8 +93,10 @@ const Address = () => {
           }}
         />
         <br />
-        <button className="address-button" type="submit">Submit</button>
+        <button className="buttons" type="submit">Submit</button>
+        
         </form>
+        </div>
     </div>
   )
 };

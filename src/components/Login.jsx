@@ -34,6 +34,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       <h2 className="login-header">Login</h2>
       <form onSubmit={handleLogin}>
         <input
+        className="login-line"
           type="text"
           name="username"
           placeholder="username *"
@@ -44,6 +45,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
           }}
         />
         <input
+        className="login-line"
           type="password"
           name="password"
           placeholder="password *"
@@ -52,7 +54,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
             setPassword(event.target.value);
           }}
         />
-        <button className="login-button" type="submit">
+        <button className="buttons" type="submit">
           Login
         </button>
       </form>

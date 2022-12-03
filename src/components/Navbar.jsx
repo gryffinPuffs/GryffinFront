@@ -16,7 +16,9 @@ const Navbar = (props) => {
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
         </div>
-        <h2 id="titleNavbar"> Accio Books!</h2>
+        <div id="navbarTitle">
+        <h1 id="titleNavbar"> Accio Books!</h1>
+        </div>
         <div className="links">
           <NavLink className="linkBar" to="/">
             Home
