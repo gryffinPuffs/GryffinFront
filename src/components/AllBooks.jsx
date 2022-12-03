@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getAllProducts } from "./api-adapter";
 import Book from "./Book";
+
 const AllBooks = ({ allBooks, setAllBooks }) => {
   useEffect(() => {
     async function fetchAllBooks() {
