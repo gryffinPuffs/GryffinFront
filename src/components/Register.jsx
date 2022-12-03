@@ -35,6 +35,7 @@ const Register = (props) => {
       <h2 className="register-header">Register</h2>
       <form onSubmit={handleRegister}>
         <input
+        className="register-line"
           type="text"
           name="username"
           placeholder="username *"
@@ -44,7 +45,9 @@ const Register = (props) => {
             setUsername(event.target.value);
           }}
         />
+        <br />
         <input
+        className="register-line"
           type="text"
           name="name"
           placeholder="name *"
@@ -54,7 +57,9 @@ const Register = (props) => {
             setName(event.target.value);
           }}
         />
+        <br />
         <input
+        className="register-line"
           type="text"
           name="email"
           placeholder="email *"
@@ -64,7 +69,9 @@ const Register = (props) => {
             setEmail(event.target.value);
           }}
         />
+        <br />
         <input
+        className="register-line"
           type="password"
           name="password"
           placeholder="password *"
@@ -78,7 +85,7 @@ const Register = (props) => {
         <small>*password must be 8 characters or more</small>
         <br />
 
-        <button className="register-button" type="submit">
+        <button className="buttons" type="submit">
           Register
         </button>
       </form>
