@@ -21,7 +21,6 @@ body {
 #titleNavbar {
   display: flex;
   justify-content: center;
-  margin-left: -200px;
 }
 
 #navbarImgs {
@@ -43,7 +42,6 @@ body {
   height: 125px;
   transform: rotate(-5deg);
   justify-content: flex-start;
-  margin-left: -50px;
 }
 
 #wandImg {
@@ -126,17 +124,32 @@ body {
   padding: 10px;
 }
 
-#singleProduct{
+#singleProduct {
   display: flex;
   flex-direction: column;
   padding: 2rem;
 }
 
-#singleInfo{
+#singleInfo {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-left: 1rem;
   font-size: 25px;
   justify-content: center;
+}
+
+#books {
+  display: inline-block;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "Poller One", Arial, sans-serif;
+  box-shadow: 7px 0 5px gray;
+  margin-bottom: 25px;
+  border-radius: 25px;
+  border: none;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  /* background-color: rgb(23, 24, 67); */
 }
