@@ -9,16 +9,17 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleProduct = ({
   bookInfo,
+  book,
   user,
   theCart,
   setTheCart,
-  loggedIn,
   allBooks,
   setAllBooks,
 }) => {
   const { bookId } = useParams();
   const navigate = useNavigate();
   const [singleBook, setSingleBook] = useState();
+
   const [update, setUpdate] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -67,9 +68,6 @@ const SingleProduct = ({
   //admin access only - delete single product
   async function handleDeleteAdmin(e) {
     e.preventDefault();
-    // const productToDestroy = bookInfo;
-    // console.log(bookInfo, "BANANA");
-    // console.log("this is product to destroy", productToDestroy);
     const destroyedProduct = await deleteProduct(bookInfo);
     console.log("ITS DESTROY PRODUCT", destroyedProduct);
     const availableProducts = allBooks.filter((product) => {
@@ -83,21 +81,37 @@ const SingleProduct = ({
   async function handleUpdateAdmin(e) {
     e.preventDefault();
     const updatedProduct = await updateProduct(
-      bookInfo,
-      singleBook.name,
-      singleBook.price,
-      singleBook.image_url,
-      singleBook.image_url2,
-      singleBook.author,
-      singleBook.audience,
-      singleBook.description
+      bookId,
+      name,
+      price,
+      image,
+      image2,
+      author,
+      audience,
+      description
     );
+    console.log(bookId, "This is book info");
+    console.log(updatedProduct, "UPDATED");
+
     const editedProducts = allBooks.filter((product) => {
       console.log(product, "THIS IS PRODUCT");
       return product.id == updatedProduct.id;
     });
     setAllBooks([editedProducts, ...allBooks]);
-    navigate("/allbooks");
+    // navigate("/allbooks");
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log("banana");
+    setName(singleBook.name);
+    setAuthor(singleBook.author);
+    setAudience(singleBook.audience);
+    setDescription(singleBook.description);
+    setImage(singleBook.image_url);
+    setImage2(singleBook.image_url2);
+    setPrice(singleBook.price);
+    setUpdate(true);
   }
 
   return (
@@ -130,102 +144,91 @@ const SingleProduct = ({
               <Link>Add to Wish List</Link>
             </div>
           </div>
+          <div>
+            {user.admin === true ? (
+              <>
+                <button onClick={handleDeleteAdmin}>Delete Book</button>
+                <button onClick={handleSubmit}>Edit Book </button>
+
+                {update ? (
+                  <>
+                    <form>
+                      <input
+                        placeholder="Book Title"
+                        className="Book Title"
+                        type="text"
+                        value={name}
+                        onChange={(event) => {
+                          setName(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Price"
+                        className="Price"
+                        type="text"
+                        value={price}
+                        onChange={(event) => {
+                          setPrice(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Image URL"
+                        className="Image URL"
+                        type="text"
+                        value={image}
+                        onChange={(event) => {
+                          setImage(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Image URL"
+                        className="Image URL"
+                        type="text"
+                        value={image2}
+                        onChange={(event) => {
+                          setImage2(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Audience Type"
+                        className="audienceType"
+                        type="text"
+                        value={audience}
+                        onChange={(event) => {
+                          setAudience(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Author"
+                        className="author"
+                        type="text"
+                        value={author}
+                        onChange={(event) => {
+                          setAuthor(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        placeholder="Description"
+                        className="description"
+                        type="text"
+                        value={description}
+                        onChange={(event) => {
+                          setDescription(event.target.value);
+                        }}
+                      ></input>
+                      <button onClick={handleUpdateAdmin} type="submit">
+                        Submit
+                      </button>
+                    </form>
+                  </>
+                ) : null}
+              </>
+            ) : null}
+          </div>
         </div>
       ) : (
         <div>Loading your book..</div>
       )}
-      <div>
-        {user.admin === true ? (
-          <>
-            <button onClick={handleDeleteAdmin}>Delete Book </button>
-          </>
-        ) : null}
-      </div>
-      {update === true ? (
-        <>
-          <button onClick={handleUpdateAdmin}>Edit Book </button>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              handleSubmit();
-            }}
-          >
-            <input
-              placeholder="Book Title"
-              className="Book Title"
-              type="text"
-              value={singleBook.name}
-              onChange={(event) => {
-                setName(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Price"
-              className="Price"
-              type="text"
-              value={singleBook.price}
-              onChange={(event) => {
-                setPrice(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Image URL"
-              className="Image URL"
-              type="text"
-              value={singleBook.image_url}
-              onChange={(event) => {
-                setImage(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Image URL"
-              className="Image URL"
-              type="text"
-              value={singleBook.image_url2}
-              onChange={(event) => {
-                setImage2(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Audience Type"
-              className="audienceType"
-              type="text"
-              value={singleBook.audience}
-              onChange={(event) => {
-                setAudience(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Author"
-              className="author"
-              type="text"
-              value={singleBook.author}
-              onChange={(event) => {
-                setAuthor(event.target.value);
-              }}
-              required
-            ></input>
-            <input
-              placeholder="Description"
-              className="description"
-              type="text"
-              value={singleBook.description}
-              onChange={(event) => {
-                setDescription(event.target.value);
-              }}
-              required
-            ></input>
-            <button onSubmit={handleSubmit} type="submit">
-              Submit
-            </button>
-          </form>
-        </>
-      ) : null}
     </>
   );
 };
