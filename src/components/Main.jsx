@@ -25,7 +25,7 @@ import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminBooks from "../AdminBooks";
-import Checkout from "./Checkout";
+
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -144,7 +144,7 @@ const Main = () => {
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
         <Route path="/users" element={<User user={user} />}></Route>
-        <Route Path="/checkout" element={<Checkout user={user} theCart={theCart}/>}></Route>
+        <Route path="/checkout" element={<Checkout user={user} theCart={theCart}/>}></Route>
       </Routes>
       <ToastContainer />
       <Footer />
