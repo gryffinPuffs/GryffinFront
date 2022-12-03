@@ -15,6 +15,7 @@ const SingleProduct = ({
   setTheCart,
   allBooks,
   setAllBooks,
+  allAdultBooks,
 }) => {
   const { bookId } = useParams();
   const navigate = useNavigate();
@@ -128,6 +129,7 @@ const SingleProduct = ({
                 Summary: {singleBook.description}
               </div>
               <button
+                className="shopButtons"
                 onClick={() => {
                   addItemSubmit();
                 }}
@@ -135,6 +137,7 @@ const SingleProduct = ({
                 Add to Cart
               </button>
               <button
+                className="shopButtons"
                 onClick={() => {
                   navigate("/allbooks");
                 }}

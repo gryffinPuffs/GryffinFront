@@ -18,7 +18,15 @@ const AllBooks = ({ allBooks, setAllBooks, setBookInfo }) => {
       <div id="books">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {
-              return <Book key={`allbooks-${book.id}`} book={book} setBookInfo={setBookInfo} />;
+              return (
+                <div>
+                  <Book
+                    key={`allbooks-${book.id}`}
+                    book={book}
+                    setBookInfo={setBookInfo}
+                  />
+                </div>
+              );
             })
           : null}
       </div>
