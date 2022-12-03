@@ -18,3 +18,4 @@ export { default as NotFound } from "./NotFound";
 export { default as Address } from "./Address";
 export { default as LoggedIn } from "./LoggedIn";
 export { default as User } from "./User";
+export { default as Book } from "./Book";

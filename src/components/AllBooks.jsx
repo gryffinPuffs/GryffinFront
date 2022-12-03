@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { getAllProducts } from "./api-adapter";
-import { Link, useNavigate } from "react-router-dom";
 import Book from "./Book";
-const AllBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
-  const navigate = useNavigate();
-
+const AllBooks = ({ allBooks, setAllBooks }) => {
   useEffect(() => {
     async function fetchAllBooks() {
       const allTheBooks = await getAllProducts();

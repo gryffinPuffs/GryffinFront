@@ -66,13 +66,6 @@ const SingleProduct = ({
   }
 
   //admin access only - delete single product
-  // useEffect(() => {
-  //   async function deleteBook(){
-  //     const productToDelete = await deleteProduct(id)
-  //     setSingleBook(productToDelete) }
-  //   deleteBook()
-  // }, [])
-
   async function handleDeleteAdmin(e) {
     e.preventDefault();
     // const productToDestroy = bookInfo;
@@ -146,91 +139,93 @@ const SingleProduct = ({
         {user.admin === true ? (
           <>
             <button onClick={handleDeleteAdmin}>Delete Book </button>
-            <button onClick={handleUpdateAdmin}>Edit Book </button>
           </>
         ) : null}
       </div>
       {update === true ? (
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            handleSubmit();
-          }}
-        >
-          <input
-            placeholder="Book Title"
-            className="Book Title"
-            type="text"
-            value={singleBook.name}
-            onChange={(event) => {
-              setName(event.target.value);
+        <>
+          <button onClick={handleUpdateAdmin}>Edit Book </button>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleSubmit();
             }}
-            required
-          ></input>
-          <input
-            placeholder="Price"
-            className="Price"
-            type="text"
-            value={singleBook.price}
-            onChange={(event) => {
-              setPrice(event.target.value);
-            }}
-            required
-          ></input>
-          <input
-            placeholder="Image URL"
-            className="Image URL"
-            type="text"
-            value={singleBook.image_url}
-            onChange={(event) => {
-              setImage(event.target.value);
-            }}
-            required
-          ></input>
-          <input
-            placeholder="Image URL"
-            className="Image URL"
-            type="text"
-            value={singleBook.image_url2}
-            onChange={(event) => {
-              setImage2(event.target.value);
-            }}
-            required
-          ></input>
-          <input
-            placeholder="Audience Type"
-            className="audienceType"
-            type="text"
-            value={singleBook.audience}
-            onChange={(event) => {
-              setAudience(event.target.value);
-            }}
-            required
-          ></input>
-          <input
-            placeholder="Author"
-            className="author"
-            type="text"
-            value={singleBook.author}
-            onChange={(event) => {
-              setAuthor(event.target.value);
-            }}
-            required
-          ></input>
-          <input
-            placeholder="Description"
-            className="description"
-            type="text"
-            value={singleBook.description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-            required
-          ></input>
-          <button onSubmit={handleSubmit} type="submit">
-            Submit
-          </button>
-        </form>
+          >
+            <input
+              placeholder="Book Title"
+              className="Book Title"
+              type="text"
+              value={singleBook.name}
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Price"
+              className="Price"
+              type="text"
+              value={singleBook.price}
+              onChange={(event) => {
+                setPrice(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Image URL"
+              className="Image URL"
+              type="text"
+              value={singleBook.image_url}
+              onChange={(event) => {
+                setImage(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Image URL"
+              className="Image URL"
+              type="text"
+              value={singleBook.image_url2}
+              onChange={(event) => {
+                setImage2(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Audience Type"
+              className="audienceType"
+              type="text"
+              value={singleBook.audience}
+              onChange={(event) => {
+                setAudience(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Author"
+              className="author"
+              type="text"
+              value={singleBook.author}
+              onChange={(event) => {
+                setAuthor(event.target.value);
+              }}
+              required
+            ></input>
+            <input
+              placeholder="Description"
+              className="description"
+              type="text"
+              value={singleBook.description}
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
+              required
+            ></input>
+            <button onSubmit={handleSubmit} type="submit">
+              Submit
+            </button>
+          </form>
+        </>
       ) : null}
     </>
   );

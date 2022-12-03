@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getProductByAudience } from "./api-adapter";
 
-const ChildProducts = ({ bookInfo, setBookInfo }) => {
+const ChildProducts = ({ setBookInfo }) => {
   const navigate = useNavigate();
   const [allChildProducts, setAllChildProducts] = useState({});
 

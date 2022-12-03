@@ -13,15 +13,15 @@ import {
   Register,
   Profile,
   SeeCartDetails,
-  SeeProductDetails,
   SingleProduct,
   Footer,
   NotFound,
   Address,
   User,
+  Book,
 } from "./";
-import { authUser, getUserByUsername } from "./api-adapter";
-import { ToastContainer, toast } from "react-toastify";
+import { authUser } from "./api-adapter";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminBooks from "../AdminBooks";
 
@@ -110,6 +110,10 @@ const Main = () => {
           }
         ></Route>
         <Route
+          path="/book"
+          element={<Book bookInfo={bookInfo} setBookInfo={setBookInfo} />}
+        ></Route>
+        <Route
           path="/singleproduct/:bookId"
           element={
             <SingleProduct
@@ -137,7 +141,7 @@ const Main = () => {
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
-        <Route path="/users" element={<User user={user}/>}></Route>
+        <Route path="/users" element={<User user={user} />}></Route>
       </Routes>
       <ToastContainer />
       <Footer />
