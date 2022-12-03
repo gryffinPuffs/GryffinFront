@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
   const loggedIn = props.loggedIn;
   const user = props.user;
-  console.log(user);
+
   return (
     <>
       <div id="navbar">

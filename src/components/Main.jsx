@@ -20,12 +20,12 @@ import {
   User,
   Book,
   Checkout,
+  ConfirmationPage,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminBooks from "../AdminBooks";
-
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -33,6 +33,7 @@ const Main = () => {
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const getLoggedInUser = async (token) => {
     if (token) {
@@ -137,6 +138,8 @@ const Main = () => {
               setUser={setUser}
               theCart={theCart}
               setTheCart={setTheCart}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
             />
           }
         ></Route>
@@ -144,7 +147,28 @@ const Main = () => {
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
         <Route path="/users" element={<User user={user} />}></Route>
-        <Route path="/checkout" element={<Checkout user={user} theCart={theCart}/>}></Route>
+        <Route
+          path="/checkout"
+          element={
+            <Checkout
+              user={user}
+              theCart={theCart}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
+            />
+          }
+        ></Route>
+        <Route
+          path="/confirmationPage"
+          element={
+            <ConfirmationPage
+              user={user}
+              theCart={theCart}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
+            />
+          }
+        ></Route>
       </Routes>
       <ToastContainer />
       <Footer />
