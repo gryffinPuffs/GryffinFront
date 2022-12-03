@@ -9,7 +9,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleProduct = ({
   bookInfo,
-  setBookInfo,
   user,
   theCart,
   setTheCart,
