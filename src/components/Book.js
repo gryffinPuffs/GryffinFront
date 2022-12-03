@@ -1,6 +1,6 @@
 import React from "react";
 
-const Book = ({ book }) => {
+const Book = ({ book, setBookInfo }) => {
   return (
     <div>
       <button
