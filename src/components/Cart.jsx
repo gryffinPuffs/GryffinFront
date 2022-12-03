@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   deleteProductInCart,
   getActiveCartByUsername,
   addItemToCart,
   deleteProduct,
 } from "./api-adapter";
+import ConfirmationPage from "./ConfirmationPage";
 
-const Cart = ({ user, setUser, theCart, setTheCart }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
+const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice }) => {
+  const navigate = useNavigate()
 
-  console.log(user, "look here");
 
   useEffect(() => {
     async function getUserCart() {
@@ -72,6 +73,10 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
       }
     }
   }
+  function handleSubmitConfirmation(){
+    setTotalPrice(totalPrice)
+    navigate("/confirmationpage")
+  }
   return (
     <div id="cart">
       <h2>CART</h2>
@@ -124,7 +129,7 @@ const Cart = ({ user, setUser, theCart, setTheCart }) => {
         <h2>Nothing in cart yet. Find some books!</h2>
       )}
       <h2>Total: ${(totalPrice/100).toFixed(2)}</h2>
-      <button>Checkout</button>
+      <button onClick={handleSubmitConfirmation}>Checkout</button>
     </div>
   );
 };
