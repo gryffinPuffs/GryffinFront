@@ -1,6 +1,19 @@
 import React from "react";
+// import { getProductById } from "./api-adapter";
+// import { useParams } from "react-router-dom";
 
 const Book = ({ book, setBookInfo }) => {
+  // const { bookId } = useParams();
+
+  // useEffect(() => {
+  //   async function fetchSingleBook() {
+  //     const singleBookInfo = await getProductById(bookId);
+  //     console.log(singleBookInfo);
+  //     setBookInfo(singleBookInfo);
+  //   }
+  //   fetchSingleBook();
+  // }, []);
+
   return (
     <div>
       <button
