@@ -140,7 +140,7 @@ body {
 }
 
 #books {
-  display: inline-block;
+  display: flex;
   padding: 20px;
   padding-top: 20px;
   font-family: "Poller One", Arial, sans-serif;
