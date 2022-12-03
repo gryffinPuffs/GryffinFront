@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getAllProducts } from "./api-adapter";
 import Book from "./Book";
 
-const AllBooks = ({ allBooks, setAllBooks }) => {
+const AllBooks = ({ allBooks, setAllBooks, setBookInfo }) => {
   useEffect(() => {
     async function fetchAllBooks() {
       const allTheBooks = await getAllProducts();
@@ -18,7 +18,7 @@ const AllBooks = ({ allBooks, setAllBooks }) => {
       <div id="books">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {
-              return <Book key={`allbooks-${book.id}`} book={book} />;
+              return <Book key={`allbooks-${book.id}`} book={book} setBookInfo={setBookInfo} />;
             })
           : null}
       </div>

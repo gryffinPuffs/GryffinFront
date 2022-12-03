@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+
 // import { getProductById } from "./api-adapter";
 // import { useParams } from "react-router-dom";
 
 const Book = ({ book, setBookInfo }) => {
+  const navigate=useNavigate()
   // const { bookId } = useParams();
 
   // useEffect(() => {
