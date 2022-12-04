@@ -146,8 +146,8 @@ const Main = () => {
         ></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
-        <Route path="/profile" element={<Profile user={user} />}></Route>
-        <Route path="/users" element={<User user={user} />}></Route>
+        <Route path="/profile" element={<Profile setUser = {setUser} user={user} />}></Route>
+        <Route path="/users" element={<User setUser = {setUser} user={user} />}></Route>
         <Route
           path="/makeproduct"
           element={
