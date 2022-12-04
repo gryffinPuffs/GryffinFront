@@ -5,15 +5,17 @@ import { getActiveCartByUsername, getAddressById, updateCart } from "./api-adapt
 
 
 
-const ConfirmationPage = ({user, theCart, totalPrice}) => {
+const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
   const [address, setAddress]=useState({})
+  const [cart, setCart]=useState({})
   const navigate= useNavigate()
   console.log(user, "user")
 
   useEffect(() => {
     async function getUserCart() {
       const userCart = await getActiveCartByUsername(user.username);
-
+      console.log(userCart, "is this cart?")
+      setCart(userCart)
     }
     getUserCart();
   }, []);
@@ -29,9 +31,11 @@ const ConfirmationPage = ({user, theCart, totalPrice}) => {
   }, []);
 
   async function handleSubmit(event){
+    event.preventDefault();
     try{
       console.log(user.id,"this?", user, "or something else?")
-      const newCart= await updateCart(user.cart.id, user.id, false)
+      const newCart= await updateCart(theCart.id, user.id, theCart.active)
+      newCart.active=false
       console.log(newCart, "Problem??")
       navigate("/checkout")
       return newCart

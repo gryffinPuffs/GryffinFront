@@ -164,6 +164,7 @@ const Main = () => {
             <ConfirmationPage
               user={user}
               theCart={theCart}
+              setTheCart={setTheCart}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
             />
