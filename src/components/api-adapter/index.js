@@ -207,6 +207,8 @@ export async function createProduct(
   name,
   price,
   image_url,
+  image_url2,
+  author,
   description,
   audience
 ) {
@@ -221,11 +223,13 @@ export async function createProduct(
         name,
         price,
         image_url,
+        image_url2,
+        author,
         audience,
         description,
       }),
     };
-    const response = await fetch(BASE_URL, options);
+    const response = await fetch(`${BASE_URL}/product`, options);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -393,6 +397,7 @@ export async function updateCart(cartId, user_id, active) {
   };
   const response = await fetch(`${BASE_URL}/cart/${cartId}`, options);
   const result = await response.json();
+  console.log(result, "what is this?")
   return result;
 }
 

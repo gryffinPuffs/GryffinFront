@@ -21,6 +21,7 @@ import {
   Book,
   Checkout,
   ConfirmationPage,
+  MakeProduct,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -148,6 +149,13 @@ const Main = () => {
         <Route path="/profile" element={<Profile user={user} />}></Route>
         <Route path="/users" element={<User user={user} />}></Route>
         <Route
+          path="/makeproduct"
+          element={
+            <MakeProduct
+              allBooks={allBooks}
+              setAllBooks={setAllBooks}
+            />}></Route>
+        <Route
           path="/checkout"
           element={
             <Checkout
@@ -164,6 +172,7 @@ const Main = () => {
             <ConfirmationPage
               user={user}
               theCart={theCart}
+              setTheCart={setTheCart}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
             />
