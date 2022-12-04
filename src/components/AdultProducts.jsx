@@ -35,8 +35,8 @@ const AdultProducts = ({ setBookInfo }) => {
                   ></img>
                 </button>
               </div>
-              <div className="title">Book Name: {product.name}</div>
-              <div className="author">Book Author: {product.author}</div>
+              <div className="title">Title: {product.name}</div>
+              <div className="author">Author: {product.author}</div>
               <br></br>
               <Link>Add to Wish List</Link>
             </div>

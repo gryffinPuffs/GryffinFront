@@ -1,5 +1,6 @@
 import React from "react";
 import accioScroll from "./AccioScroll.png";
+import duneBanner from "./duneBanner.jpg";
 
 const Home = () => {
   return (
@@ -13,8 +14,9 @@ const Home = () => {
         <br />
         ― George R.R. Martin
       </h2>
+      <img id="dune" src={duneBanner} alt="dune"></img>
       <div id="home-img">
-        <img id="accioImg" src={accioScroll} alt="Accio Logo"></img>
+        {/* <img id="accioImg" src={accioScroll} alt="Accio Logo"></img> */}
       </div>
     </div>
   );

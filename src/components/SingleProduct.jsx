@@ -20,7 +20,6 @@ const SingleProduct = ({
   const { bookId } = useParams();
   const navigate = useNavigate();
   const [singleBook, setSingleBook] = useState();
-
   const [update, setUpdate] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -122,7 +121,7 @@ const SingleProduct = ({
           <div className="bookImg">
             <img src={singleBook.image_url} alt="book image"></img>
             <div id="singleInfo">
-              <div className="title">{singleBook.name}</div>
+              <div className="title">Title:{singleBook.name}</div>
               <div className="author">Author: {singleBook.author}</div>
               <div className="price">Price: {singleBook.price}</div>
               <div className="description">
