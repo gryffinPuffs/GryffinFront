@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LoggedIn } from "./"
 import { useNavigate } from "react-router-dom"
 
@@ -15,12 +15,17 @@ console.log(user)
 
 
    <button type="purchase history" className="purchaseHistory">Purchase History</button>
-   <button type="Wish List" className="wishList">Wish List</button>
+   
    <button type="User Info" className="userInfo">User Info</button>
 
     {user && user.admin ? (<>
+
+    <Link to={"/users"}><button type="all users" className="allUsers">All Users</button></Link>
+    <button type="Create Product" className="createProduct">Create Product</button>
+
     <button type="all users" className="allUsers">All Users</button>
     <button type="Create Product" className="createProduct" onClick={()=>{navigate("/makeproduct")}} >Create Product</button>
+
     </>) : (null)}
 
     </div>
