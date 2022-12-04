@@ -237,6 +237,7 @@ export async function addItemToCart(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(cart),
     };
@@ -367,7 +368,7 @@ export async function createCart(user_id, active) {
   const result = await response.json();
   return result;
 }
-export async function updateCart(user_id, active) {
+export async function updateCart(cartId, user_id, active) {
   const options = {
     method: "PATCH",
     headers: {
@@ -379,7 +380,7 @@ export async function updateCart(user_id, active) {
       active,
     }),
   };
-  const response = await fetch(`${BASE}/cart/${id}`, options);
+  const response = await fetch(`${BASE_URL}/cart/${cartId}`, options);
   const result = await response.json();
   return result;
 }
