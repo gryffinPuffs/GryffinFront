@@ -15,29 +15,34 @@ const ChildProducts = ({ setBookInfo }) => {
   }, []);
 
   return (
-    <div id="childproducts">
-      <h1>Children's classics</h1>
+    <div className="childproducts">
+      {/* <h1>Children's classics</h1> */}
       {allChildProducts && allChildProducts.length ? (
         allChildProducts.map((product) => {
           return (
-            <div id="childBooks" className="book" key={`product-${product.id}`}>
-              <div className="bookImg">
+            <div id="childBooks" key={`product-${product.id}`}>
+              <div>
                 <button
+                  className="bookChildContainer"
                   onClick={() => {
                     setBookInfo(product.id);
                     navigate("/singleproduct/:bookId");
                   }}
                 >
                   <img
-                    className="prodBooks"
+                    id="childBookImg"
                     src={product.image_url}
                     alt="book image"
                   ></img>
+                  <div id="childTxtItems">
+                    <div id="title">Title: {product.name}</div>
+                    <div id="author">Author: {product.author}</div>
+                    <div>
+                      <Link>Add to Wish List</Link>
+                    </div>
+                  </div>
                 </button>
               </div>
-              <div className="title">Title: {product.name}</div>
-              <div className="author">Author: {product.author}</div>
-              <Link>Add to Wish List</Link>
             </div>
           );
         })
