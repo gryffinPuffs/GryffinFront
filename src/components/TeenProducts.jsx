@@ -24,10 +24,14 @@ const TeenProducts = ({ bookInfo, setBookInfo }) => {
               <button
                 onClick={() => {
                   setBookInfo(product.id);
-                  navigate("/singleproduct");
+                  navigate("/singleproduct/:bookId");
                 }}
               >
-                <img className="prodBooks" src={product.image_url} alt="book image"></img>
+                <img
+                  className="prodBooks"
+                  src={product.image_url}
+                  alt="book image"
+                ></img>
               </button>
               <div className="title">Book Name: {product.name}</div>
               <div className="author">Book Author: {product.author}</div>

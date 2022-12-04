@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getProductByAudience } from "./api-adapter";
 
-const AdultProducts = ({ bookInfo, setBookInfo }) => {
+const AdultProducts = ({ setBookInfo }) => {
   const navigate = useNavigate();
+  const { bookId } = useParams();
   const [allAdultBooks, setAllAdultBooks] = useState({});
 
   useEffect(() => {
@@ -19,15 +20,19 @@ const AdultProducts = ({ bookInfo, setBookInfo }) => {
       {allAdultBooks && allAdultBooks.length ? (
         allAdultBooks.map((product) => {
           return (
-            <div id="adultBooks" className="book" key={`product-${product.id}`}>
+            <div id="adultBooks" className="book" key={`product-${bookId}`}>
               <div className="bookImg">
                 <button
                   onClick={() => {
-                    setBookInfo(product.id);
-                    navigate("/singleproduct");
+                    setBookInfo(bookId);
+                    navigate("/singleproduct/:bookId");
                   }}
                 >
-                  <img className="prodBooks" src={product.image_url} alt="book image"></img>
+                  <img
+                    className="prodBooks"
+                    src={product.image_url}
+                    alt="book image"
+                  ></img>
                 </button>
               </div>
               <div className="title">Book Name: {product.name}</div>
