@@ -34,7 +34,7 @@ const Main = () => {
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  
   const getLoggedInUser = async (token) => {
     if (token) {
       const loggedInUser = await authUser(token);

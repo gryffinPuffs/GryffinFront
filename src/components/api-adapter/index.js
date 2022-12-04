@@ -109,6 +109,17 @@ export async function getUserByUsername(username) {
   }
 }
 
+export async function getAllUsers() {
+  try {
+    const response = await fetch(`${BASE_URL}/user`);
+    const result = await response.json();
+    console.log(result, "getallUsers, result");
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 //getAllProducts
 export async function getAllProducts() {
   try {
