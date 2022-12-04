@@ -26,7 +26,6 @@ import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminBooks from "../AdminBooks";
-import hpSwear from "./hpSwear.jpg";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -172,7 +171,6 @@ const Main = () => {
         ></Route>
       </Routes>
       <ToastContainer />
-      <img id="hpSwear" src={hpSwear} alt="hpSwear"></img>
       <Footer />
     </div>
   );
