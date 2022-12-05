@@ -30,7 +30,7 @@ import AdminBooks from "../AdminBooks";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({admin:false});
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
