@@ -19,6 +19,7 @@ export { default as Address } from "./Address";
 export { default as LoggedIn } from "./LoggedIn";
 export { default as User } from "./User";
 export { default as Book } from "./Book";
-export { default as Checkout} from "./Checkout";
-export { default as ConfirmationPage} from "./ConfirmationPage";
-export { default as MakeProduct} from "./MakeProduct"
+export { default as Checkout } from "./Checkout";
+export { default as ConfirmationPage } from "./ConfirmationPage";
+export { default as MakeProduct } from "./MakeProduct";
+export { default as SingleUser } from "./SingleUser";

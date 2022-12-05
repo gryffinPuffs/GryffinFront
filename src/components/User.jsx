@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getAllUsers } from "./api-adapter";
-
+import { SingleUser } from "./"
 const User = ({ user, setUser }) => {
+    const [allUsers, setAllUsers] = useState([])
   useEffect(() => {
     async function usersList() {
-      const user = await getAllUsers();
-      setUser(user);
+      const results = await getAllUsers();
+      console.log(user, "getting more users")
+      setAllUsers(results);
     }
     usersList();
   }, []);
@@ -14,9 +16,9 @@ const User = ({ user, setUser }) => {
     <>
       <div className="usersColumn">
         <h2 className="usersHeader">all users:</h2>
-        {user.length ? (
-          user.map((user) => {
-            return <singleUser user={user} key={`user_id-${user.id}`} />;
+        {allUsers.length ? (
+          allUsers.map((e) => {
+            return <SingleUser user={e} key={`user_id-${e.id}`} />;
           })
         ) : (
           <div>loading users...</div>

@@ -111,7 +111,13 @@ export async function getUserByUsername(username) {
 
 export async function getAllUsers() {
   try {
-    const response = await fetch(`${BASE_URL}/user`);
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${BASE_URL}/user`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const result = await response.json();
     console.log(result, "getallUsers, result");
     return result;
@@ -397,7 +403,7 @@ export async function updateCart(cartId, user_id, active) {
   };
   const response = await fetch(`${BASE_URL}/cart/${cartId}`, options);
   const result = await response.json();
-  console.log(result, "what is this?")
+  console.log(result, "what is this?");
   return result;
 }
 
