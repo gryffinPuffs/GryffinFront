@@ -15,7 +15,7 @@ const AllBooks = ({ allBooks, setAllBooks, setBookInfo }) => {
     <div id="allBooks">
       <h2> Find your new adventure!</h2>
       {/* add admin function for adding books here */}
-      <div id="books">
+      <div id="books" className="book">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {
               return (

@@ -11,14 +11,16 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
   async function handleLogin(event) {
     event.preventDefault();
     const { token, user } = await loginUser(username, password);
+    console.log(user, token)
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     setUsername("");
     setPassword("");
     setUser(user);
-    
+
+
     if (token) {
-      
+
       setLoggedIn(true);
       toast("Login Successful");
       navigate("/");

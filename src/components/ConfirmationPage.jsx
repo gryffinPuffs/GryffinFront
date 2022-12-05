@@ -1,17 +1,21 @@
 
 import React, {useState, useEffect} from "react";
-import { getActiveCartByUsername, getAddressById } from "./api-adapter";
+import { useNavigate } from "react-router-dom";
+import { getActiveCartByUsername, getAddressById, updateCart } from "./api-adapter";
 
 
 
-const ConfirmationPage = ({user, theCart, totalPrice}) => {
+const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
   const [address, setAddress]=useState({})
+  const [cart, setCart]=useState({})
+  const navigate= useNavigate()
   console.log(user, "user")
 
   useEffect(() => {
     async function getUserCart() {
       const userCart = await getActiveCartByUsername(user.username);
-
+      console.log(userCart, "is this cart?")
+      setCart(userCart)
     }
     getUserCart();
   }, []);
@@ -25,6 +29,21 @@ const ConfirmationPage = ({user, theCart, totalPrice}) => {
     }
     gettingAddress();
   }, []);
+
+  async function handleSubmit(event){
+    event.preventDefault();
+    try{
+      console.log(user.id,"this?", user, "or something else?")
+      const newCart= await updateCart(theCart.id, user.id, theCart.active)
+      newCart.active=false
+      console.log(newCart, "Problem??")
+      navigate("/checkout")
+      return newCart
+
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   return (
     <div id="ConfirmationPage">
@@ -53,6 +72,7 @@ const ConfirmationPage = ({user, theCart, totalPrice}) => {
   <div>{address.address_line2}</div>
   <div>{address.city}, {address.state} {address.zip_code}</div>
 </div></div>
+<button onClick={handleSubmit}>Submit Order</button>
   </div>);
 };
 

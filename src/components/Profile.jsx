@@ -1,39 +1,42 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-import { LoggedIn } from "./"
+import { Link } from "react-router-dom";
+import { LoggedIn } from "./";
+import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
+  const navigate = useNavigate();
   const user = props.user;
-console.log(user)
-  return(
-   <div>
-   <h2>profile</h2>
-   <LoggedIn user = {user} />
-   
+  console.log(user);
+  return (
+    <div>
+      <h2>profile</h2>
+      <LoggedIn user={user} />
 
+      <button type="purchase history" className="purchaseHistory">
+        Purchase History
+      </button>
 
-   <button type="purchase history" className="purchaseHistory">Purchase History</button>
-   <button type="Wish List" className="wishList">Wish List</button>
-   <button type="User Info" className="userInfo">User Info</button>
-    
-    {user && user.admin ? (<>
-    <button type="all users" className="allUsers">All Users</button>
-    <button type="Create Product" className="createProduct">Create Product</button>
-    </>) : (null)}
-    
+      <button type="User Info" className="userInfo">
+        User Info
+      </button>
+
+      {user && user.admin ? (
+        <>
+          <Link to={"/users"}>
+            <button type="all users" className="allUsers">
+              All Users
+            </button>
+          </Link>
+          <Link to={"/makeproduct"}><button type="Create Product" className="createProduct">
+            Create Product
+          </button></Link>
+        </>
+      ) : null}
     </div>
-  )
-}
+  );
+};
 
-
-
-
-  
-
-
-//buttons for Address, purchase History, wish list, 
-
-
+//buttons for Address, purchase History, wish list,
 
 //Add user purchase history (have not created)
 //Add user wish list (need to create component)
