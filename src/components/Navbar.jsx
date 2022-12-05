@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
   const loggedIn = props.loggedIn;
   const user = props.user;
-
+  const setUser = props.setUser
   return (
     <>
       <div id="navbar">
@@ -30,6 +30,7 @@ const Navbar = (props) => {
                 onClick={() => {
                   localStorage.removeItem("token");
                   setLoggedIn(false);
+                  setUser(null)
                 }}
               >
                 LogOut

@@ -27,6 +27,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       navigate("/");
     } else {
       toast.error("Login Failed");
+      
     }
 
 
