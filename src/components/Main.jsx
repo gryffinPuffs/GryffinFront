@@ -22,6 +22,7 @@ import {
   Checkout,
   ConfirmationPage,
   MakeProduct,
+  SingleUser,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -148,6 +149,7 @@ const Main = () => {
         <Route path="/address" element={<Address />}></Route>
         <Route path="/profile" element={<Profile setUser = {setUser} user={user} />}></Route>
         <Route path="/users" element={<User setUser = {setUser} user={user} />}></Route>
+        <Route path="/singleuser" element={<SingleUser/>}></Route>
         <Route
           path="/makeproduct"
           element={
