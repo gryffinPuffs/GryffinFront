@@ -73,7 +73,7 @@ const Main = () => {
         <Route
           path="/admin"
           element={
-            user.admin ? (
+            user && user.admin ? (
               <AdminBooks
                 setAllBooks={setAllBooks}
                 bookInfo={bookInfo}
