@@ -22,6 +22,7 @@ import {
   Checkout,
   ConfirmationPage,
   MakeProduct,
+  SingleUser,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -30,7 +31,7 @@ import AdminBooks from "../AdminBooks";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({ admin: false });
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
@@ -150,6 +151,7 @@ const Main = () => {
           path="/users"
           element={<User setUser={setUser} user={user} />}
         ></Route>
+        <Route path="/singleuser" element={<SingleUser />}></Route>
         <Route
           path="/makeproduct"
           element={
@@ -164,6 +166,7 @@ const Main = () => {
               theCart={theCart}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
+              setUser={setUser}
             />
           }
         ></Route>

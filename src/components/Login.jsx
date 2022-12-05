@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "./api-adapter";
+import { authUser, loginUser } from "./api-adapter";
 import { ToastContainer, toast } from "react-toastify";
 
 const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
@@ -11,14 +11,15 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
   async function handleLogin(event) {
     event.preventDefault();
     const { token, user } = await loginUser(username, password);
+    const userCart = await authUser(token)
     console.log(user, token)
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     setUsername("");
     setPassword("");
-    setUser(user);
-
-
+    setUser(user, userCart);
+    
+    
     if (token) {
 
       setLoggedIn(true);
@@ -26,6 +27,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       navigate("/");
     } else {
       toast.error("Login Failed");
+      
     }
 
 
