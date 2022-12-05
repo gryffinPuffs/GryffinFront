@@ -6,7 +6,8 @@ const SingleUser = (props) =>{
     <div className="singleUser">
 <h3>name: {user.name}</h3>
 <h3>username: {user.username}</h3>
-<h3>Address: {user.address}</h3>
+<h3>Address: {user.address_id}</h3>
+<h3>user ID: {user.id}</h3>
 
 
 
