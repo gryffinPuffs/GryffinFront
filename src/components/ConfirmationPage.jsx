@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { getActiveCartByUsername, getAddressById, updateCart } from "./api-adapter";
+import { createCart, getActiveCartByUsername, getAddressById, updateCart } from "./api-adapter";
 
 
 
@@ -35,11 +35,10 @@ const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
     try{
       console.log(user.id,"this?", user, theCart, "the Cart")
       const newCart= await updateCart(user.cart.id, user.id, false)
-
+      const actualNewCart = await createCart(user.id)
+      setTheCart(actualNewCart)
       console.log(newCart, "Problem??")
       navigate("/checkout")
-      return newCart
-
     }catch(error){
       console.log(error)
     }

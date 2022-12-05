@@ -39,13 +39,14 @@ const SingleProduct = ({
   }, []);
   async function addItemSubmit() {
     console.log("hello user data here", user, singleBook);
-
-    const productToAdd = await addItemToCart(
-      user.cart.id,
+const product = [user.cart.id,
       singleBook.id,
       singleBook.price,
       1,
-      true
+      true]
+      console.log(product)
+    const productToAdd = await addItemToCart(...product
+
     );
     console.log("product object added cart", productToAdd);
     let alreadyInCart = false;
