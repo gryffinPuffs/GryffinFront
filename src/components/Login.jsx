@@ -3,33 +3,33 @@ import { Link, useNavigate } from "react-router-dom";
 import { authUser, loginUser } from "./api-adapter";
 import { ToastContainer, toast } from "react-toastify";
 
-const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
+const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   async function handleLogin(event) {
     event.preventDefault();
     const { token, user } = await loginUser(username, password);
-    const userCart = await authUser(token)
-    console.log(user, token)
+    const userCart = await authUser(token);
+    console.log(user, token);
+
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
     setUsername("");
     setPassword("");
     setUser(user, userCart);
-    
-    
-    if (token) {
 
+    if (token) {
       setLoggedIn(true);
       toast("Login Successful");
       navigate("/");
     } else {
       toast.error("Login Failed");
-      
+      const message = token.message;
+      setError(message);
     }
-
 
     //work on logout function
   }
@@ -38,7 +38,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       <h2 className="login-header">Login</h2>
       <form onSubmit={handleLogin}>
         <input
-        className="login-line"
+          className="login-line"
           type="text"
           name="username"
           placeholder="username *"
@@ -49,7 +49,7 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
           }}
         />
         <input
-        className="login-line"
+          className="login-line"
           type="password"
           name="password"
           placeholder="password *"
@@ -67,6 +67,11 @@ const Login = ({loggedIn, setLoggedIn, user, setUser}) => {
       <Link to="/address" className="link">
         Register
       </Link>
+      {error ? (
+        <div>
+          <h3>{`${error}`}</h3>
+        </div>
+      ) : null}
     </div>
   );
 };

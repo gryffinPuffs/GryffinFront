@@ -60,7 +60,7 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
   async function handleUpdateAdmin(e) {
     e.preventDefault();
     const updatedProduct = await updateProduct(
-      bookId,
+      book.id,
       name,
       price,
       image,
@@ -69,7 +69,7 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
       audience,
       description
     );
-    console.log(bookId, "This is book info");
+    console.log(book.id, "This is book info");
     console.log(updatedProduct, "UPDATED");
 
     const editedProducts = allBooks.filter((product) => {
@@ -105,13 +105,14 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
               return (
                 <div key={`adminbooks-${book.id}`}>
                   <Book book={book} />
+                  <button onClick={handleDeleteAdmin}>Delete Book</button>
+                  <button onClick={handleSubmit}>Edit Book </button>
                 </div>
               );
             })
           : null}
       </div>
-      <button onClick={handleDeleteAdmin}>Delete Book</button>
-      <button onClick={handleSubmit}>Edit Book </button>
+
       <div>
         {update ? (
           <>
