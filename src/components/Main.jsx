@@ -164,6 +164,7 @@ const Main = () => {
             <Checkout
               user={user}
               theCart={theCart}
+              setTheCart={setTheCart}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
               setUser={setUser}

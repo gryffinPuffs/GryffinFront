@@ -7,17 +7,16 @@ import { createCart, getActiveCartByUsername, getAddressById, updateCart } from 
 
 const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
   const [address, setAddress]=useState({})
-  const [cart, setCart]=useState({})
   const navigate= useNavigate()
   console.log(user, "user")
 
   useEffect(() => {
     async function getUserCart() {
       const userCart = await getActiveCartByUsername(user.username);
-      console.log(userCart, "is this cart?")
-      setCart(userCart)
+      setTheCart(userCart.products)
     }
-    getUserCart();
+    !theCart.length && getUserCart()
+
   }, []);
 
   useEffect(() => {
@@ -33,11 +32,9 @@ const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
   async function handleSubmit(event){
     event.preventDefault();
     try{
-      console.log(user.id,"this?", user, theCart, "the Cart")
-      const newCart= await updateCart(user.cart.id, user.id, false)
-      const actualNewCart = await createCart(user.id)
-      setTheCart(actualNewCart)
-      console.log(newCart, "Problem??")
+
+      await updateCart(user.cart.id, user.id, false)
+    await createCart(user.id)
       navigate("/checkout")
     }catch(error){
       console.log(error)
