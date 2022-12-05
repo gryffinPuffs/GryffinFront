@@ -37,7 +37,6 @@ const SingleProduct = ({
     }
     fetchBook();
   }, []);
-console.log(user,"Yes??")
   async function addItemSubmit() {
     console.log("hello user data here", user, singleBook);
 
@@ -98,7 +97,7 @@ console.log(user,"Yes??")
       return product.id == updatedProduct.id;
     });
     setAllBooks([editedProducts, ...allBooks]);
-    // navigate("/allbooks");
+    navigate("/singleproduct");
   }
 
   async function handleSubmit(e) {
