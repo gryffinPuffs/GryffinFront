@@ -27,7 +27,7 @@ const AdultProducts = ({ setBookInfo }) => {
                   className="adultBookContainer"
                   onClick={() => {
                     setBookInfo(bookId);
-                    navigate("/singleproduct/:bookId");
+                    navigate(`/singleproduct/${product.id}`);
                   }}
                 >
                   <img
@@ -40,7 +40,7 @@ const AdultProducts = ({ setBookInfo }) => {
                       id="title"
                       onClick={() => {
                         setBookInfo(product.id);
-                        navigate("/singleproduct/:bookId");
+                        navigate(`/singleproduct/${product.id}`);
                       }}
                     >
                       {product.name}

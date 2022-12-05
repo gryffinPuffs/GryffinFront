@@ -27,7 +27,7 @@ const ChildProducts = ({ setBookInfo }) => {
                   className="bookChildContainer"
                   onClick={() => {
                     setBookInfo(product.id);
-                    navigate("/singleproduct/:bookId");
+                    navigate(`/singleproduct/${product.id}`);
                   }}
                 >
                   <img
@@ -42,7 +42,7 @@ const ChildProducts = ({ setBookInfo }) => {
                       id="title"
                       onClick={() => {
                         setBookInfo(product.id);
-                        navigate("/singleproduct/:bookId");
+                        navigate(`/singleproduct/${product.id}`);
                       }}
                     >
                       {product.name}
@@ -50,7 +50,10 @@ const ChildProducts = ({ setBookInfo }) => {
 
                     <div>
                       <Link id="wishlist">
-                        <span class="wishListText" data-hover="Add to Wishlist">
+                        <span
+                          className="wishListText"
+                          data-hover="Add to Wishlist"
+                        >
                           <img
                             id="wishlistImg"
                             src={wishList}

@@ -25,7 +25,7 @@ const TeenProducts = ({ bookInfo, setBookInfo }) => {
                 className="teenBookContainer"
                 onClick={() => {
                   setBookInfo(product.id);
-                  navigate("/singleproduct/:bookId");
+                  navigate(`/singleproduct/${product.id}`);
                 }}
               >
                 <img
@@ -38,7 +38,7 @@ const TeenProducts = ({ bookInfo, setBookInfo }) => {
                     id="title"
                     onClick={() => {
                       setBookInfo(product.id);
-                      navigate("/singleproduct/:bookId");
+                      navigate(`/singleproduct/${product.id}`);
                     }}
                   >
                     {product.name}
