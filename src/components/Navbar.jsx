@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useResolvedPath } from "react-router-dom";
-
 import books from "./flyingbooks.png";
 import wand from "./wand.png";
+import accioBooks from "./accioBooks.png";
 
 const Navbar = (props) => {
   const setLoggedIn = props.setLoggedIn;
@@ -16,8 +16,8 @@ const Navbar = (props) => {
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
         </div>
-        <div id="navbarTitle">
-        <h1 id="titleNavbar"> Accio Books!</h1>
+        <div>
+          <img id="accioImg" src={accioBooks} alt="thumb" />
         </div>
         <div className="links">
           <NavLink className="linkBar" to="/">

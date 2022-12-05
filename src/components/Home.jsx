@@ -1,9 +1,11 @@
 import React from "react";
-import accioScroll from "./AccioScroll.png";
+// import accioScroll from "./AccioScroll.png";
+import duneBanner from "./duneBanner.jpg";
 
 const Home = () => {
   return (
     <div id="Home">
+      <img id="dune" src={duneBanner} alt="dune"></img>
       <h2 id="home-quote">
         “Fantasy is silver and scarlet, indigo and azure, obsidian veined with
         gold and lapis lazuli. Reality is plywood and plastic, done up in mud
@@ -14,7 +16,7 @@ const Home = () => {
         ― George R.R. Martin
       </h2>
       <div id="home-img">
-        <img id="accioImg" src={accioScroll} alt="Accio Logo"></img>
+        {/* <img id="accioImg" src={accioScroll} alt="Accio Logo"></img> */}
       </div>
     </div>
   );
