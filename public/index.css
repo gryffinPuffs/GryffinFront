@@ -3,6 +3,7 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+  /* background-color: black; */
 }
 
 #navbar {
@@ -25,6 +26,7 @@ body {
   justify-content: center;
   text-align: center;
   font-family: cursive;
+  /* color: white; */
 }
 
 #home-img {
@@ -97,7 +99,6 @@ body {
   transform: rotate(-25deg);
   cursor: grabbing;
   transition-delay: 10ms;
-  color: yellow;
 }
 
 .links {
@@ -164,8 +165,7 @@ svg {
 
 #footer {
   display: flex;
-  font-family: "Poller One", Arial, sans-serif;
-  flex-grow: 1;
+  /* font-family: "Poller One", Arial, sans-serif; */
   min-height: 20px;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
@@ -173,6 +173,52 @@ svg {
   align-items: center;
   justify-content: center;
   margin: 10px;
+}
+
+#helplinks {
+  display: flex;
+  border-bottom: thin solid white;
+  padding: 5x;
+  margin: 5px;
+  font-size: medium;
+  color: white;
+  letter-spacing: 2px;
+  font-family: fantasy;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+footer a {
+  font-size: smaller;
+  color: white;
+  font-family: fantasy;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+}
+
+footer a:hover {
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+}
+
+.footerBar {
+  padding: 3px;
+  text-decoration: none;
+}
+.footerBar:hover {
+  color: yellow;
+  text-decoration: none;
 }
 
 #githubImg {
@@ -289,6 +335,61 @@ svg {
 }
 
 #childBookImg {
+  display: flex;
+  height: 400px;
+  width: 275px;
+  object-fit: contain;
+  justify-content: center;
+}
+
+.teenBookContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 350px;
+  object-fit: contain;
+  justify-content: center;
+  align-items: center;
+  border-radius: 70px;
+  border: 0 10px yellow;
+  background-color: black;
+  padding: 10px;
+  margin: auto;
+}
+
+.teenproducts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "fantasy";
+  box-shadow: 7px 0 5px gray;
+  margin-bottom: 25px;
+  border-radius: 100px;
+  border: none;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+#teenTxtItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 70px;
+  border: 0 10px yellow;
+  background-color: black;
+  padding: 10px;
+  color: white;
+  width: 275px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#teenBookImg {
   display: flex;
   height: 400px;
   width: 275px;
@@ -556,3 +657,105 @@ svg {
   margin-left: 100px;
   border: solid gray 3px;
 }
+
+.wishListText {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.wishListText:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.wishListText:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.childHover {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.childHover:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.childHover:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+#notfound {
+  display: flex;
+  justify-content: center;
+  font: fantasy;
+}
+#webError {
+  display: inline;
+  justify-content: center;
+  font-size: 72px;
+  font-family: fantasy;
+}
+
+/* .container {
+  position: relative;
+  width: 50%;
+} */
+
+/* #overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #008cba;
+} */
+
+/* .container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+} */

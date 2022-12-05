@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getProductByAudience } from "./api-adapter";
 import { Link, useNavigate } from "react-router-dom";
+import wishList from "./wishlist.png";
 
 const TeenProducts = ({ bookInfo, setBookInfo }) => {
   const navigate = useNavigate();
@@ -15,28 +16,47 @@ const TeenProducts = ({ bookInfo, setBookInfo }) => {
   }, []);
 
   return (
-    <div id="teenproducts">
-      <h1>Teen Classics</h1>
+    <div className="teenproducts">
       {allTeenBooks && allTeenBooks.length ? (
         allTeenBooks.map((product) => {
           return (
-            <div id="teenBooks" className="book" key={`product-${product.id}`}>
+            <div id="teenBooks" key={`product-${product.id}`}>
               <button
+                className="teenBookContainer"
                 onClick={() => {
                   setBookInfo(product.id);
                   navigate("/singleproduct/:bookId");
                 }}
               >
                 <img
-                  className="prodBooks"
+                  id="teenBookImg"
                   src={product.image_url}
                   alt="book image"
                 ></img>
+                <div id="teenTxtItems">
+                  <div
+                    id="title"
+                    onClick={() => {
+                      setBookInfo(product.id);
+                      navigate("/singleproduct/:bookId");
+                    }}
+                  >
+                    {product.name}
+                  </div>
+
+                  <div>
+                    <Link id="wishlist">
+                      <span class="wishListText" data-hover="Add to Wishlist">
+                        <img
+                          id="wishlistImg"
+                          src={wishList}
+                          alt="Wishlist"
+                        ></img>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
               </button>
-              <div className="title">Title: {product.name}</div>
-              <div className="author">Author: {product.author}</div>
-              <br></br>
-              <Link>Add to Wish List</Link>
             </div>
           );
         })

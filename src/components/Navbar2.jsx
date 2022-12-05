@@ -5,10 +5,11 @@ const Navbar2 = () => {
   return (
     <div id="navbar2">
       <NavLink className="linkBook" to="/allbooks">
-        All Books
+        Shop All Books
       </NavLink>
+      {/* <h3>Shop By Category:</h3> */}
       <NavLink className="linkBook" to="/childproducts">
-        Children
+        Children's
       </NavLink>
       <NavLink className="linkBook" to="/teenproducts">
         Teens
