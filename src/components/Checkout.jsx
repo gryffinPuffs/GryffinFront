@@ -1,14 +1,15 @@
 import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { createCart } from "./api-adapter";
+import { createCart, authUser } from "./api-adapter";
 
-const Checkout = ({user,setUser}) => {
+const Checkout = ({user,setUser, setTheCart}) => {
   const navigate=useNavigate()
 
   useEffect(() => {
     async function doThething(){
   const userStuff = await authUser(localStorage.getItem('token'))
   setUser(userStuff)
+  setTheCart(userStuff.cart.products)
   }
    doThething()
    //authUser again and setUser in main. should have new cart on it.
