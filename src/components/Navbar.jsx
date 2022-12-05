@@ -38,11 +38,11 @@ const Navbar = (props) => {
               <NavLink className="linkBar" to="/profile">
                 Profile
               </NavLink>
-              {/* {loggedIn && user.admin ? (
+              {loggedIn && user.admin ? (
                 <NavLink className="linkBar" to="/admin">
                   Admin
                 </NavLink>
-              ) : null} */}
+              ) : null}
             </>
           ) : (
             <NavLink className="linkBar" to="/login">

@@ -1,24 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHref } from "react-router-dom";
 
-const Book = ({ book, setBookInfo }) => {
+const Book = ({ book }) => {
   const navigate = useNavigate();
+  const ref = useHref();
 
   return (
     <div>
       <button
+        disabled={ref == "/admin"}
         onClick={() => {
-          setBookInfo(book.id);
           navigate(`/singleproduct/${book.id}`);
         }}
         className="bookInfo"
       >
-        <img
-          src={book.image_url}
-          alt="book image"
-          className="prodBooks"
-        ></img>
+        <img src={book.image_url} alt="book image" className="prodBooks"></img>
       </button>
-      <div className="title">{book.name}</div>
+      :<div className="title">{book.name}</div>
       <div className="author">Author: {book.author}</div>
     </div>
   );

@@ -31,7 +31,7 @@ import AdminBooks from "../AdminBooks";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState({admin:false});
+  const [user, setUser] = useState({ admin: false });
   const [bookInfo, setBookInfo] = useState({});
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
@@ -115,10 +115,6 @@ const Main = () => {
           }
         ></Route>
         <Route
-          path="/book"
-          element={<Book bookInfo={bookInfo} setBookInfo={setBookInfo} />}
-        ></Route>
-        <Route
           path="/singleproduct/:bookId"
           element={
             <SingleProduct
@@ -147,16 +143,21 @@ const Main = () => {
         ></Route>
         <Route path="/*" element={<NotFound />}></Route>
         <Route path="/address" element={<Address />}></Route>
-        <Route path="/profile" element={<Profile setUser = {setUser} user={user} />}></Route>
-        <Route path="/users" element={<User setUser = {setUser} user={user} />}></Route>
-        <Route path="/singleuser" element={<SingleUser/>}></Route>
+        <Route
+          path="/profile"
+          element={<Profile setUser={setUser} user={user} />}
+        ></Route>
+        <Route
+          path="/users"
+          element={<User setUser={setUser} user={user} />}
+        ></Route>
+        <Route path="/singleuser" element={<SingleUser />}></Route>
         <Route
           path="/makeproduct"
           element={
-            <MakeProduct
-              allBooks={allBooks}
-              setAllBooks={setAllBooks}
-            />}></Route>
+            <MakeProduct allBooks={allBooks} setAllBooks={setAllBooks} />
+          }
+        ></Route>
         <Route
           path="/checkout"
           element={
