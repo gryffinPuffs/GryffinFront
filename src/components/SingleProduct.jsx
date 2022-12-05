@@ -37,6 +37,7 @@ const SingleProduct = ({
     }
     fetchBook();
   }, []);
+
   async function addItemSubmit() {
     console.log("hello user data here", user, singleBook);
 

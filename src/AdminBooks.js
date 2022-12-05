@@ -14,27 +14,35 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
     fetchAllBooks();
   }, []);
 
-  async function handleSubmit(event){
-    try{
-      const newProduct= await createProduct(name, price, image_url, image_url2, author,description, audience)
-      setAllBooks([newProduct, ...allBooks])
-    }catch(error){
-      console.log(error)
+  async function handleSubmit(event) {
+    try {
+      const newProduct = await createProduct(
+        name,
+        price,
+        image_url,
+        image_url2,
+        author,
+        description,
+        audience
+      );
+      setAllBooks([newProduct, ...allBooks]);
+    } catch (error) {
+      console.log(error);
     }
-
   }
 
   return (
     <div id="allBooks">
       <h2> You may Edit these books</h2>
-      <NavLink className="linkBar" to="/makeproduct">New Product</NavLink>
+      <NavLink className="linkBar" to="/makeproduct">
+        New Product
+      </NavLink>
       <div id="books">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {
               return (
                 <div key={`adminbooks-${book.id}`}>
                   <Book book={book} />
-                  <div>Edit stuff here</div>
                 </div>
               );
             })
