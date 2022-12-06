@@ -527,7 +527,10 @@ footer a:hover {
   object-fit: contain;
   justify-content: center;
 }
-
+#admin-book-title {
+  font-family: fantasy;
+  color: white;
+}
 .address-container {
   display: flex;
   flex-direction: column;

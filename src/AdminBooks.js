@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  createProduct,
-  getAllProducts,
-  deleteProduct,
-  updateProduct,
-} from "./components/api-adapter";
+import { getAllProducts, deleteProduct } from "./components/api-adapter";
 import Book from "./components/Book";
 import EditForm from "./EditForm";
 
@@ -24,23 +19,23 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
     setEditId(e.target.id);
     setUpdate(true);
   }
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      const newProduct = await createProduct(
-        name,
-        price,
-        image_url,
-        image_url2,
-        author,
-        description,
-        audience
-      );
-      setAllBooks([newProduct, ...allBooks]);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   try {
+  //     const newProduct = await createProduct(
+  //       name,
+  //       price,
+  //       image_url,
+  //       image_url2,
+  //       author,
+  //       description,
+  //       audience
+  //     );
+  //     setAllBooks([newProduct, ...allBooks]);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   //admin access only - delete single product
   async function handleDeleteAdmin(e) {
@@ -58,11 +53,13 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
 
   return (
     <div id="allBooks">
-      <h1>Wizards welcomed, muggles tolerated.</h1>
-      <h3>
-        Here you will find our current product inventory. As an administrator,
-        you may create, edit, and remove books.
-      </h3>
+      <div id="admin-header">
+        <h1>Wizards welcomed, muggles tolerated.</h1>
+        <h3>
+          Here you will find our current product inventory. As an administrator,
+          you may create, edit, and remove books.
+        </h3>
+      </div>
       <button
         className="create-product-button"
         onClick={() => {
@@ -82,8 +79,9 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
                     Delete Book
                   </button>
                   <button id={book.id} onClick={handleChooseEdit}>
-                    Edit Book{" "}
+                    Edit Book
                   </button>
+
                   {update && book.id == editId ? (
                     <EditForm
                       book={book}
