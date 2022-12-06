@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { getProductById, addItemToCart } from "./api-adapter";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -32,8 +33,16 @@ const SingleProduct = ({ user, theCart, setTheCart }) => {
     });
     if (alreadyInCart) {
       setTheCart(cart);
+      toast.success("Added To Cart!", {
+        position: toast.POSITION.TOP_LEFT,
+      });
     } else {
       setTheCart([...cart, productToAdd]);
+      {
+        toast.success("Added To Cart!", {
+          position: toast.POSITION.TOP_LEFT,
+        });
+      }
     }
   }
 
