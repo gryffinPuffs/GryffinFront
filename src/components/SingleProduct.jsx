@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   getProductById,
   addItemToCart,
@@ -56,8 +57,16 @@ const SingleProduct = ({
     });
     if (alreadyInCart) {
       setTheCart(cart);
+      toast.success("Added To Cart!", {
+        position: toast.POSITION.TOP_LEFT,
+      });
     } else {
       setTheCart([...cart, productToAdd]);
+      {
+        toast.success("Added To Cart!", {
+          position: toast.POSITION.TOP_LEFT,
+        });
+      }
     }
   }
 

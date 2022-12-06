@@ -27,7 +27,7 @@ const Register = (props) => {
       });
       navigate("/Login");
     } else {
-      toast.error("Register Failed", {
+      toast.error("User Already Exists", {
         position: toast.POSITION.TOP_LEFT
       });
       navigate("/Register");
