@@ -28,6 +28,7 @@ import {
   Subscribe,
   AboutUs,
   UserInfo,
+  OrderHistory
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -150,6 +151,7 @@ const Main = () => {
           }
         ></Route>
         <Route path="/*" element={<NotFound />}></Route>
+        <Route path="/orderhistory" element={<OrderHistory user={setUser} />}></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route
           path="/profile"
