@@ -55,8 +55,7 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
               src={singleBook.image_url}
               alt="book image"
             ></img>
-          {/* </div>
-          <div> */}
+          
             <Link id="wishlist">
               <span className="wishListText" data-hover="Add to favorites">
                 <img id="wishlistImg" src={wishListSingle} alt="Wishlist"></img>
