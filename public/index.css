@@ -13,11 +13,13 @@ body {
   /* min-height: 40px; */
   background-color: rgb(20, 20, 20);
   color: white;
- 
+
   display: flex;
   align-content: center;
+  align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  max-height: 15vh;
 }
 
 #topNavBar{
@@ -57,18 +59,22 @@ body {
   width: 275px;
   display: flex;
   justify-content: flex-start;
-  align-content: center;
+  padding-right: 10px;
+  align-items: center;
 }
 
 #accioImg {
-  display: flex;
-  position: relative;
-  width: auto;
+  display: block;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-left: 5px;
+  max-width: 30%;
   height: 200px;
   justify-content: center;
   align-content: center;
   margin-top: 10px;
-  
+
 }
 
 #booksImg {
@@ -79,10 +85,10 @@ body {
   margin-left: -40px;
 }
 #username {
-  display: flex;
   align-content: baseline;
-  /* padding: 10px; */
-  margin-left: 10px;
+  position: absolute;
+  right: 10px;
+  top: -20px;
   font-family: fantasy;
   font-size: 1.5rem;
 }
@@ -128,6 +134,7 @@ body {
 .links {
   display: flex;
   justify-content: flex-end;
+  max-height: 100%;
   padding: 3px;
   color: white;
   font-weight: bold;
@@ -137,6 +144,8 @@ body {
   text-decoration: none;
 }
 .linkBar {
+  position: relative;
+  top: 30px;
   padding: 3px;
   text-decoration: none;
 }
