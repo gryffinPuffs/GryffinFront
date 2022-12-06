@@ -131,6 +131,7 @@ const Main = () => {
               user={user}
               allBooks={allBooks}
               setAllBooks={setAllBooks}
+              loggedIn={loggedIn}
             />
           }
         ></Route>

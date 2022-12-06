@@ -11,7 +11,7 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
 
   async function handleLogin(event) {
     event.preventDefault();
-    const { token, user } = await loginUser(username, password);
+    const { token, user, message } = await loginUser(username, password);
     const userCart = await authUser(token);
     console.log(user, token);
 
@@ -28,7 +28,7 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
       });
       navigate("/");
     } else {
-      toast.error("Login Failed", {
+      toast.error(`${message}`, {
         position: toast.POSITION.TOP_LEFT
       });
     }
