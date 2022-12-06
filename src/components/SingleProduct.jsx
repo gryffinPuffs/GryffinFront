@@ -73,19 +73,27 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
               <div className="price">
                 ${(singleBook.price / 100).toFixed(2)}
               </div>
-            {loggedIn ?(
-              <button
-                className="shopButtons"
-                onClick={() => {
-                  addItemSubmit();
-                }}
-              >
-                Add to Cart
-              </button>):(<>
-              <h3>Please log in to add items to cart</h3>
-              <button onClick={()=>{navigate("/login")}}>
-                Log In
-              </button></>)}
+              {loggedIn ? (
+                <button
+                  className="shopButtons"
+                  onClick={() => {
+                    addItemSubmit();
+                  }}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <>
+                  <h3>Please log in to add items to cart</h3>
+                  <button
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                  >
+                    Log In
+                  </button>
+                </>
+              )}
               <button
                 className="go-back-button"
                 onClick={() => {
@@ -96,45 +104,12 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
               </button>
             </div>
 
-          <Link id="wishlist">
-            <span className="wishListText" data-hover="Add to favorites">
-              <img id="wishlistImg" src={wishListSingle} alt="Wishlist"></img>
-            </span>
-          </Link>
-
-          <div>
-            <h3>In Stock</h3>
+            <div id="singleInfo">
+              <div className="title">{singleBook.name}</div>
+              <div className="author">Author: {singleBook.author}</div>
+              <div className="description">{singleBook.description}</div>
+            </div>
           </div>
-
-          <div className="price">${(singleBook.price / 100).toFixed(2)}</div>
-          <div>
-            <button
-              className="shopButtons"
-              onClick={() => {
-                addItemSubmit();
-              }}
-            >
-              Add to Cart
-            </button>
-          </div>
-
-          <div>
-            <button
-              className="go-back-button"
-              onClick={() => {
-                navigate("/allbooks");
-              }}
-            >
-              Continue Shopping
-            </button>
-          </div>
-
-          <div id="singleInfo">
-            <div className="title">{singleBook.name}</div>
-            <div className="author">Author: {singleBook.author}</div>
-            <div className="description">{singleBook.description}</div>
-          </div>
-        </div>
         </div>
       ) : (
         <h1>Loading Single Book...</h1>
