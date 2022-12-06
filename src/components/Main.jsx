@@ -45,6 +45,7 @@ const Main = () => {
   const getLoggedInUser = async (token) => {
     if (token) {
       const loggedInUser = await authUser(token);
+      console.log(loggedInUser, "what is happening")
       setUser(loggedInUser);
     }
   };
@@ -143,6 +144,7 @@ const Main = () => {
               setTheCart={setTheCart}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
+              loggedIn={loggedIn}
             />
           }
         ></Route>

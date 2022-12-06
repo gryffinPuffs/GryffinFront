@@ -8,21 +8,24 @@ import {
 } from "./api-adapter";
 import ConfirmationPage from "./ConfirmationPage";
 
-const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice }) => {
+
+const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice, loggedIn }) => {
   const navigate = useNavigate()
 
 
   useEffect(() => {
     async function getUserCart() {
       const userCart = await getActiveCartByUsername(user.username);
+
       let runningTotal = 0
-      await  userCart.products.forEach(element => {
+     userCart.products.forEach(element => {
         runningTotal+= element.price * element.quantity
       });
       setTotalPrice(runningTotal)
       setTheCart(userCart.products);
     }
-    getUserCart();
+getUserCart()
+
   }, []);
 
   async function handleDeleteCartItem(event) {
@@ -79,9 +82,11 @@ const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice })
   }
   return (
     <div id="cart">
-      <h2>CART</h2>
+      {loggedIn ? (<>
+      <h2>Your Cart</h2>
       {theCart && theCart.length ? (
         theCart.map((product) => {
+          console.log("JESSY BROKE IT")
           return (
             <div className="cartProds" key={`products-${product.id}`}>
               <img className="cartprodimg" src={product.image_url} alt="book image"></img>
@@ -126,12 +131,15 @@ const Cart = ({ user, setUser, theCart, setTheCart, totalPrice, setTotalPrice })
             </div>
           );
         })
-      ) : (
-        <h2>Nothing in cart yet. Find some books!</h2>
-      )}
+      ) : (<>{console.log(theCart)}
+        <h2>Nothing in cart yet. Find some books!</h2></>
+      )}</>):(<h2>Please log in to see cart</h2>)}
+
       <h2>Total: ${(totalPrice/100).toFixed(2)}</h2>
-      <button onClick={handleSubmitConfirmation}>Checkout</button>
-    </div>
+      {loggedIn && theCart.length ?(<button onClick={handleSubmitConfirmation}>Checkout</button>):(null)}
+
+
+ </div>
   );
 };
 
