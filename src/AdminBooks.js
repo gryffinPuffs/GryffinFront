@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllProducts, deleteProduct } from "./components/api-adapter";
 import Book from "./components/Book";
 import EditForm from "./EditForm";
+import "./components/admin.css";
 
 const AdminBooks = ({ allBooks, setAllBooks }) => {
   const navigate = useNavigate();
@@ -53,15 +54,15 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
 
   return (
     <div id="allBooks">
-      <div id="admin-header">
-        <h1>Wizards welcomed, muggles tolerated.</h1>
-        <h3>
+      <div className="admin-header">
+        <h1 className="admin-header">Wizards welcomed, muggles tolerated.</h1>
+        <h3 className="admin-header">
           Here you will find our current product inventory. As an administrator,
           you may create, edit, and remove books.
         </h3>
       </div>
       <button
-        className="create-product-button"
+        className="admin-button-create"
         onClick={() => {
           navigate("/makeproduct");
         }}
@@ -75,10 +76,18 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
               return (
                 <div key={`adminbooks-${book.id}`}>
                   <Book book={book} />
-                  <button id={book.id} onClick={handleDeleteAdmin}>
+                  <button
+                    className="admin-buttons"
+                    id={book.id}
+                    onClick={handleDeleteAdmin}
+                  >
                     Delete Book
                   </button>
-                  <button id={book.id} onClick={handleChooseEdit}>
+                  <button
+                    className="admin-buttons"
+                    id={book.id}
+                    onClick={handleChooseEdit}
+                  >
                     Edit Book
                   </button>
 
