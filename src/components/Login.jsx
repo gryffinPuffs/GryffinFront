@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authUser, loginUser } from "./api-adapter";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
   const [password, setPassword] = useState("");
@@ -31,8 +31,6 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
       toast.error("Login Failed", {
         position: toast.POSITION.TOP_LEFT
       });
-      // const message = user.message;
-      // setError(message);
     }
 
     //work on logout function
