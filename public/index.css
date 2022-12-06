@@ -81,6 +81,9 @@ body {
 }
 #username {
   display: flex;
+  align-content: baseline;
+  padding: 10px;
+  margin: 10px;
 }
 
 #cartNav {
