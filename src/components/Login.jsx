@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const navigate = useNavigate();
 
   async function handleLogin(event) {
@@ -27,8 +27,8 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
       navigate("/");
     } else {
       toast.error("Login Failed");
-      const message = token.message;
-      setError(message);
+      // const message = user.message;
+      // setError(message);
     }
 
     //work on logout function
@@ -67,11 +67,11 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
       <Link to="/address" className="link">
         Register
       </Link>
-      {error ? (
+      {/* {error ? (
         <div>
           <h3>{`${error}`}</h3>
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
