@@ -18,6 +18,7 @@ const SingleProduct = ({
   allBooks,
   setAllBooks,
   allAdultBooks,
+  loggedIn,
 }) => {
   const { bookId } = useParams();
   const navigate = useNavigate();
@@ -147,7 +148,7 @@ const SingleProduct = ({
               <div className="price">
                 ${(singleBook.price / 100).toFixed(2)}
               </div>
-
+            {loggedIn ?(
               <button
                 className="shopButtons"
                 onClick={() => {
@@ -155,7 +156,11 @@ const SingleProduct = ({
                 }}
               >
                 Add to Cart
-              </button>
+              </button>):(<>
+              <h3>Please log in to add items to cart</h3>
+              <button onClick={()=>{navigate("/login")}}>
+                Log In
+              </button></>)}
               <button
                 className="go-back-button"
                 onClick={() => {
