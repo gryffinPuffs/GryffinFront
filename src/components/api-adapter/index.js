@@ -383,7 +383,7 @@ export async function createCart() {
   };
   const response = await fetch(`${BASE_URL}/cart`, options);
   const result = await response.json();
-  console.log(response, result)
+  console.log(response, result);
   return result;
 }
 export async function updateCart(cartId, user_id, active) {
