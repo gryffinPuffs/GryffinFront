@@ -6,6 +6,7 @@ import {
   updateProduct,
 } from "./api-adapter";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import wishListSingle from "./wishlistSingle.png";
 
 const SingleProduct = ({
   bookInfo,
@@ -115,15 +116,17 @@ const SingleProduct = ({
         <div id="singleProduct">
           <div className="bookImg">
             <img src={singleBook.image_url} alt="book image"></img>
-            <div id="singleInfo">
-              <div className="title">Title:{singleBook.name}</div>
-              <div className="author">Author: {singleBook.author}</div>
-              <div className="price">
-                Price: ${(singleBook.price / 100).toFixed(2)}
-              </div>
-              <div className="description">
-                Summary: {singleBook.description}
-              </div>
+            <div>
+              <h3>In Stock</h3>
+              <Link id="wishlist">
+                <span className="wishListText" data-hover="Add to favorites">
+                  <img
+                    id="wishlistImg"
+                    src={wishListSingle}
+                    alt="Wishlist"
+                  ></img>
+                </span>
+              </Link>
               <button
                 className="shopButtons"
                 onClick={() => {
@@ -140,7 +143,16 @@ const SingleProduct = ({
               >
                 Continue Shopping
               </button>
-              <Link>Add to Wish List</Link>
+            </div>
+            <div id="singleInfo">
+              <div className="title">{singleBook.name}</div>
+              <div className="author">Author: {singleBook.author}</div>
+              <div className="price">
+                ${(singleBook.price / 100).toFixed(2)}
+              </div>
+              <div className="description">
+                Summary: {singleBook.description}
+              </div>
             </div>
           </div>
           <div>

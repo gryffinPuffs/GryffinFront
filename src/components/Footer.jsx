@@ -1,6 +1,6 @@
 import React from "react";
 import gitHub from "./gitHub.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const url = "https://github.com/orgs/gryffinPuffs/repositories";
@@ -10,21 +10,23 @@ const Footer = () => {
         <div className="footerLinks">
           <section>
             <h3 id="helplinks">Customer Care</h3>
-            <a className="sublinks" href="">
+
+            <NavLink className="linkBar" to="/subscribe">
               Subscribe to Accio Newsletters
-            </a>
-            <a className="sublinks" href="">
+            </NavLink>
+            <NavLink className="linkBar" to="/profile">
               Account
-            </a>
-            <a className="sublinks" href="">
-              Policies
-            </a>
-            <a className="sublinks" href="">
+            </NavLink>
+
+            <NavLink className="linkBar" to="/policy">
+              Policy
+            </NavLink>
+            <NavLink className="linkBar" to="/Contact">
               Contact
-            </a>
-            <a className="sublinks" href="">
+            </NavLink>
+            <NavLink className="linkBar" to="/AboutUs">
               About Us
-            </a>
+            </NavLink>
           </section>
           {/* <NavLink className="footerNav" to="/">
             Contact

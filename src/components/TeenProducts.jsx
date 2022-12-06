@@ -46,7 +46,10 @@ const TeenProducts = ({ bookInfo, setBookInfo }) => {
 
                   <div>
                     <Link id="wishlist">
-                      <span className="wishListText" data-hover="Add to Wishlist">
+                      <span
+                        className="wishListText"
+                        data-hover="Add to favorites"
+                      >
                         <img
                           id="wishlistImg"
                           src={wishList}

@@ -1,4 +1,5 @@
-import { useNavigate, useHref } from "react-router-dom";
+import { useNavigate, useHref, Link } from "react-router-dom";
+import wishList from "./wishlist.png";
 
 const Book = ({ book }) => {
   const navigate = useNavigate();
@@ -14,9 +15,15 @@ const Book = ({ book }) => {
         className="bookInfo"
       >
         <img src={book.image_url} alt="book image" className="prodBooks"></img>
+
+        <Link id="wishlist">
+          <div className="wishListText" data-hover="Add to favorites">
+            <img id="wishlistImg" src={wishList} alt="Wishlist"></img>
+          </div>
+        </Link>
+        <div className="title">{book.name}</div>
+        <div className="author">Author: {book.author}</div>
       </button>
-      :<div className="title">{book.name}</div>
-      <div className="author">Author: {book.author}</div>
     </div>
   );
 };

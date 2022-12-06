@@ -48,7 +48,10 @@ const AdultProducts = ({ setBookInfo }) => {
 
                     <div>
                       <Link id="wishlist">
-                        <span class="wishListText" data-hover="Add to Wishlist">
+                        <span
+                          class="wishListText"
+                          data-hover="Add to Favorites"
+                        >
                           <img
                             id="wishlistImg"
                             src={wishList}
