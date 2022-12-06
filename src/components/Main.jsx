@@ -151,7 +151,7 @@ const Main = () => {
           }
         ></Route>
         <Route path="/*" element={<NotFound />}></Route>
-        <Route path="/orderhistory" element={<OrderHistory user={setUser} />}></Route>
+        <Route path="/orderhistory" element={<OrderHistory user={user} />}></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route
           path="/profile"

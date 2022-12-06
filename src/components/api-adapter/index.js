@@ -388,7 +388,7 @@ export async function getInactiveCartByUsername(username) {
       options
     );
     const result = await response.json();
-    console.log(result, "active cart");
+
 
     return result;
   } catch (error) {
