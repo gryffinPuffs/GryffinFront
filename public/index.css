@@ -69,6 +69,7 @@ body {
   justify-content: center;
   align-content: center;
   margin-top: 20px;
+  margin-left: -100px;
 }
 
 #booksImg {
@@ -358,6 +359,12 @@ footer a:hover {
   width: 275px;
   object-fit: contain;
   justify-content: center;
+  transition: transform 0.2s;
+}
+
+.childBookImg:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .teenBookContainer {
@@ -658,8 +665,14 @@ footer a:hover {
   width: 275px;
   object-fit: contain;
   justify-content: center;
+  transition: transform 0.2s;
+  /* box-shadow: 0 0 5px rgb(0 0 0 / 30%); */
 }
 
+.prodBooks:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
 .bookInfo {
   display: flex;
   height: auto;
@@ -796,6 +809,12 @@ footer a:hover {
   display: inline;
   justify-content: center;
   font-size: 72px;
+  font-family: fantasy;
+}
+
+#all-books-title {
+  display: flex;
+  justify-content: center;
   font-family: fantasy;
 }
 

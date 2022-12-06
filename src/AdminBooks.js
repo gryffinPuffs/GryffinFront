@@ -7,7 +7,7 @@ import {
   updateProduct,
 } from "./components/api-adapter";
 import Book from "./components/Book";
-import { NavLink } from "react-router-dom";
+
 const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
   const navigate = useNavigate();
   const [update, setUpdate] = useState(false);
@@ -27,7 +27,8 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
     fetchAllBooks();
   }, []);
 
-  async function handleSubmit(event) {
+  async function handleSubmit(e) {
+    e.preventDefault();
     try {
       const newProduct = await createProduct(
         name,
@@ -100,9 +101,15 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
         Here you will find our current product inventory. As an administrator,
         you may create, edit, and remove books.
       </h3>
-      <NavLink className="linkBar" to="/makeproduct">
+      <button
+        className="create-product-button"
+        onClick={() => {
+          navigate("/makeproduct");
+        }}
+      >
         New Product
-      </NavLink>
+      </button>
+
       <div id="books">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {
