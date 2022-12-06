@@ -28,3 +28,4 @@ export { default as Policy } from "./Policy";
 export { default as Subscribe } from "./Subscribe";
 export { default as AboutUs } from "./AboutUs";
 export { default as UserInfo } from "./UserInfo";
+export { default as OrderHistory} from "./OrderHistory"

@@ -373,6 +373,29 @@ export async function getActiveCartByUsername(username) {
     console.error(error);
   }
 }
+
+export async function getInactiveCartByUsername(username) {
+  try {
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+
+    const response = await fetch(
+      `${BASE_URL}/cart/${username}/inactive`,
+      options
+    );
+    const result = await response.json();
+    console.log(result, "active cart");
+
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function createCart() {
   const options = {
     method: "POST",
