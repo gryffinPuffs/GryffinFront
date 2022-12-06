@@ -14,7 +14,10 @@ const Contact = () => {
     setEmail("");
     setMessage("");
     toast(
-      "Your request was successfully submitted. Our Support Team will respond within 24 hours."
+      "Your request was successfully submitted. Our Support Team will respond within 24 hours.",
+      {
+        position: toast.POSITION.TOP_LEFT,
+      }
     );
   }
 

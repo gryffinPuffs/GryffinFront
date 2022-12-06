@@ -22,7 +22,7 @@ body {
   max-height: 15vh;
 }
 
-#topNavBar{
+#topNavBar {
   background-color: rgb(20, 20, 20);
   display: flex;
   align-content: center;
@@ -54,7 +54,6 @@ body {
   max-width: 100%;
 }
 
-
 #navbarImgs {
   width: 275px;
   display: flex;
@@ -65,7 +64,7 @@ body {
 
 #accioImg {
   display: block;
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   padding-left: 5px;
@@ -74,7 +73,6 @@ body {
   justify-content: center;
   align-content: center;
   margin-top: 10px;
-
 }
 
 #booksImg {
@@ -92,7 +90,6 @@ body {
   font-family: fantasy;
   font-size: 1.5rem;
 }
-
 
 #cartNav {
   display: flex;
