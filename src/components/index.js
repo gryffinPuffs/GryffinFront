@@ -23,3 +23,7 @@ export { default as Checkout } from "./Checkout";
 export { default as ConfirmationPage } from "./ConfirmationPage";
 export { default as MakeProduct } from "./MakeProduct";
 export { default as SingleUser } from "./SingleUser";
+export { default as Contact } from "./Contact";
+export { default as Policy } from "./Policy";
+export { default as Subscribe } from "./Subscribe";
+export { default as AboutUs } from "./AboutUs";

@@ -23,6 +23,10 @@ import {
   ConfirmationPage,
   MakeProduct,
   SingleUser,
+  Contact,
+  Policy,
+  Subscribe,
+  AboutUs,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -152,6 +156,10 @@ const Main = () => {
           element={<User setUser={setUser} user={user} />}
         ></Route>
         <Route path="/singleuser" element={<SingleUser />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/policy" element={<Policy />}></Route>
+        <Route path="/subscribe" element={<Subscribe />}></Route>
+        <Route path="/aboutus" element={<AboutUs />}></Route>
         <Route
           path="/makeproduct"
           element={

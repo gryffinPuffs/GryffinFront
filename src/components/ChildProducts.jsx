@@ -52,7 +52,7 @@ const ChildProducts = ({ setBookInfo }) => {
                       <Link id="wishlist">
                         <span
                           className="wishListText"
-                          data-hover="Add to Wishlist"
+                          data-hover="Add to favorites"
                         >
                           <img
                             id="wishlistImg"

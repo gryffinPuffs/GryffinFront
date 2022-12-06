@@ -95,7 +95,11 @@ const AdminBooks = ({ bookInfo, setBookInfo, allBooks, setAllBooks }) => {
 
   return (
     <div id="allBooks">
-      <h2> You may Edit these books</h2>
+      <h1>Wizards welcomed, muggles tolerated.</h1>
+      <h3>
+        Here you will find our current product inventory. As an administrator,
+        you may create, edit, and remove books.
+      </h3>
       <NavLink className="linkBar" to="/makeproduct">
         New Product
       </NavLink>
