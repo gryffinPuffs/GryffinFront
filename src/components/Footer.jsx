@@ -11,20 +11,20 @@ const Footer = () => {
           <section>
             <h3 id="helplinks">Customer Care</h3>
 
-            <NavLink className="linkBar" to="/subscribe">
+            <NavLink className="sub-helplinks" to="/subscribe">
               Subscribe to Accio Newsletters
             </NavLink>
-            <NavLink className="linkBar" to="/profile">
+            <NavLink className="sub-helplinks" to="/profile">
               Account
             </NavLink>
 
-            <NavLink className="linkBar" to="/policy">
+            <NavLink className="sub-helplinks" to="/policy">
               Policy
             </NavLink>
-            <NavLink className="linkBar" to="/Contact">
+            <NavLink className="sub-helplinks" to="/Contact">
               Contact
             </NavLink>
-            <NavLink className="linkBar" to="/AboutUs">
+            <NavLink className="sub-helplinks" to="/AboutUs">
               About Us
             </NavLink>
           </section>

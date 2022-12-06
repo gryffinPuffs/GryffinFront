@@ -204,6 +204,21 @@ svg {
   letter-spacing: 2px;
   font-family: fantasy;
 }
+.sub-helplinks {
+  /* padding: 5x;
+  margin: 5px; */
+  font-size: medium;
+  color: white;
+  letter-spacing: 2px;
+  font-family: fantasy;
+  text-decoration: none;
+  font-size: 13px;
+  margin-right: 20px;
+}
+
+.sub-helplinks:hover {
+  color: yellow;
+}
 
 .footerLinks {
   display: flex;
