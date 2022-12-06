@@ -114,10 +114,15 @@ const SingleProduct = ({
     <>
       {singleBook ? (
         <div id="singleProduct">
-          <div className="bookImg">
-            <img src={singleBook.image_url} alt="book image"></img>
+          <div>
             <div>
-              <h3>In Stock</h3>
+              <img
+                className="single-book-img"
+                src={singleBook.image_url}
+                alt="book image"
+              ></img>
+            </div>
+            <div>
               <Link id="wishlist">
                 <span className="wishListText" data-hover="Add to favorites">
                   <img
@@ -127,6 +132,13 @@ const SingleProduct = ({
                   ></img>
                 </span>
               </Link>
+            </div>
+            <div>
+              <h3>In Stock</h3>
+              <div className="price">
+                ${(singleBook.price / 100).toFixed(2)}
+              </div>
+
               <button
                 className="shopButtons"
                 onClick={() => {
@@ -136,7 +148,7 @@ const SingleProduct = ({
                 Add to Cart
               </button>
               <button
-                className="shopButtons"
+                className="go-back-button"
                 onClick={() => {
                   navigate("/allbooks");
                 }}
@@ -144,15 +156,13 @@ const SingleProduct = ({
                 Continue Shopping
               </button>
             </div>
+
             <div id="singleInfo">
               <div className="title">{singleBook.name}</div>
+
               <div className="author">Author: {singleBook.author}</div>
-              <div className="price">
-                ${(singleBook.price / 100).toFixed(2)}
-              </div>
-              <div className="description">
-                Summary: {singleBook.description}
-              </div>
+
+              <div className="description">{singleBook.description}</div>
             </div>
           </div>
           <div>
