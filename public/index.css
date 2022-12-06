@@ -8,9 +8,9 @@ body {
 
 #navbar {
   font-family: "Poller One", Arial, sans-serif;
-  flex-grow: 1;
-  max-height: 10%;
-  min-height: 40px;
+  /* flex-grow: 1; */
+  /* max-height: 10%; */
+  /* min-height: 40px; */
   background-color: rgb(20, 20, 20);
   color: white;
  
@@ -51,16 +51,7 @@ body {
   height: auto;
   max-width: 100%;
 }
-#navbarTitle {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  font-family: fantasy;
-  font-weight: bolder;
-  color: #222;
-  
-}
+
 
 #navbarImgs {
   width: 275px;
@@ -87,14 +78,13 @@ body {
   justify-content: flex-start;
   margin-left: -40px;
 }
-/* #username {
+#username {
   display: flex;
-
-} */
-
   align-content: baseline;
-  padding: 10px;
-  margin: 10px;
+  /* padding: 10px; */
+  margin-left: 10px;
+  font-family: fantasy;
+  font-size: 1.5rem;
 }
 
 
