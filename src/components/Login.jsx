@@ -23,10 +23,14 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
 
     if (token) {
       setLoggedIn(true);
-      toast("Login Successful");
+      toast.success("Login Successful", {
+        position: toast.POSITION.TOP_LEFT
+      });
       navigate("/");
     } else {
-      toast.error("Login Failed");
+      toast.error("Login Failed", {
+        position: toast.POSITION.TOP_LEFT
+      });
       // const message = user.message;
       // setError(message);
     }
