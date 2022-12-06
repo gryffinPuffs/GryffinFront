@@ -16,14 +16,13 @@ const Book = ({ book }) => {
       >
         <img src={book.image_url} alt="book image" className="prodBooks"></img>
         <div id="admin-book-title">{book.name}</div>
+        <div>Author: {book.author}</div>
 
         {/* <Link id="wishlist">
           <div className="wishListText" data-hover="Add to favorites">
             <img id="wishlistImg" src={wishList} alt="Wishlist"></img>
           </div>
         </Link> */}
-        {/* <div className="title">{book.name}</div>
-        <div className="author">Author: {book.author}</div> */}
       </button>
     </div>
   );
