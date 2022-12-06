@@ -8,6 +8,11 @@ const Navbar2 = () => {
         Shop All Books
       </NavLink>
       {/* <h3>Shop By Category:</h3> */}
+      {/* <select name="genre" value="Shop By Genre">
+        <option>Children's</option>
+        <option>Teens</option>
+        <option>Adult</option>
+      </select> */}
       <NavLink className="linkBook" to="/childproducts">
         Children's
       </NavLink>

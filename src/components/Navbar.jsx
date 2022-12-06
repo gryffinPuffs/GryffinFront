@@ -18,7 +18,11 @@ const Navbar = (props) => {
         <div id="navbarImgs">
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
+          <div id="username">
+            {loggedIn ? <h5>Welcome {`${user.username}`}</h5> : null}
+          </div>
         </div>
+
         <div>
           <img id="accioImg" src={accioBooks} alt="thumb" />
         </div>
@@ -38,15 +42,12 @@ const Navbar = (props) => {
               >
                 LogOut
               </NavLink>
-              <div id="username">
-                {loggedIn ? <h5>{`${user.username}`}</h5> : null}
-              </div>
+
               <NavLink className="linkBar" to="/profile">
                 <img id="profileIcon" src={profileIcon} alt="profileIcon"></img>
               </NavLink>
               {loggedIn && user.admin ? (
                 <NavLink className="linkBar" to="/admin">
-                  ADMIN
                   <img id="wizard" src={wizard} alt="wizard"></img>
                 </NavLink>
               ) : null}
