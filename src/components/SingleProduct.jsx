@@ -40,15 +40,9 @@ const SingleProduct = ({
 
   async function addItemSubmit() {
     console.log("hello user data here", user, singleBook);
-const product = [user.cart.id,
-      singleBook.id,
-      singleBook.price,
-      1,
-      true]
-      console.log(product)
-    const productToAdd = await addItemToCart(...product
-
-    );
+    const product = [user.cart.id, singleBook.id, singleBook.price, 1, true];
+    console.log(product);
+    const productToAdd = await addItemToCart(...product);
     console.log("product object added cart", productToAdd);
     let alreadyInCart = false;
     const cart = theCart.map((product) => {
@@ -124,7 +118,9 @@ const product = [user.cart.id,
             <div id="singleInfo">
               <div className="title">Title:{singleBook.name}</div>
               <div className="author">Author: {singleBook.author}</div>
-              <div className="price">Price: {singleBook.price}</div>
+              <div className="price">
+                Price: ${(singleBook.price / 100).toFixed(2)}
+              </div>
               <div className="description">
                 Summary: {singleBook.description}
               </div>
