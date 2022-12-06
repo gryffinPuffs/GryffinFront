@@ -27,3 +27,4 @@ export { default as Contact } from "./Contact";
 export { default as Policy } from "./Policy";
 export { default as Subscribe } from "./Subscribe";
 export { default as AboutUs } from "./AboutUs";
+export { default as UserInfo } from "./UserInfo";
