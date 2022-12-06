@@ -14,7 +14,7 @@ const AllBooks = ({ allBooks, setAllBooks, setBookInfo }) => {
 
   return (
     <div id="allBooks">
-      <h2> Find your new adventure!</h2>
+      <h2 id="all-books-title"> Find your new adventure!</h2>
       {/* add admin function for adding books here */}
       <div id="books" className="book">
         {allBooks && allBooks.length
