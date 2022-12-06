@@ -30,7 +30,7 @@ const Register = (props) => {
       toast.error("User Already Exists", {
         position: toast.POSITION.TOP_LEFT
       });
-      navigate("/Register");
+      
     }
   }
 
