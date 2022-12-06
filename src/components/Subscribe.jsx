@@ -6,7 +6,9 @@ const Subscribe = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     setEmail("");
-    toast("Thank you for subscribing!");
+    toast("Thank you for subscribing!", {
+      position: toast.POSITION.TOP_LEFT,
+    });
   }
 
   return (
