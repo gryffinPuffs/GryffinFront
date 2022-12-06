@@ -22,10 +22,14 @@ const Register = (props) => {
     localStorage.setItem("token", token);
 
     if (token) {
-      toast.success("Register Successful");
+      toast.success("Register Successful", {
+        position: toast.POSITION.TOP_LEFT
+      });
       navigate("/Login");
     } else {
-      toast.error("Register Failed");
+      toast.error("Register Failed", {
+        position: toast.POSITION.TOP_LEFT
+      });
       navigate("/Register");
     }
   }
