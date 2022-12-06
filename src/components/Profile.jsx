@@ -13,9 +13,9 @@ const Profile = (props) => {
       <LoggedIn user={user} />
 
       
-      <button type="User Info" className="userInfo">
+     <Link to={"/userinfo"}><button type="User Info" className="userInfo">
         User Info
-      </button>
+      </button></Link>
 
       {user && user.admin ? (
         <>

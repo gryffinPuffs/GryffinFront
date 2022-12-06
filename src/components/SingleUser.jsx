@@ -8,6 +8,8 @@ const SingleUser = (props) =>{
 <h3>username: {user.username}</h3>
 <h3>Address: {user.address_id}</h3>
 <h3>user ID: {user.id}</h3>
+<h3>Email: {user.email}</h3>
+
 
 
 

@@ -27,6 +27,7 @@ import {
   Policy,
   Subscribe,
   AboutUs,
+  UserInfo,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -160,6 +161,7 @@ const Main = () => {
         <Route path="/policy" element={<Policy />}></Route>
         <Route path="/subscribe" element={<Subscribe />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
+        <Route path="/userinfo" element={<UserInfo user={user}/>}></Route>
         <Route
           path="/makeproduct"
           element={
