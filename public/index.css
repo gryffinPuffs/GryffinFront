@@ -754,6 +754,7 @@ footer a:hover {
 }
 .bookInfo {
   display: flex;
+  flex-direction: column;
   height: auto;
   width: 350px;
   object-fit: contain;
