@@ -896,6 +896,11 @@ h3{
   font-family: fantasy;
 }
 
+.oldBooks{
+  height: 60px;
+  width: 45px;
+}
+
 /* .container {
   position: relative;
   width: 50%;
