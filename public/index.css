@@ -939,11 +939,12 @@ h3 {
 
 #notfound {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   font: fantasy;
 }
 #webError {
-  display: inline;
+  display: flex;
   justify-content: center;
   font-size: 72px;
   font-family: fantasy;
@@ -1230,4 +1231,28 @@ h3 {
 
 #profileLinks {
   padding: 1em;
+}
+
+#dumbledore {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#dumbledore-text {
+  display: flex;
+  justify-content: center;
+}
+
+#not-found-to-home {
+  display: flex;
+  justify-content: center;
+  text-decoration: dashed;
+  font-size: larger;
+}
+
+#not-found-to-home:hover {
+  text-decoration: dashed;
+  color: #05c846;
+  text-transform: lowercase;
 }

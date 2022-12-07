@@ -34,7 +34,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
     setAllBooks(editedProducts);
     setUpdate(false);
     {
-      toast.success("Product has updated.", {
+      toast.success("Check your logs. Product has updated.", {
         position: toast.POSITION.TOP_RIGHT,
       });
     }

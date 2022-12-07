@@ -26,7 +26,7 @@
   margin-top: 1rem;
   padding: 0.6em 2em;
   color: rgb(255, 255, 255);
-  background-color: crimson;
+  background-color: rgb(9, 117, 31);
   cursor: pointer;
   border-radius: 10px;
   margin-left: 47.5%;
@@ -149,7 +149,7 @@
 }
 #admin-button-make-product:hover {
   color: yellow;
-  background-color: black;
+  background-color: rgb(9, 117, 31);
 }
 
 #admin-return {
@@ -166,6 +166,6 @@
 }
 
 #admin-return:hover {
-  color: rgb(162, 35, 226);
+  color: yellow;
   background-color: black;
 }
