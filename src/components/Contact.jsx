@@ -26,46 +26,47 @@ const Contact = () => {
       <h2 id="header">How can we help?</h2>
       <div id="form">
         <form>
-          <input
-            type="text"
-            name="First-name"
-            placeholder="First name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            label="First Name"
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            label="Last Name"
-          />
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            label="Email"
-          />
-          <input
+          <div>
+            <input
+              type="text"
+              name="First-name"
+              placeholder="First name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              label="First Name"
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              label="Last Name"
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              label="Email"
+            />
+          </div>
+          <textarea
+            id="contact-text-area"
             type="text"
             name="message"
             placeholder="Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             label="Message"
-          />
+          ></textarea>
         </form>
-        <button
-          className="contactForm-button"
-          onClick={handleSubmit}
-          type="submit"
-        >
-          Submit
-        </button>
+        <div>
+          <button id="contact-form-button" onClick={handleSubmit} type="submit">
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

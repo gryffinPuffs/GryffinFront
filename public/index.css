@@ -977,6 +977,62 @@ h3 {
   height: 20px;
 }
 
+#policy {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 80%;
+  padding: 0;
+  margin: 0;
+  margin-left: 50px;
+}
+
+.policy-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  margin: 10px;
+}
+
+#contact-text-area {
+  width: 800px;
+  font-family: fantasy;
+}
+
+#contact-form-button {
+  width: auto;
+  margin-top: 45px;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: center;
+}
+
+#profile-header {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
 /* .container {
   position: relative;
   width: 50%;
