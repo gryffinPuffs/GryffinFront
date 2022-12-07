@@ -23,7 +23,7 @@ const Navbar = (props) => {
 
         <div className="links">
           <div id="username">
-            {loggedIn ? <h5>Welcome, {`${user.username}`}</h5> : null}
+            {loggedIn ? <h5>Welcome, {`${(user.username)[0].toUpperCase()+ (user.name).substring(1)}`}</h5> : null}
           </div>
           <NavLink className="linkBar" to="/">
             Home

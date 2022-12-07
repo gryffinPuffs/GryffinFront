@@ -162,7 +162,7 @@ const Cart = ({
 
       <h2>Total: ${(totalPrice / 100).toFixed(2)}</h2>
       {loggedIn && theCart.length ? (
-        <button className="Cbutton" onClick={handleSubmitConfirmation}>
+        <button className="Chbutton" onClick={handleSubmitConfirmation}>
           Checkout
         </button>
       ) : null}
