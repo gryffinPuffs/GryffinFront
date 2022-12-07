@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { getAddressById } from "./api-adapter"
+import { Link } from "react-router-dom";
 
 const UserInfo = (props) => {
   const user = props.user;
@@ -24,7 +25,12 @@ const UserInfo = (props) => {
   <div>{address.address_line2}</div>
   <div>{address.city}, {address.state} {address.zip_code}</div>
     <h3>Email: {user.email}</h3>
-    </div>
+
+    <Link to={"/profile"}><button type="profile" className="buttons">
+        Back
+      </button></Link>
+     </div>
+    
   );
 };
 
