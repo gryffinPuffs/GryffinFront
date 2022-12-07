@@ -9,8 +9,10 @@ const Profile = (props) => {
   console.log(user);
   return (
     <div>
+      <div id="profile-main">
       <h2>profile</h2>
       <LoggedIn user={user} />
+      </div>
 
      <div id="profileLinks"> 
      <Link to={"/userinfo"}><button type="User Info" className="buttons">
@@ -19,7 +21,7 @@ const Profile = (props) => {
       <Link to={"/favorite"}><button type="favorite" className="buttons">
         Favorites
       </button></Link>
-      </div>
+      
 
       {user && user.admin ? (
         <>
@@ -32,7 +34,7 @@ const Profile = (props) => {
             Create Product
           </button></Link>
         </>
-      ) : null}
+      ) : null}</div>
     </div>
   );
 };
