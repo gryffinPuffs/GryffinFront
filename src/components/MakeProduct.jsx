@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createProduct } from "./api-adapter";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../components/admin.css";
 
 const MakeProduct = ({ allBooks, setAllBooks }) => {
@@ -13,7 +14,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
   const [description, setDescription] = useState("");
   const [audience, setAudience] = useState("");
 
-  async function handleSubmit(event) {
+  async function handleSubmit() {
     try {
       const newProduct = await createProduct(
         name,
@@ -29,9 +30,14 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
     } catch (error) {
       console.log(error);
     }
+    {
+      toast.success("Product created", {
+        position: toast.POSITION.TOP_LEFT,
+      });
+    }
   }
   return (
-    <div id="make-product">
+    <div className="make-product">
       <h1>Create Product</h1>
       <form
         id="admin-create"
@@ -43,7 +49,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
         <div>
           <input
             placeholder="Book Title"
-            className="name"
+            className="book-title"
             type="text"
             value={name}
             onChange={(event) => {
@@ -55,7 +61,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
         <div>
           <input
             placeholder="price"
-            className="price-create"
+            className="price-admin"
             type="text"
             value={price}
             onChange={(event) => {
@@ -67,7 +73,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
         <div>
           <input
             placeholder="image_url"
-            className="image_url"
+            className="image-URL"
             type="text"
             value={image_url}
             onChange={(event) => {
@@ -79,7 +85,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
         <div>
           <input
             placeholder="image_url2"
-            className="image_url2"
+            className="image-URL"
             type="text"
             value={image_url2}
             onChange={(event) => {
@@ -90,7 +96,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
         <div>
           <input
             placeholder="author"
-            className="author-create"
+            className="author-form"
             type="text"
             value={author}
             onChange={(event) => {
@@ -136,6 +142,15 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
           Submit
         </button>
       </form>
+
+      <button
+        id="admin-return"
+        onClick={() => {
+          navigate("/admin");
+        }}
+      >
+        Go Back!
+      </button>
     </div>
   );
 };

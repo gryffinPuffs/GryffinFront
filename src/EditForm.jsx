@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { updateProduct } from "./components/api-adapter";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
-  const navigate = useNavigate();
-
   const [name, setName] = useState(book.name);
   const [price, setPrice] = useState(book.price);
   const [image, setImage] = useState(book.image_url);
@@ -45,7 +42,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
 
   return (
     <>
-      <form id="admin-form">
+      <form className="admin-form">
         <div id="text-fields">Book Title</div>
         <input
           placeholder={book.name}
