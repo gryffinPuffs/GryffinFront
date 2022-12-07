@@ -39,7 +39,7 @@ const AboutUs = () => {
             Jenniffer is a software developer seeing through the lense of
             possibility. Somewhat of a maverick, she's fueled by her intellect
             and creativity towards innovation, with a spirit of curiosity and
-            adventure.Jenniffer fantasizes about improving social well-being,
+            adventure. Jenniffer fantasizes about improving social well-being,
             gaming, and emerging technologies. Her favorite fantasy book is Dune
             by Frank Herbert.
           </h3>

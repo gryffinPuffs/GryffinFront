@@ -14,8 +14,8 @@ const Book = ({ book }) => {
         className="bookInfo"
       >
         <img src={book.image_url} alt="book image" className="prodBooks"></img>
-        <div id="admin-book-title">{book.name}</div>
-        <div>Author: {book.author}</div>
+        <div className="admin-book-title">{book.name}</div>
+        <div className="admin-book-title">Author: {book.author}</div>
 
         {/* <Link id="wishlist">
           <div className="wishListText" data-hover="Add to favorites">
