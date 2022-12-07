@@ -7,7 +7,7 @@
     "start-dev": "NODE_ENV='development' react-scripts start",
     "start": "react-scripts start"
   },
-
+  "homepage": "https://acciobooks.onrender.com",
   "keywords": [],
   "author": "",
   "license": "ISC",
