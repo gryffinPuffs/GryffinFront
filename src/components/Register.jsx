@@ -17,7 +17,7 @@ const Register = (props) => {
   async function handleRegister(event) {
     event.preventDefault();
     console.log(username, password);
-    const { token } = await registerUser(username, password, name, false, email, address_id);
+    const { token, message } = await registerUser(username, password, name, false, email, address_id);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 
@@ -27,7 +27,7 @@ const Register = (props) => {
       });
       navigate("/Login");
     } else {
-      toast.error("User Already Exists", {
+      toast.error(`${message}`, {
         position: toast.POSITION.TOP_LEFT
       });
       
