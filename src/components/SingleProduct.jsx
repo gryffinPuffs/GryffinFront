@@ -45,10 +45,12 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
     }
   }
 
-  async function handleSubmit(e) {
+  async function handleSubmit() {
+    
     toast.success("Added to favorites", {
       position: toast.POSITION.TOP_LEFT,
     });
+    
   }
 
   return (
