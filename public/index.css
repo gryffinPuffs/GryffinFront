@@ -95,32 +95,54 @@ body {
   border-bottom: 1px dotted black;
 }
 
-.profileIcon:before {
+#profile-hover:before {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
-  width: 140px;
+  width: 110px;
   background-color: black;
-  color: #fff;
+  color: yellow;
   text-align: center;
   border-radius: 5px;
   padding: 5px 0;
   transition: opacity 1s ease-in-out;
-
   position: absolute;
   z-index: 1;
   left: 0;
   top: 110%;
 }
 
-.profileIcon:hover:before {
+#profile-hover:hover:before {
   opacity: 1;
   visibility: visible;
 }
 
-#wizard {
+.wizard {
   display: flex;
   height: 50px;
+  position: relative;
+}
+
+#wizard-hover:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 110px;
+  background-color: black;
+  color: yellow;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+#wizard-hover:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 
 #wandImg {

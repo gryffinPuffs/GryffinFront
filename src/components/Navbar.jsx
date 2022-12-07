@@ -12,7 +12,7 @@ const Navbar = (props) => {
   const loggedIn = props.loggedIn;
   const user = props.user;
   const setUser = props.setUser;
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <div id="navbar">
@@ -31,29 +31,33 @@ const Navbar = (props) => {
           </NavLink>
           {loggedIn ? (
             <>
-              <NavLink to={"/"}
+              <NavLink
+                to={"/"}
                 className="linkBar"
                 onClick={() => {
-                  navigate("/login")
+                  navigate("/login");
                   localStorage.removeItem("token");
                   setLoggedIn(false);
                   setUser(null);
-
                 }}
               >
                 LogOut
               </NavLink>
 
               <NavLink className="linkBar" to="/profile">
-                <img
-                  className="profileIcon"
-                  src={profileIcon}
-                  data-hover="My Account"
-                ></img>
+                <span id="profile-hover" data-hover="my account">
+                  <img
+                    className="profileIcon"
+                    src={profileIcon}
+                    data-hover="My Account"
+                  ></img>
+                </span>
               </NavLink>
               {loggedIn && user.admin ? (
                 <NavLink className="linkBar" to="/admin">
-                  <img id="wizard" src={wizard} alt="wizard"></img>
+                  <span id="wizard-hover" data-hover="Admin">
+                    <img className="wizard" src={wizard} alt="wizard"></img>
+                  </span>
                 </NavLink>
               ) : null}
             </>
