@@ -89,7 +89,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
           }}
         ></input>
         <textarea
-          // placeholder={book.description}
+          placeholder={book.description}
           className="form-description"
           type="text"
           onChange={(event) => {

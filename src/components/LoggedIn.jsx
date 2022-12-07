@@ -1,14 +1,14 @@
 import React from "react";
 
 const LoggedIn = (props) => {
-    const user = props.user
+  const user = props.user;
 
-    return(
-
-        <div>
-           <h1>Welcome, {user.username ? user.username : "Guest"}</h1>
-            </div>
-    )
+  return (
+    <div>
+      <h2>Howdy, {user.username ? user.username : "Guest"}</h2>
+      <h3>This is your account information.</h3>
+    </div>
+  );
 };
 
-export default LoggedIn
+export default LoggedIn;
