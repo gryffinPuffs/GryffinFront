@@ -1,5 +1,4 @@
-import { useNavigate, useHref, Link } from "react-router-dom";
-import wishList from "./wishlist.png";
+import { useNavigate, useHref } from "react-router-dom";
 
 const Book = ({ book }) => {
   const navigate = useNavigate();

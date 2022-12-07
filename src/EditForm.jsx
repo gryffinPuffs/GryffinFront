@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { updateProduct } from "./components/api-adapter";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
   const [audience, setAudience] = useState(book.image);
   const [author, setAuthor] = useState(book.author);
   const [description, setDescription] = useState(book.description);
+
   async function handleUpdateAdmin(e) {
     e.preventDefault();
     const updatedProduct = await updateProduct(
@@ -34,14 +36,20 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
     });
     setAllBooks(editedProducts);
     setUpdate(false);
+    {
+      toast.success("Product has updated.", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   }
+
   return (
     <>
       <form id="admin-form">
         <div id="text-fields">Book Title</div>
         <input
           placeholder={book.name}
-          className="Book Title"
+          className="book-title"
           type="text"
           onChange={(event) => {
             setName(event.target.value);
@@ -61,7 +69,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         <div id="text-fields">Price</div>
         <input
           placeholder={(book.price / 100).toFixed(2)}
-          className="Price"
+          className="price-admin"
           data-type="currency"
           onChange={(event) => {
             setPrice(event.target.value);
@@ -71,7 +79,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         <div id="text-fields">Image URL</div>
         <textarea
           placeholder={book.image_url}
-          className="Image URL"
+          className="image-URL"
           type="text"
           onChange={(event) => {
             setImage(event.target.value);
@@ -81,7 +89,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         <div id="text-fields">Image URL</div>
         <input
           placeholder={book.image_url2}
-          className="Image URL"
+          className="image-URL"
           type="text"
           onChange={(event) => {
             setImage2(event.target.value);
@@ -89,14 +97,18 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         ></input>
 
         <div id="text-fields">Audience type</div>
-        <input
+        <select
           placeholder={book.audience}
           className="audienceType"
           type="text"
           onChange={(event) => {
             setAudience(event.target.value);
           }}
-        ></input>
+        >
+          <option>child</option>
+          <option>teens</option>
+          <option>adult</option>
+        </select>
 
         <div id="text-fields">
           Summary
@@ -109,7 +121,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
             }}
           ></textarea>
         </div>
-        <button onClick={handleUpdateAdmin} type="submit">
+        <button id="admin-submit" onClick={handleUpdateAdmin} type="submit">
           Submit
         </button>
       </form>

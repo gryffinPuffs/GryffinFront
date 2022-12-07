@@ -86,6 +86,7 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
               <>
                 <h3>Please log in to add items to cart</h3>
                 <button
+                  className="shopButtons"
                   onClick={() => {
                     navigate("/login");
                   }}
