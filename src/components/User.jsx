@@ -24,7 +24,17 @@ const User = ({ user, setUser }) => {
           <div>loading users...</div>
         )}
       </div>
+      <button
+        id="admin-return"
+        className="buttons"
+        onClick={() => {
+          navigate("/admin");
+        }}
+      >
+        Go Back!
+      </button>
     </>
+    
   );
 };
 
