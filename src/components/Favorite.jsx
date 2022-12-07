@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Favorite = () => {
 
     return(
-        <div id="favoritePage">Under Construction! <br/>
+        <div id="favoritePage"><h2>Under Construction!</h2> <br/>
             <img src={mancurtain} alt="" /> <br />
             <Link to={"/profile"}><button type="profile" className="buttons">
         Back
