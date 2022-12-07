@@ -39,6 +39,8 @@
 
 #admin-form {
   padding: 10px;
+  font-family: fantasy;
+  margin: 10px;
 }
 
 .form-description {
@@ -60,4 +62,16 @@
 #admin-book-title {
   font-size: 15px;
   margin: 10px;
+}
+
+#text-fields {
+  margin: 1px;
+}
+
+.image-url {
+  height: fit-content;
+
+  display: flex;
+  overflow: scroll;
+  justify-content: flex-start;
 }

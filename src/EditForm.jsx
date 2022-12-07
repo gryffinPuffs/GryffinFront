@@ -38,6 +38,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
   return (
     <>
       <form id="admin-form">
+        <div id="text-fields">Book Title</div>
         <input
           placeholder={book.name}
           className="Book Title"
@@ -46,40 +47,8 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
             setName(event.target.value);
           }}
         ></input>
-        <input
-          placeholder={book.price}
-          className="Price"
-          type="text"
-          // pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
-          // data-type="currency"
-          onChange={(event) => {
-            setPrice(event.target.value);
-          }}
-        ></input>
-        <input
-          placeholder={book.image_url}
-          className="Image URL"
-          type="text"
-          onChange={(event) => {
-            setImage(event.target.value);
-          }}
-        ></input>
-        <input
-          placeholder={book.image_url2}
-          className="Image URL"
-          type="text"
-          onChange={(event) => {
-            setImage2(event.target.value);
-          }}
-        ></input>
-        <input
-          placeholder={book.audience}
-          className="audienceType"
-          type="text"
-          onChange={(event) => {
-            setAudience(event.target.value);
-          }}
-        ></input>
+
+        <div id="text-fields">Author</div>
         <input
           placeholder={book.author}
           className="author-form"
@@ -88,14 +57,58 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
             setAuthor(event.target.value);
           }}
         ></input>
+
+        <div id="text-fields">Price</div>
+        <input
+          placeholder={(book.price / 100).toFixed(2)}
+          className="Price"
+          data-type="currency"
+          onChange={(event) => {
+            setPrice(event.target.value);
+          }}
+        ></input>
+
+        <div id="text-fields">Image URL</div>
         <textarea
-          placeholder={book.description}
-          className="form-description"
+          placeholder={book.image_url}
+          className="Image URL"
           type="text"
           onChange={(event) => {
-            setDescription(event.target.value);
+            setImage(event.target.value);
           }}
         ></textarea>
+
+        <div id="text-fields">Image URL</div>
+        <input
+          placeholder={book.image_url2}
+          className="Image URL"
+          type="text"
+          onChange={(event) => {
+            setImage2(event.target.value);
+          }}
+        ></input>
+
+        <div id="text-fields">Audience type</div>
+        <input
+          placeholder={book.audience}
+          className="audienceType"
+          type="text"
+          onChange={(event) => {
+            setAudience(event.target.value);
+          }}
+        ></input>
+
+        <div id="text-fields">
+          Summary
+          <textarea
+            placeholder={book.description}
+            className="form-description"
+            type="text"
+            onChange={(event) => {
+              setDescription(event.target.value);
+            }}
+          ></textarea>
+        </div>
         <button onClick={handleUpdateAdmin} type="submit">
           Submit
         </button>
