@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/about-us.css";
 import jessica from "./headshots/jessica.jpeg";
-import jen from "./headshots/jen.JPG";
+import jen from "./headshots/jen.jpeg";
 import kevin from "./headshots/kevin.png";
 import randy from "./headshots/randy.jpg";
 
@@ -37,11 +37,10 @@ const AboutUs = () => {
           </a>
           <h3 className="bio">
             Jenniffer is a software developer seeing through the lense of
-            possibility. Somewhat of a maverick, she's fueled by her intellect
-            and creativity towards innovation, with a spirit of curiosity and
-            adventure. Jenniffer fantasizes about improving social well-being,
-            gaming, and emerging technologies. Her favorite fantasy book is Dune
-            by Frank Herbert.
+            possibility. Somewhat of a maverick, with a spirit of curiosity and
+            adventure, she's fueled by her intellect and creativity towards
+            innovation and improving social well-being. Her favorite fantasy
+            book is Dune by Frank Herbert.
           </h3>
         </div>
       </div>
