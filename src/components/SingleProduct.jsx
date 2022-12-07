@@ -115,7 +115,6 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
       ) : (
         <h1>Loading Single Book...</h1>
       )}
-      //{" "}
     </div>
   );
 };
