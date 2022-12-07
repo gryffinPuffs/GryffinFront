@@ -12,10 +12,14 @@ const Profile = (props) => {
       <h2>profile</h2>
       <LoggedIn user={user} />
 
-      
+     <div id="profileLinks"> 
      <Link to={"/userinfo"}><button type="User Info" className="buttons">
         User Info
       </button></Link>
+      <Link to={"/favorite"}><button type="favorite" className="buttons">
+        Favorites
+      </button></Link>
+      </div>
 
       {user && user.admin ? (
         <>
