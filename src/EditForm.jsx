@@ -37,7 +37,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
   }
   return (
     <>
-      <form>
+      <form id="admin-form">
         <input
           placeholder={book.name}
           className="Book Title"
@@ -50,6 +50,8 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
           placeholder={book.price}
           className="Price"
           type="text"
+          // pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+          // data-type="currency"
           onChange={(event) => {
             setPrice(event.target.value);
           }}
@@ -80,25 +82,26 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         ></input>
         <input
           placeholder={book.author}
-          className="author"
+          className="author-form"
           type="text"
           onChange={(event) => {
             setAuthor(event.target.value);
           }}
         ></input>
-        <input
-          placeholder={book.description}
-          className="description"
+        <textarea
+          // placeholder={book.description}
+          className="form-description"
           type="text"
           onChange={(event) => {
             setDescription(event.target.value);
           }}
-        ></input>
+        ></textarea>
         <button onClick={handleUpdateAdmin} type="submit">
           Submit
         </button>
       </form>
       <button
+        id="admin-edit-button"
         onClick={() => {
           setUpdate(false);
         }}

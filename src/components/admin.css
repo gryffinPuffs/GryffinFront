@@ -12,7 +12,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   justify-content: center;
-  margin: 10px;
+  margin: 30px;
   margin-left: 30px;
 }
 
@@ -36,7 +36,22 @@
   align-items: center;
 }
 
-/* #admin-books {
-  width: auto;
-  height: 200px;
-} */
+#admin-form {
+  padding: 10px;
+}
+
+.form-description {
+  height: 100px;
+  width: 875px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-family: fantasy;
+}
+
+#admin-edit-button {
+  margin-bottom: 20px;
+}
