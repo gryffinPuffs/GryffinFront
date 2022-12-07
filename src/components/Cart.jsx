@@ -156,15 +156,19 @@ const Cart = ({
             </>
           )}
         </>
-      ) : (
+      ) : (<>
         <h2>Please log in to see cart</h2>
+        <button className="shopButtons" onClick={()=>{navigate("/login")}}>Log In</button>
+        </>
       )}
 
       <h2>Total: ${(totalPrice / 100).toFixed(2)}</h2>
+
       {loggedIn && theCart.length ? (
         <button className="Chbutton" onClick={handleSubmitConfirmation}>
           Checkout
         </button>
+
       ) : null}
     </div>
   );
