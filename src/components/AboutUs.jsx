@@ -6,6 +6,11 @@ import kevin from "./headshots/kevin.png";
 import randy from "./headshots/randy.jpg";
 
 const AboutUs = () => {
+  const jess_url = "https://www.linkedin.com/in/jessica-piesco-60622513a/";
+  const jen_url = "https://www.linkedin.com/in/jenniffermelchiade/";
+  const kev_url = "https://www.linkedin.com/in/krlars27/";
+  const randy_url = "https://www.linkedin.com/in/randy-pellegrin-879390256/";
+
   return (
     <div>
       <h1 id="header">Meet the Developers</h1>
@@ -14,7 +19,9 @@ const AboutUs = () => {
       <div className="developers">
         <div id="left-container">
           <div>
-            <img id="jess" src={jessica} alt="jess"></img>
+            <a href={jess_url}>
+              <img id="jess" src={jessica} alt="jess" />
+            </a>
             <h3 className="bio">
               Jessy is an amazing mother to a delightful three year old. She's a
               proud geek through and through. She finds passion in figuring out
@@ -25,21 +32,25 @@ const AboutUs = () => {
         </div>
 
         <div>
-          <img id="jen" src={jen} alt="jen"></img>
+          <a href={jen_url}>
+            <img id="jen" src={jen} alt="jen" />
+          </a>
           <h3 className="bio">
-            Jenniffer is a software developer with a background in Landscape
-            Architecture. Somewhat of a maverick, she's fueled by her intellect
+            Jenniffer is a software developer seeing through the lense of
+            possibility. Somewhat of a maverick, she's fueled by her intellect
             and creativity towards innovation, with a spirit of curiosity and
-            adventure. Seeing through the lense of possibility, Jenniffer
-            fantasizes about improving social well-being, gaming, and emerging
-            technologies. Her favorite fantasy book is Dune by Frank Herbert.
+            adventure.Jenniffer fantasizes about improving social well-being,
+            gaming, and emerging technologies. Her favorite fantasy book is Dune
+            by Frank Herbert.
           </h3>
         </div>
       </div>
 
       <div id="right-container">
         <div>
-          <img id="kev" src={kevin} alt="kev"></img>
+          <a href={kev_url}>
+            <img id="kev" src={kevin} alt="kev" />
+          </a>
           <h3 className="bio">
             Kevin is a software developer that moonlights as a Bassoonist. In
             his spare time he likes short walks on the beach, watching the
@@ -49,7 +60,9 @@ const AboutUs = () => {
         </div>
 
         <div>
-          <img id="randy" src={randy} alt="randy"></img>
+          <a href={randy_url}>
+            <img id="randy" src={randy} alt="randy" />
+          </a>
           <h3 className="bio">
             "My name is Randy and I am an aspiring software developer. I am 31
             years old and from Louisiana. My main hobby is spending time with my
