@@ -15,18 +15,14 @@ const Navbar = (props) => {
   return (
     <>
       <div id="navbar">
-
         <div id="navbarImgs">
           <img id="wandImg" src={wand} alt="wand img"></img>
           <img id="booksImg" src={books} alt="books img"></img>
-
-
-
         </div>
-<img id="accioImg" src={accioBooks} alt="thumb" />
+        <img id="accioImg" src={accioBooks} alt="thumb" />
 
         <div className="links">
-              <div id="username">
+          <div id="username">
             {loggedIn ? <h5>Welcome, {`${user.username}`}</h5> : null}
           </div>
           <NavLink className="linkBar" to="/">
@@ -46,7 +42,11 @@ const Navbar = (props) => {
               </NavLink>
 
               <NavLink className="linkBar" to="/profile">
-                <img id="profileIcon" src={profileIcon} alt="profileIcon"></img>
+                <img
+                  className="profileIcon"
+                  src={profileIcon}
+                  data-hover="My Account"
+                ></img>
               </NavLink>
               {loggedIn && user.admin ? (
                 <NavLink className="linkBar" to="/admin">

@@ -3,7 +3,6 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  /* background-color: black; */
 }
 
 #navbar {
@@ -72,7 +71,7 @@ body {
   height: 125px;
   transform: rotate(-5deg);
   justify-content: flex-start;
-  margin-left: -40px;
+  margin-left: -30px;
 }
 #username {
   align-content: baseline;
@@ -88,9 +87,34 @@ body {
   height: 30px;
 }
 
-#profileIcon {
+.profileIcon {
   display: flex;
   height: 30px;
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.profileIcon:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.profileIcon:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
 
 #wizard {
@@ -101,7 +125,7 @@ body {
 #wandImg {
   display: flex;
   width: auto;
-  height: 75px;
+  height: 60px;
   transform: rotate(-5deg);
   justify-content: flex-start;
   margin-top: 20px;
@@ -137,6 +161,7 @@ body {
   top: 30px;
   padding: 3px;
   text-decoration: none;
+  margin: 7px;
 }
 .linkBar:hover {
   color: yellow;
@@ -155,7 +180,6 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-
 }
 
 svg {
@@ -279,8 +303,6 @@ footer a:hover {
   text-decoration: none;
 }
 
-
-
 #singleInfo {
   display: flex;
   flex-direction: column;
@@ -395,6 +417,7 @@ footer a:hover {
 
 #childBookImg {
   display: flex;
+  max-height: 300px;
   height: 400px;
   width: 275px;
   object-fit: contain;
@@ -456,6 +479,7 @@ footer a:hover {
 
 #teenBookImg {
   display: flex;
+  max-height: 300px;
   height: 400px;
   width: 275px;
   object-fit: contain;
@@ -511,6 +535,7 @@ footer a:hover {
 
 #adultBookImg {
   display: flex;
+  max-height: 300px;
   height: 400px;
   width: 275px;
   object-fit: contain;
@@ -631,11 +656,11 @@ footer a:hover {
   align-items: center;
 }
 
-.price{
+.price {
   font-family: fantasy;
   font-size: x-large;
 }
-h3{
+h3 {
   font-family: fantasy;
 }
 
@@ -739,6 +764,7 @@ h3{
 }
 .prodBooks {
   display: flex;
+  max-height: 300px;
   height: 400px;
   width: 275px;
   object-fit: contain;
@@ -763,6 +789,7 @@ h3{
   border: 0 10px yellow;
   background-color: black;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .book {
@@ -896,13 +923,13 @@ h3{
   font-family: fantasy;
 }
 
-.oldBooks{
+.oldBooks {
   height: 60px;
   width: 45px;
 }
-#order{
+#order {
   display: flex;
-  width:25%;
+  width: 25%;
   flex-direction: column;
   padding: 20px;
   padding-top: 20px;
@@ -915,19 +942,19 @@ h3{
   margin-left: 100px;
   border: solid gray 3px;
 }
-#OrderHistory{
+#OrderHistory {
   display: flex;
   flex-direction: column;
- justify-content: center;
+  justify-content: center;
 }
 
-#cartTitle{
+#cartTitle {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-left: 10px;
 }
-.Cbutton{
+.Cbutton {
   margin-top: 1rem;
   padding: 0.6em 2em;
   border: none;
@@ -945,9 +972,9 @@ h3{
   margin-left: 30px;
   width: 10%;
 }
-.qButton{
-  width:20px;
-  height:20px;
+.qButton {
+  width: 20px;
+  height: 20px;
 }
 
 /* .container {

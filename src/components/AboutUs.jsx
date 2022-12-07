@@ -9,6 +9,7 @@ const AboutUs = () => {
   return (
     <div>
       <h1 id="header">Meet the Developers</h1>
+      <div id="home-img"></div>
 
       <div className="developers">
         <div id="left-container">

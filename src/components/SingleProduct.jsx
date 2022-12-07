@@ -45,6 +45,12 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
     }
   }
 
+  async function handleSubmit(e) {
+    toast.success("Added to favorites", {
+      position: toast.POSITION.TOP_LEFT,
+    });
+  }
+
   return (
     <div>
       {singleBook ? (
@@ -55,44 +61,50 @@ const SingleProduct = ({ user, theCart, setTheCart, loggedIn }) => {
             alt="book image"
           ></img>
           <div className="navButtons">
-          <Link id="wishlist">
-            <span className="wishListText" data-hover="Add to favorites">
-              <img id="wishlistImg" src={wishListSingle} alt="Wishlist"></img>
-            </span>
-          </Link>
-          <h3>In Stock</h3>
-          <div className="price">${(singleBook.price / 100).toFixed(2)}</div>
-          {loggedIn ? (
-            <button
-              className="shopButtons"
+            <Link
+              id="wishlist"
               onClick={() => {
-                addItemSubmit();
+                handleSubmit();
               }}
             >
-              Add to Cart
-            </button>
-          ) : (
-            <>
-              <h3>Please log in to add items to cart</h3>
+              <span className="wishListText" data-hover="Add to favorites">
+                <img id="wishlistImg" src={wishListSingle} alt="Wishlist"></img>
+              </span>
+            </Link>
+            <h3>In Stock</h3>
+            <div className="price">${(singleBook.price / 100).toFixed(2)}</div>
+            {loggedIn ? (
               <button
+                className="shopButtons"
                 onClick={() => {
-                  navigate("/login");
+                  addItemSubmit();
                 }}
               >
-                Log In
+                Add to Cart
               </button>
-            </>
-          )}{" "}
-          <br />
-          <button
-            id="go-back-button"
-            className="shopButtons"
-            onClick={() => {
-              navigate("/allbooks");
-            }}
-          >
-            Back
-          </button></div>
+            ) : (
+              <>
+                <h3>Please log in to add items to cart</h3>
+                <button
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Log In
+                </button>
+              </>
+            )}{" "}
+            <br />
+            <button
+              id="go-back-button"
+              className="shopButtons"
+              onClick={() => {
+                navigate("/allbooks");
+              }}
+            >
+              Back
+            </button>
+          </div>
           <div id="singleInfo">
             <div className="title">{singleBook.name}</div>
             <div className="author">Author: {singleBook.author}</div>

@@ -34,6 +34,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 }
 
 #admin-form {
@@ -54,4 +55,9 @@
 
 #admin-edit-button {
   margin-bottom: 20px;
+}
+
+#admin-book-title {
+  font-size: 15px;
+  margin: 10px;
 }

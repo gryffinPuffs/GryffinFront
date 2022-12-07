@@ -1,5 +1,4 @@
 import React from "react";
-// import accioScroll from "./AccioScroll.png";
 import duneBanner from "./duneBanner.jpg";
 
 const Home = () => {

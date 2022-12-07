@@ -55,11 +55,16 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
   return (
     <div id="allBooks">
       <div className="admin-header">
-        <h1 className="admin-header">Wizards welcomed, muggles tolerated.</h1>
-        <h3 className="admin-header">
-          Here you will find our current product inventory. As an administrator,
-          you may create, edit, and remove books.
-        </h3>
+        <div>
+          {" "}
+          <h1 className="admin-header">Wizards welcomed, muggles tolerated.</h1>
+        </div>
+        <div>
+          <h3 className="admin-header">
+            Here you will find our current product inventory. As an
+            administrator, you may create, edit, and remove books.
+          </h3>
+        </div>
       </div>
       <button
         className="admin-button-create"
