@@ -28,7 +28,8 @@ import {
   Subscribe,
   AboutUs,
   UserInfo,
-  OrderHistory
+  OrderHistory,
+  Favorite
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -198,6 +199,7 @@ const Main = () => {
             />
           }
         ></Route>
+        <Route path="/favorite" element={<Favorite/>}></Route>
       </Routes>
       <ToastContainer />
       <Footer />
