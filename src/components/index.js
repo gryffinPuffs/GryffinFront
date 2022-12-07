@@ -29,3 +29,4 @@ export { default as Subscribe } from "./Subscribe";
 export { default as AboutUs } from "./AboutUs";
 export { default as UserInfo } from "./UserInfo";
 export { default as OrderHistory} from "./OrderHistory"
+export { default as Favorite } from "./Favorite"
