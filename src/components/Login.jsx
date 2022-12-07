@@ -11,7 +11,7 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
 
   async function handleLogin(event) {
     event.preventDefault();
-    const { token, user, message } = await loginUser(username, password);
+    const {token,  user, message } = await loginUser(username, password);
     const userCart = await authUser(token);
     console.log(user, token);
 
