@@ -20,13 +20,10 @@ const UserInfo = (props) => {
       <h3>name: {user.name}</h3>
       <h3>username: {user.username}</h3>
       <h3>address:</h3>
-  <div>{user.name}</div>
   <div>{address.address_line1}</div>
   <div>{address.address_line2}</div>
   <div>{address.city}, {address.state} {address.zip_code}</div>
-<h3>user ID: {user.id}</h3>
-      <h3>user ID: {user.id}</h3>
-      <h3>Email: {user.email}</h3>
+    <h3>Email: {user.email}</h3>
     </div>
   );
 };

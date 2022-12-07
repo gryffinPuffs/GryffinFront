@@ -8,33 +8,25 @@ const Profile = (props) => {
   const user = props.user;
   console.log(user);
   return (
-    <div className="profile-info">
-      <h2 id="profile-header"></h2>
+    <div>
+      <h2>profile</h2>
       <LoggedIn user={user} />
 
-      <Link to={"/userinfo"}>
-        <button type="User Info" className="userInfo">
-          User Info
-        </button>
-      </Link>
-      <Link className="profile-links" to={"/orderhistory"}>
-        <button type="text" className="orderHistory">
-          Order History
-        </button>
-      </Link>
+      
+     <Link to={"/userinfo"}><button type="User Info" className="buttons">
+        User Info
+      </button></Link>
 
       {user && user.admin ? (
         <>
-          <Link className="profile-links" to={"/users"}>
-            <button type="all users" className="allUsers">
+          <Link to={"/users"}>
+            <button type="all users" className="buttons">
               All Users
             </button>
           </Link>
-          <Link className="profile-links" to={"/makeproduct"}>
-            <button type="Create Product" className="createProduct">
-              Create Product
-            </button>
-          </Link>
+          <Link to={"/makeproduct"}><button type="Create Product" className="buttons">
+            Create Product
+          </button></Link>
         </>
       ) : null}
     </div>
