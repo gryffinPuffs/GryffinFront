@@ -31,8 +31,9 @@ getUserCart()
                 <div id="prod" key={`prod-${prod.id}`}>
                   {console.log(prod, "whats this")}
 
-                  <div>{prod.name}</div>
                   <img src={prod.image_url} alt="book image" className="oldBooks"></img>
+                  <div>{prod.name}</div>
+                  <div>Quantity:{prod.quantity}</div>
 
                 </div>)
               })):(<h1>hi</h1>)}

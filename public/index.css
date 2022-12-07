@@ -1,5 +1,5 @@
 body {
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: fantasy;
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -734,8 +734,8 @@ h3{
 .cartprodimg {
   display: flex;
   flex-direction: column;
-  height: 60px;
-  width: 45px;
+  height: 100px;
+  width: 80px;
 }
 .prodBooks {
   display: flex;
@@ -899,6 +899,55 @@ h3{
 .oldBooks{
   height: 60px;
   width: 45px;
+}
+#order{
+  display: flex;
+  width:25%;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 20px;
+  font-family: "Poller One", Arial, sans-serif;
+  box-shadow: 7px 0 5px gray;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 30px;
+  margin-left: 100px;
+  border: solid gray 3px;
+}
+#OrderHistory{
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+}
+
+#cartTitle{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 10px;
+}
+.Cbutton{
+  margin-top: 1rem;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background-color: crimson;
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  justify-content: center;
+  margin: 10px;
+  margin-left: 30px;
+  width: 10%;
+}
+.qButton{
+  width:20px;
+  height:20px;
 }
 
 /* .container {
