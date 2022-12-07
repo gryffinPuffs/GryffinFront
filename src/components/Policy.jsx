@@ -4,6 +4,14 @@ const Policy = () => {
   return (
     <div id="policy">
       <div id="left-container">
+        <div>
+          <h1>
+            <div>Legal Disclaimer:</div> This prototype application is for
+            learning purposes only. We do not claim the rights to
+            AccioBooks.org, or any of the images or the products on display. We
+            do not profit from this website.
+          </h1>
+        </div>
         <h2>
           <b className="policy-header">Order Fulfillment</b>
         </h2>

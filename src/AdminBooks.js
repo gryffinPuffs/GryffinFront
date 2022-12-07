@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { getAllProducts, deleteProduct } from "./components/api-adapter";
 import Book from "./components/Book";
 import EditForm from "./EditForm";
@@ -20,23 +21,6 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
     setEditId(e.target.id);
     setUpdate(true);
   }
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   try {
-  //     const newProduct = await createProduct(
-  //       name,
-  //       price,
-  //       image_url,
-  //       image_url2,
-  //       author,
-  //       description,
-  //       audience
-  //     );
-  //     setAllBooks([newProduct, ...allBooks]);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   //admin access only - delete single product
   async function handleDeleteAdmin(e) {
@@ -50,6 +34,11 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
     });
     setAllBooks([availableProducts, ...allBooks]);
     navigate("/allbooks");
+    {
+      toast.success("Reducto! Product destroyed.", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   }
 
   return (
