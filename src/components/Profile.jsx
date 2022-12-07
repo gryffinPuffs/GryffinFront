@@ -9,8 +9,7 @@ const Profile = (props) => {
   console.log(user);
   return (
     <div>
-      <div id="profile-main">
-      <h2>profile</h2>
+
       <LoggedIn user={user} />
       </div>
 
@@ -39,8 +38,6 @@ const Profile = (props) => {
   );
 };
 
-//buttons for Address, purchase History, wish list,
 
-//Add user purchase history (have not created)
 
 export default Profile;
