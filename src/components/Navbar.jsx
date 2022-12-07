@@ -30,7 +30,7 @@ const Navbar = (props) => {
           </NavLink>
           {loggedIn ? (
             <>
-              <NavLink
+              <NavLink to={"/"}
                 className="linkBar"
                 onClick={() => {
                   localStorage.removeItem("token");
