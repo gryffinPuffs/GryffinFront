@@ -1,6 +1,6 @@
 import React from "react";
 import gitHub from "./gitHub.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const url = "https://github.com/orgs/gryffinPuffs/repositories";
@@ -19,7 +19,7 @@ const Footer = () => {
             </NavLink>
 
             <NavLink className="sub-helplinks" to="/policy">
-              Policy
+              Policies
             </NavLink>
             <NavLink className="sub-helplinks" to="/Contact">
               Contact
