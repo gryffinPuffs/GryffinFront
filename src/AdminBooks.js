@@ -64,6 +64,16 @@ const AdminBooks = ({ allBooks, setAllBooks }) => {
         New Product
       </button>
 
+      <button
+        type="all users"
+        className="admin-button-create"
+        onClick={() => {
+          navigate("/users");
+        }}
+      >
+        All Users Info
+      </button>
+
       <div id="books">
         {allBooks && allBooks.length
           ? allBooks.map((book) => {

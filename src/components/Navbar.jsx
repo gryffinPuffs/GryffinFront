@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useResolvedPath } from "react-router-dom";
+import { NavLink, useNavigate, useResolvedPath } from "react-router-dom";
 import books from "./flyingbooks.png";
 import wand from "./wand.png";
 import accioBooks from "./accioBooks.png";
@@ -12,6 +12,7 @@ const Navbar = (props) => {
   const loggedIn = props.loggedIn;
   const user = props.user;
   const setUser = props.setUser;
+  const navigate= useNavigate()
   return (
     <>
       <div id="navbar">
@@ -33,9 +34,11 @@ const Navbar = (props) => {
               <NavLink
                 className="linkBar"
                 onClick={() => {
+                  navigate("/login")
                   localStorage.removeItem("token");
                   setLoggedIn(false);
                   setUser(null);
+
                 }}
               >
                 LogOut

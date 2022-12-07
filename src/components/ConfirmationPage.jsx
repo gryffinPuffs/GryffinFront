@@ -43,7 +43,8 @@ const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
 
   return (
     <div id="ConfirmationPage">
-      <h1> {user.name[0].toUpperCase()+ (user.name).substring(1)} does everything look right?</h1>
+      {user ?  (
+      <h1> {user.name[0].toUpperCase()+ (user.name).substring(1)} does everything look right?</h1>):(null)}
 <div id="cartConfir">
 
       <h2> Cart total: {(totalPrice/100).toFixed(2)}</h2>
@@ -64,10 +65,13 @@ const ConfirmationPage = ({user, theCart, setTheCart, totalPrice}) => {
 <div>
   <h2>Shipping to:</h2>
   <div id="addressConfi">
-  <div>{(user.name)[0].toUpperCase()+ (user.name).substring(1)}</div>
+    {user? (
+  <div>{(user.name)[0].toUpperCase()+ (user.name).substring(1)}</div>):(null)}
+
   <div>{address.address_line1}</div>
   <div>{address.address_line2}</div>
-  <div>{(address.city)[0].toUpperCase()+ (address.city).substring(1)}, {(address.state)[0].toUpperCase()+ (address.state).substring(1)} {address.zip_code}</div>
+  <div>{address.city}, {address.state} {address.zip_code}</div>
+
 </div></div>
 <button className="Chbutton" onClick={handleSubmit}>Submit Order</button>
   </div>);
