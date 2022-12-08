@@ -6,7 +6,7 @@ const LoggedIn = (props) => {
   return (
     <div>
       <h2>Howdy, {user.username ? user.username : "Guest"}</h2>
-      <h3>Your account information is available below.</h3>
+      <h3>Your account information is available here.</h3>
     </div>
   );
 };

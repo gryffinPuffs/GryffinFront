@@ -1026,21 +1026,37 @@ h3 {
   height: 20px;
 }
 
-#policy {
+#left-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  max-width: 80%;
-  padding: 0;
-  margin: 0;
-  margin-left: 50px;
+  margin: 20px;
+}
+
+#right-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 .policy-header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: -20px;
   margin: 20px;
+}
+#order-header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -50px;
+}
+.order-fulfillment {
+  justify-content: flex-start;
+  display: flex;
+  margin: 50px;
+  padding: 20px;
+  margin-bottom: -20px;
 }
 
 #form {
@@ -1258,4 +1274,9 @@ h3 {
   text-decoration: dashed;
   color: #05c846;
   text-transform: lowercase;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
 }
