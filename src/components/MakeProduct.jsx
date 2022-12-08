@@ -149,7 +149,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
           navigate("/admin");
         }}
       >
-        Go Back!
+        Back
       </button>
     </div>
   );

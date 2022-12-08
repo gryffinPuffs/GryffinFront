@@ -1138,10 +1138,12 @@ h3 {
 .usersColumn {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   padding: 20px;
   padding-top: 20px;
   font-family: fantasy;
-  box-shadow: 5px 0 5px gray;
+
+  width: fit-content;
 }
 
 .singleUser {
@@ -1172,6 +1174,7 @@ h3 {
   margin-right: 30px;
   margin-left: 100px;
   border: solid gray 3px;
+  width: fit-content;
 }
 .Chbutton {
   background-color: #0078d0;

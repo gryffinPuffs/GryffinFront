@@ -17,7 +17,6 @@ const ChildProducts = ({ setBookInfo }) => {
 
   return (
     <div className="childproducts">
-      {/* <h1>Children's classics</h1> */}
       {allChildProducts && allChildProducts.length ? (
         allChildProducts.map((product) => {
           return (

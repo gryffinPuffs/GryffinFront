@@ -26,7 +26,7 @@ const AboutUs = () => {
               Jessy is an amazing mother to a delightful three year old. She's a
               proud geek through and through. She finds passion in figuring out
               issues and problem solving. Her favorite book is the "Wheel of
-              Time" by Robert Jordan
+              Time" by Robert Jordan.
             </h3>
           </div>
         </div>
