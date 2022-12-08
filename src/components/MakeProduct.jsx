@@ -130,7 +130,7 @@ const MakeProduct = ({ allBooks, setAllBooks }) => {
             required
           >
             <option>child</option>
-            <option>teens</option>
+            <option>teen</option>
             <option>adult</option>
           </select>
         </div>

@@ -53,9 +53,7 @@ export async function registerUser(
   };
   try {
     const response = await fetch(`${BASE_URL}/user/register`, registerOptions);
-    console.log(response, "this is the response");
     const result = await response.json();
-    console.log(result, "register result");
     return result;
   } catch (error) {
     console.error(error);
@@ -91,7 +89,6 @@ export async function loginUser(username, password) {
   try {
     const response = await fetch(`${BASE_URL}/user/login`, loginOptions);
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.error(error);
@@ -99,7 +96,6 @@ export async function loginUser(username, password) {
 }
 
 export async function getUserByUsername(username) {
-  console.log(username, "api username");
   try {
     const response = await fetch(`${BASE_URL}/user/${username}`);
     const result = await response.json();
@@ -119,7 +115,6 @@ export async function getAllUsers() {
       },
     });
     const result = await response.json();
-    console.log(result, "getallUsers, result");
     return result;
   } catch (error) {
     console.error(error);
@@ -131,7 +126,6 @@ export async function getAllProducts() {
   try {
     const response = await fetch(`${BASE_URL}/product`);
     const result = await response.json();
-    console.log(result, "getallbooks, result");
     return result;
   } catch (error) {
     console.error(error);
@@ -142,14 +136,8 @@ export async function getAllProducts() {
 
 export async function getProductByAudience(audience) {
   try {
-    // const options = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
     const response = await fetch(`${BASE_URL}/product/audience/${audience}`);
     const result = await response.json();
-    console.log("get products by audience fetch", result);
     return result;
   } catch (error) {
     console.error(error);
@@ -191,24 +179,7 @@ export async function getProductsByName(name) {
   }
 }
 
-//get getProductsById
-// export async function getProductsById(id) {
-//   try {
-//     const options = {
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     };
 
-//     const response = await fetch(`BASE_URL${id}`, options);
-//     const result = await response.json();
-
-//     console.log(result);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-//createProducts
 export async function createProduct(
   name,
   price,
@@ -253,7 +224,6 @@ export async function addItemToCart(
   try {
     const cart = { product_id: Number(productId), price, quantity };
     addOne ? (cart.addOne = true) : null;
-    console.log("cart before being sent back", cart);
     const options = {
       method: "POST",
       headers: {
@@ -366,7 +336,6 @@ export async function getActiveCartByUsername(username) {
       options
     );
     const result = await response.json();
-    console.log(result, "active cart");
 
     return result;
   } catch (error) {
@@ -388,7 +357,7 @@ export async function getInactiveCartByUsername(username) {
       options
     );
     const result = await response.json();
-
+console.log(result, "is there anything here?")
 
     return result;
   } catch (error) {
@@ -406,7 +375,6 @@ export async function createCart() {
   };
   const response = await fetch(`${BASE_URL}/cart`, options);
   const result = await response.json();
-  console.log(response, result);
   return result;
 }
 export async function updateCart(cartId, user_id, active) {
@@ -423,7 +391,6 @@ export async function updateCart(cartId, user_id, active) {
   };
   const response = await fetch(`${BASE_URL}/cart/${cartId}`, options);
   const result = await response.json();
-  console.log(result, "what is this?");
   return result;
 }
 

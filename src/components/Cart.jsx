@@ -4,9 +4,8 @@ import {
   deleteProductInCart,
   getActiveCartByUsername,
   addItemToCart,
-  deleteProduct,
 } from "./api-adapter";
-import ConfirmationPage from "./ConfirmationPage";
+
 
 const Cart = ({
   user,
@@ -51,7 +50,6 @@ const Cart = ({
   }
 
   async function cartChange(itemId, quantity, price, e) {
-    console.log(itemId, price, quantity, e);
     if (quantity < 1) {
       handleDeleteCartItem(e);
     } else {
