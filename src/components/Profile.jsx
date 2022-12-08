@@ -16,6 +16,11 @@ const Profile = (props) => {
             User Info
           </button>
         </Link>
+        <Link to={"/orderhistory"}>
+          <button type="orderHistory" className="buttons">
+            Order History
+          </button>
+        </Link>
         <Link to={"/favorite"}>
           <button type="favorite" className="buttons">
             Favorites

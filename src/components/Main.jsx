@@ -12,13 +12,11 @@ import {
   Cart,
   Register,
   Profile,
-  SeeCartDetails,
   SingleProduct,
   Footer,
   NotFound,
   Address,
   User,
-  Book,
   Checkout,
   ConfirmationPage,
   MakeProduct,
@@ -48,7 +46,6 @@ const Main = () => {
   const getLoggedInUser = async (token) => {
     if (token) {
       const loggedInUser = await authUser(token);
-      console.log(loggedInUser, "what is happening");
       setUser(loggedInUser);
     }
   };

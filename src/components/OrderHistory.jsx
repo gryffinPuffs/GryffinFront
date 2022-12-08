@@ -3,6 +3,8 @@ import { getInactiveCartByUsername } from "./api-adapter";
 
 const OrderHistory = ({ user }) => {
   const [oldOrders, setOldOrders] = useState([]);
+  console.log(user.username, "dum?")
+
 
   useEffect(() => {
     async function getUserCart() {
@@ -34,7 +36,7 @@ const OrderHistory = ({ user }) => {
                   );
                 })
               ) : (
-                <h1>hi</h1>
+                null
               )}
             </div>
           );

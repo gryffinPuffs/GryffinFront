@@ -5,8 +5,6 @@ export { default as Home } from "./Home";
 export { default as Login } from "./Login";
 export { default as Profile } from "./Profile";
 export { default as Register } from "./Register";
-export { default as SeeCartDetails } from "./SeeCartDetails";
-export { default as SeeProductDetails } from "./SeeProductDetails";
 export { default as SingleProduct } from "./SingleProduct";
 export { default as Navbar2 } from "./Navbar2";
 export { default as TeenProducts } from "./TeenProducts";
