@@ -41,7 +41,6 @@ const Main = () => {
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [filteredPosts, setFilteredPosts] = useState([]);
 
   const getLoggedInUser = async (token) => {
     if (token) {
@@ -201,10 +200,7 @@ const Main = () => {
           }
         ></Route>
         <Route path="/favorite" element={<Favorite />}></Route>
-        <Route
-          path="/navbar2"
-          element={<Navbar2 allBooks={allBooks} />}
-        ></Route>
+        <Route path="/navbar2" element={<Navbar2 />}></Route>
       </Routes>
       <ToastContainer />
       <Footer />
