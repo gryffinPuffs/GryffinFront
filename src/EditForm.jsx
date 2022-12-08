@@ -95,15 +95,18 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
 
         <div id="text-fields">Audience type</div>
         <select
-          placeholder={book.audience}
-          className="audienceType"
+          placeholder="audience"
+          className="audience-type"
           type="text"
+          value={audience}
           onChange={(event) => {
             setAudience(event.target.value);
           }}
+          required
         >
+          <option>select</option>
           <option>child</option>
-          <option>teens</option>
+          <option>teen</option>
           <option>adult</option>
         </select>
 
