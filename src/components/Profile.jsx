@@ -5,7 +5,7 @@ import { LoggedIn } from "./";
 const Profile = (props) => {
   const user = props.user;
   return (
-    <div>
+    <div className="profile-container">
       <div id="profile-main">
         <LoggedIn user={user} />
       </div>
