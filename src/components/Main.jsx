@@ -29,7 +29,7 @@ import {
   AboutUs,
   UserInfo,
   OrderHistory,
-  Favorite
+  Favorite,
 } from "./";
 import { authUser } from "./api-adapter";
 import { ToastContainer } from "react-toastify";
@@ -43,11 +43,12 @@ const Main = () => {
   const [theCart, setTheCart] = useState([]);
   const [allBooks, setAllBooks] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   const getLoggedInUser = async (token) => {
     if (token) {
       const loggedInUser = await authUser(token);
-      console.log(loggedInUser, "what is happening")
+      console.log(loggedInUser, "what is happening");
       setUser(loggedInUser);
     }
   };
@@ -152,7 +153,10 @@ const Main = () => {
           }
         ></Route>
         <Route path="/*" element={<NotFound />}></Route>
-        <Route path="/orderhistory" element={<OrderHistory user={user} />}></Route>
+        <Route
+          path="/orderhistory"
+          element={<OrderHistory user={user} />}
+        ></Route>
         <Route path="/address" element={<Address />}></Route>
         <Route
           path="/profile"
@@ -167,7 +171,7 @@ const Main = () => {
         <Route path="/policy" element={<Policy />}></Route>
         <Route path="/subscribe" element={<Subscribe />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
-        <Route path="/userinfo" element={<UserInfo user={user}/>}></Route>
+        <Route path="/userinfo" element={<UserInfo user={user} />}></Route>
         <Route
           path="/makeproduct"
           element={
@@ -199,7 +203,11 @@ const Main = () => {
             />
           }
         ></Route>
-        <Route path="/favorite" element={<Favorite/>}></Route>
+        <Route path="/favorite" element={<Favorite />}></Route>
+        <Route
+          path="/navbar2"
+          element={<Navbar2 allBooks={allBooks} />}
+        ></Route>
       </Routes>
       <ToastContainer />
       <Footer />

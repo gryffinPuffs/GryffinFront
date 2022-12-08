@@ -5,7 +5,9 @@ import { toast } from "react-toastify";
 
 const Register = (props) => {
   //address and set address here for useState
-  const { state:{address_id} } = useLocation()
+  const {
+    state: { address_id },
+  } = useLocation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -13,24 +15,29 @@ const Register = (props) => {
 
   const navigate = useNavigate();
   //useEffect for setAddress
-// turnery for if address then register
+  // turnery for if address then register
   async function handleRegister(event) {
     event.preventDefault();
-    console.log(username, password);
-    const { token, message } = await registerUser(username, password, name, false, email, address_id);
+    const { token, message } = await registerUser(
+      username,
+      password,
+      name,
+      false,
+      email,
+      address_id
+    );
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
 
     if (token) {
       toast.success("Register Successful", {
-        position: toast.POSITION.TOP_LEFT
+        position: toast.POSITION.TOP_LEFT,
       });
       navigate("/Login");
     } else {
       toast.error(`${message}`, {
-        position: toast.POSITION.TOP_LEFT
+        position: toast.POSITION.TOP_LEFT,
       });
-      
     }
   }
 
@@ -39,7 +46,7 @@ const Register = (props) => {
       <h2 className="register-header">Register</h2>
       <form onSubmit={handleRegister}>
         <input
-        className="register-line"
+          className="register-line"
           type="text"
           name="username"
           placeholder="username *"
@@ -51,7 +58,7 @@ const Register = (props) => {
         />
         <br />
         <input
-        className="register-line"
+          className="register-line"
           type="text"
           name="name"
           placeholder="name *"
@@ -63,7 +70,7 @@ const Register = (props) => {
         />
         <br />
         <input
-        className="register-line"
+          className="register-line"
           type="text"
           name="email"
           placeholder="email *"
@@ -75,7 +82,7 @@ const Register = (props) => {
         />
         <br />
         <input
-        className="register-line"
+          className="register-line"
           type="password"
           name="password"
           placeholder="password *"

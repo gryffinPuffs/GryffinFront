@@ -36,11 +36,11 @@ const AboutUs = () => {
             <img id="jen" src={jen} alt="jen" />
           </a>
           <h3 className="bio">
-            Jenniffer is a software developer seeing through the lense of
-            possibility. Somewhat of a maverick, with a spirit of curiosity and
-            adventure, she's fueled by her intellect and creativity towards
-            innovation and improving social well-being. Her favorite fantasy
-            book is Dune by Frank Herbert.
+            Jenniffer is a software developer looking through the lense of
+            possibility. A maverick, with a spirit of curiosity and adventure,
+            she's fueled by her intellect and creativity towards innovation and
+            social well-being. Her favorite fantasy book is Dune by Frank
+            Herbert.
           </h3>
         </div>
       </div>

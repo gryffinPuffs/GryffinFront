@@ -123,7 +123,7 @@ export default function EditForm({ book, setUpdate, setAllBooks, allBooks }) {
         </button>
       </form>
       <button
-        id="admin-edit-button"
+        id="admin-cancel-edit"
         onClick={() => {
           setUpdate(false);
         }}

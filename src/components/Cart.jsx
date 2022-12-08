@@ -109,56 +109,63 @@ const Cart = ({
                   <div>Price of Book: {(product.price / 100).toFixed(2)}</div>
                   <div>{product.quantity}</div>
                   <div>
-                  <button
-                    className="qButton"
-                    id={product.id}
-                    onClick={(e) =>
-                      cartChange(
-                        e.target.id,
-                        product.quantity + 1,
-                        product.price,
-                        e
-                      )
-                    }
-                  >
-                    +
-                  </button>
-                  <button
-                    className="qButton"
-                    disabled={product.quantity == 1}
-                    id={product.id}
-                    onClick={(e) =>
-                      cartChange(
-                        e.target.id,
-                        product.quantity - 1,
-                        product.price,
-                        e
-                      )
-                    }
-                  >
-                    -
-                  </button>
-                  <button
-                    className="Cbutton"
-                    id={product.cartProductId}
-                    onClick={handleDeleteCartItem}
-                  >
-                    Delete item
-                  </button>
-                </div>
+                    <button
+                      className="qButton"
+                      id={product.id}
+                      onClick={(e) =>
+                        cartChange(
+                          e.target.id,
+                          product.quantity + 1,
+                          product.price,
+                          e
+                        )
+                      }
+                    >
+                      +
+                    </button>
+                    <button
+                      className="qButton"
+                      disabled={product.quantity == 1}
+                      id={product.id}
+                      onClick={(e) =>
+                        cartChange(
+                          e.target.id,
+                          product.quantity - 1,
+                          product.price,
+                          e
+                        )
+                      }
+                    >
+                      -
+                    </button>
+                    <button
+                      className="Cbutton"
+                      id={product.cartProductId}
+                      onClick={handleDeleteCartItem}
+                    >
+                      Delete item
+                    </button>
+                  </div>
                 </div>
               );
             })
           ) : (
             <>
-              {console.log(theCart)}
               <h2>Nothing in cart yet. Find some books!</h2>
             </>
           )}
         </>
-      ) : (<>
-        <h2>Please log in to see cart</h2>
-        <button className="shopButtons" onClick={()=>{navigate("/login")}}>Log In</button>
+      ) : (
+        <>
+          <h2>Please log in to see cart</h2>
+          <button
+            className="shopButtons"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Log In
+          </button>
         </>
       )}
 
@@ -168,7 +175,6 @@ const Cart = ({
         <button className="Chbutton" onClick={handleSubmitConfirmation}>
           Checkout
         </button>
-
       ) : null}
     </div>
   );
