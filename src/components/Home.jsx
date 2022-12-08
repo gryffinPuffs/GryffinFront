@@ -14,24 +14,8 @@ const Home = () => {
         <br />
         ― George R.R. Martin
       </h2>
-      <div id="home-img">
-        {/* <img id="accioImg" src={accioScroll} alt="Accio Logo"></img> */}
-      </div>
     </div>
   );
 };
-//insert random featured book (map through all products and return random book)
-
-// function getRandomItem(arr) {
-//   const randomProduct = Math.floor(Math.random() * arr.length);
-//   const item = arr[randomProduct];
-
-//   return item;
-// }
-
-// const array = [1, 'hello', 5, 8];
-
-// const result = getRandomItem(array);
-// console.log(result);
 
 export default Home;

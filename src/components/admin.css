@@ -169,3 +169,39 @@
   color: yellow;
   background-color: black;
 }
+
+#admin-submit {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.6em 2em;
+  color: rgb(255, 255, 255);
+  background-color: crimson;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#admin-submit:hover {
+  color: yellow;
+  background-color: rgb(9, 117, 31);
+}
+
+#admin-cancel-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1px;
+  padding: 0.6em 2em;
+  color: rgb(255, 255, 255);
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+#admin-cancel-edit:hover {
+  color: yellow;
+  background-color: black;
+}

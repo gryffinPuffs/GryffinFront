@@ -28,12 +28,6 @@ const Footer = () => {
               About Us
             </NavLink>
           </section>
-          {/* <NavLink className="footerNav" to="/">
-            Contact
-          </NavLink>
-          <NavLink className="footerNav" to="/">
-            About Us
-          </NavLink> */}
           <a href={url}>
             <img id="githubImg" src={gitHub} alt="thumb" />
           </a>

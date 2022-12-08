@@ -49,7 +49,7 @@ const AdultProducts = ({ setBookInfo }) => {
                     <div>
                       <Link id="wishlist">
                         <span
-                          class="wishListText"
+                          className="wishListText"
                           data-hover="Add to Favorites"
                         >
                           <img

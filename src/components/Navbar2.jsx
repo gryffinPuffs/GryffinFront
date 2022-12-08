@@ -1,18 +1,22 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Navbar2 = () => {
+const Navbar2 = ({ allBooks }) => {
+  const [query, setQuery] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState({});
+
+  const onSearch = () => {
+    const filteredSearch = allBooks.filter((allBooks) =>
+      allBooks.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredBooks(filteredSearch);
+  };
+
   return (
     <div id="navbar2">
       <NavLink className="linkBook" to="/allbooks">
         Shop All Books
       </NavLink>
-      {/* <h3>Shop By Category:</h3> */}
-      {/* <select name="genre" value="Shop By Genre">
-        <option>Children's</option>
-        <option>Teens</option>
-        <option>Adult</option>
-      </select> */}
       <NavLink className="linkBook" to="/childproducts">
         Children's
       </NavLink>
@@ -22,6 +26,19 @@ const Navbar2 = () => {
       <NavLink className="linkBook" to="/adultproducts">
         Adult
       </NavLink>
+      <h4 id="search-header">
+        <div id="search-bar">
+          <input
+            placeholder="search books"
+            id="search-box"
+            type="text"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button onClick={onSearch} className="search-submit">
+            Search
+          </button>
+        </div>
+      </h4>
     </div>
   );
 };
