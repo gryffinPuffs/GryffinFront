@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoggedIn } from "./";
-import { useNavigate } from "react-router-dom";
+
 const Profile = (props) => {
-  const navigate = useNavigate();
   const user = props.user;
-  console.log(user);
   return (
     <div>
       <div id="profile-main">
-        <h2>profile</h2>
         <LoggedIn user={user} />
       </div>
 
