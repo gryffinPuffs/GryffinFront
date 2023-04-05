@@ -1,4 +1,4 @@
-const BASE_URL = "https://gryffinpuff-server.onrender.com/api";
+const BASE_URL = "https://gryffinback.onrender.com/api";
 
 export async function createAddress(
   address_line1,
