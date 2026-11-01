@@ -1,4 +1,4 @@
-const BASE_URL = "https://gryffinback.onrender.com/api";
+const BASE_URL = "http://localhost:8080/api";
 
 export async function createAddress(
   address_line1,
@@ -89,6 +89,7 @@ export async function loginUser(username, password) {
   try {
     const response = await fetch(`${BASE_URL}/user/login`, loginOptions);
     const result = await response.json();
+
     return result;
   } catch (error) {
     console.error(error);
@@ -357,7 +358,7 @@ export async function getInactiveCartByUsername(username) {
       options
     );
     const result = await response.json();
-console.log(result, "is there anything here?")
+    console.log(result, "is there anything here?")
 
     return result;
   } catch (error) {

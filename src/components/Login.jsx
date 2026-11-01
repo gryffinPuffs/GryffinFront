@@ -1,43 +1,47 @@
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { authUser, loginUser } from "./api-adapter";
+import { loginUser } from "./api-adapter";
 import { toast } from "react-toastify";
 
-const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
+const Login = ({ setLoggedIn, setUser }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  // const [error, setError] = useState("");
   const navigate = useNavigate();
 
   async function handleLogin(event) {
     event.preventDefault();
-    const {token,  user, message } = await loginUser(username, password);
-    const userCart = await authUser(token);
-    console.log(user, token);
 
-    localStorage.removeItem("token");
-    localStorage.setItem("token", token);
-    setUsername("");
-    setPassword("");
-    setUser(user, userCart);
+    try {
+      const result = await loginUser(username, password);
 
-    if (token) {
+      if (!result || !result.token) {
+        toast.error(result?.message || "Login failed. Please check your credentials.");
+        return;
+      }
+
+      localStorage.setItem("token", result.token);
+      setUser(result.user);
       setLoggedIn(true);
-      toast.success("Login Successful", {
-        position: toast.POSITION.TOP_LEFT
-      });
-      navigate("/");
-    } else {
-      toast.error(`${message}`, {
-        position: toast.POSITION.TOP_LEFT
-      });
-    }
 
-    //work on logout function
+      setUsername("");
+      setPassword("");
+
+      toast.success("Login Successful", {
+        position: toast.POSITION.TOP_LEFT,
+      });
+
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error("Unable to log in. Please try again.");
+    }
   }
+
   return (
     <div className="login-container">
       <h2 className="login-header">Login</h2>
+
       <form onSubmit={handleLogin}>
         <input
           className="login-line"
@@ -46,36 +50,33 @@ const Login = ({ loggedIn, setLoggedIn, user, setUser }) => {
           placeholder="username *"
           required
           value={username}
-          onChange={function (event) {
-            setUsername(event.target.value);
-          }}
+          onChange={(event) => setUsername(event.target.value)}
         />
+
         <input
           className="login-line"
           type="password"
           name="password"
           placeholder="password *"
           required
-          onChange={function (event) {
-            setPassword(event.target.value);
-          }}
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
+
         <button className="buttons" type="submit">
           Login
         </button>
       </form>
+
       <br />
       <h3>Not Yet a User?</h3>
+
       <Link to="/address" className="link">
         Register
       </Link>
-      {/* {error ? (
-        <div>
-          <h3>{`${error}`}</h3>
-        </div>
-      ) : null} */}
     </div>
   );
 };
 
 export default Login;
+
